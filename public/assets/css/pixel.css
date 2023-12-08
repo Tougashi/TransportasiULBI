@@ -37,6 +37,8 @@
     padding-bottom: 4px;
 }
 
+
+
 .datepicker-picker {
     display: inline-block;
     border-radius: 1rem;
@@ -11669,6 +11671,10 @@ textarea.form-control-lg {
 
 .text-lowercase {
     text-transform: lowercase !important;
+}
+
+.text-light{
+    color: #fff;
 }
 
 .text-uppercase {
