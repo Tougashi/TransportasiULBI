@@ -8,7 +8,7 @@ class ViewController extends Controller
 {
     public function main()
     {
-        return view('front.index', [
+        return view('layouts.main', [
 
         ]);
     }
