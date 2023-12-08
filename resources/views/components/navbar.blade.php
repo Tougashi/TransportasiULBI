@@ -1,9 +1,9 @@
 <header class="header-global">
-    <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-dark">
+    <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg bg-light headroom p-0">
         <div class="container position-relative">
             <a class="navbar-brand me-lg-5" href="#">
-                <img class="navbar-brand-dark" src="{{asset('/assets/img/brand/light.svg')}}" alt="Logo light">
-                <img class="navbar-brand-light" src="{{asset('/assets/img/brand/dark.svg')}}" alt="Logo dark">
+                <img class="navbar-brand-dark ulbi-nav-logo" src="{{asset('assets/img/brand/Fakultas _ S1 Manajemen Transportasi.png')}}" alt="Logo light">
+                {{-- <img class="navbar-brand-light" src="{{asset('/assets/img/brand/dark.svg')}}" alt="Logo dark"> --}}
             </a>
             <div class="navbar-collapse collapse me-auto" id="navbar_global">
                 <div class="navbar-collapse-header">
@@ -18,7 +18,7 @@
                         </div>
                     </div>
                 </div>
-                <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                <ul class="navbar-nav navbar-nav-hover align-items-lg-center ms-auto me-4">
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="frontPagesDropdown" aria-expanded="false" data-bs-toggle="dropdown">
                             Pages
@@ -272,8 +272,11 @@
                     </li>
                 </ul>
             </div>
-            <div class="d-flex align-items-center">
-                <i class="bi bi-search text-light" onclick="showSearchModal()"></i>
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-search text-orange fs-5" onclick="showSearchModal()"></i>
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list text-orange fs-5"></i>
+                </button>
             </div>
         </div>
     </nav>

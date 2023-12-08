@@ -8,8 +8,8 @@ class ViewController extends Controller
 {
     public function main()
     {
-        return view('layouts.main', [
-
+        return view('pages.home', [
+            'title' => 'Fakultas : S1 Manajemen Transportasi'
         ]);
     }
 }

@@ -6681,6 +6681,7 @@ textarea.form-control-lg {
 .navbar-light .navbar-toggler {
     color: rgba(23, 31, 56, 0.9);
     border-color: rgba(23, 31, 56, 0.1);
+
 }
 
 .navbar-light .navbar-toggler-icon {
@@ -11814,6 +11815,10 @@ textarea.form-control-lg {
 
 .bg-primary {
     background-color: #242e4c !important;
+}
+
+.bg-light{
+    background-color: #fff !important;
 }
 
 .bg-secondary {
@@ -28449,10 +28454,14 @@ label {
     fill: #374151;
 }
 
-.bootstrap-big-icon {
+.bootstrap-big-icon img{
+    display: block;
     position: absolute;
+    right: 100px;
+    width: 500px;
+    height: 200px;
     opacity: .05;
-    transform: rotate(17deg);
+    transform: rotate(20deg);
 }
 
 @media (min-width: 992px) {
