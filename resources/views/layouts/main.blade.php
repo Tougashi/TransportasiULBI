@@ -362,10 +362,7 @@
                     </div>
                 </div>
 
-                @@include("./_pages-preview.html", {
-                "path": "./",
-                "path_pages": "./html/pages"
-                })
+                @include('pages.pages-preview')
             </div>
         </section>
         <section class="section section-lg bg-tertiary">
@@ -480,7 +477,7 @@
                         <div class="icon-box text-center mb-5">
                             <div class="icon">
                                 <img class="navbar-brand-dark" style="height: 37px;"
-                                    src="./assets/img/brand/light.svg" alt="Pixel logo">
+                                    src="{{asset('/assets/img/brand/light.svg')}}" alt="Pixel logo">
                             </div>
                             <h3 class="h5 my-3">Every pixel matters</h3>
                             <p>We crafted each component with great care so that no rouge pixel is left behind</p>
