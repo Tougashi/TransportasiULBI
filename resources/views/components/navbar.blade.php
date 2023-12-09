@@ -1,8 +1,10 @@
 <header class="header-global">
-    <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg bg-light headroom p-0">
+    <nav id="navbar-main" aria-label="Primary navigation"
+        class="navbar navbar-main navbar-expand-lg bg-light headroom p-0">
         <div class="container position-relative">
             <a class="navbar-brand me-lg-5" href="#">
-                <img class="navbar-brand-dark ulbi-nav-logo" src="{{asset('assets/img/brand/Fakultas _ S1 Manajemen Transportasi.png')}}" alt="Logo light">
+                <img class="navbar-brand-dark ulbi-nav-logo"
+                    src="{{ asset('assets/img/brand/Fakultas _ S1 Manajemen Transportasi.png') }}" alt="Logo light">
                 {{-- <img class="navbar-brand-light" src="{{asset('/assets/img/brand/dark.svg')}}" alt="Logo dark"> --}}
             </a>
             <div class="navbar-collapse collapse me-auto" id="navbar_global">
@@ -10,281 +12,165 @@
                     <div class="row">
                         <div class="col-6 collapse-brand">
                             <a href="#">
-                                <img src="{{asset('/assets/img/brand/dark.svg')}}" alt="Themesberg logo">
+                                <img src="{{ asset('/assets/img/brand/dark.svg') }}" alt="Themesberg logo">
                             </a>
                         </div>
                         <div class="col-6 collapse-close">
-                            <a href="#navbar_global" class="fas fa-times" data-bs-toggle="collapse" data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation"></a>
+                            <a href="#navbar_global" class="fas fa-times" data-bs-toggle="collapse"
+                                data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false"
+                                title="close" aria-label="Toggle navigation"></a>
                         </div>
                     </div>
                 </div>
                 <ul class="navbar-nav navbar-nav-hover align-items-lg-center ms-auto me-4">
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="frontPagesDropdown" aria-expanded="false" data-bs-toggle="dropdown">
-                            Pages
+                        <a href="#" class="nav-link dropdown-toggle" id="frontPagesDropdown" aria-expanded="false"
+                            data-bs-toggle="dropdown">
+                            Tentang Prodi
                             <span class="fas fa-angle-down nav-link-arrow ms-1"></span>
                         </a>
-                        <div class="dropdown-menu dropdown-megamenu px-0 py-2 p-lg-4" aria-labelledby="frontPagesDropdown">
-                            <div class="row">
-                                <div class="col-6 col-lg-4">
-                                    <h6 class="d-block mb-3 text-primary">Main pages</h6>
-                                    <ul class="list-style-none mb-4">
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="@@path/html/pages/about.html">About</a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="@@path/html/pages/contact.html">Contact</a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/pricing.html" target="_blank">Pricing <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/team.html" target="_blank">Team <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/services.html" target="_blank">Services <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/profile.html" target="_blank">Profile <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                    </ul>
-                                    <h6 class="d-block text-primary">Legal</h6>
-                                    <ul class="list-style-none mb-4">
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/legal.html" target="_blank">Legal center <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/terms.html" target="_blank">Terms <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                    </ul>
-                                    <h6 class="d-block text-primary">Career</h6>
-                                    <ul class="list-style-none mb-4">
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/careers.html" target="_blank">Careers <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/career-single.html" target="_blank">Career Single <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-6 col-lg-4">
-                                    <h6 class="d-block mb-3 text-primary">Landings</h6>
-                                    <ul class="list-style-none mb-4">
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="@@path/html/pages/landing-freelancer.html">Freelancer</a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/landing-app.html" target="_blank">App <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/landing-crypto.html" target="_blank">Crypto <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                    </ul>
-                                    <h6 class="d-block mb-3 text-primary">Support</h6>
-                                    <ul class="list-style-none mb-4">
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/support.html" target="_blank">Support center <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/support-topic.html" target="_blank">Support topic <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                    </ul>
-                                    <h6 class="d-block mb-3 text-primary">Blog</h6>
-                                    <ul class="list-style-none mb-4">
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/blog.html" target="_blank">Blog <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/blog-post.html" target="_blank">Blog post <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-6 col-lg-4">
-                                    <h6 class="d-block mb-3 text-primary">User</h6>
-                                    <ul class="list-style-none mb-4">
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="@@path/html/pages/sign-in.html">Sign in</a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="@@path/html/pages/sign-up.html">Sign up</a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/forgot-password.html" target="_blank">Forgot password <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/reset-password.html" target="_blank">Reset password <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                    </ul>
-                                    <h6 class="d-block mb-3 text-primary">Special</h6>
-                                    <ul class="list-style-none mb-4">
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/404.html" target="_blank">404 Not Found <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/500.html" target="_blank">500 Server Error <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/maintenance.html" target="_blank">Maintenance <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/pages/coming-soon.html" target="_blank">Coming soon <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="@@path/html/pages/blank.html">Blank page</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="dropdown-menu px-0" aria-labelledby="frontPagesDropdown">
+                            <ul class="list-style-none mb-4">
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/about.html">Profil</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">Visi & Misi</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">Struktur Organisasi</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">Keunikan Prodi</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">Akreditasi Prodi</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">Profil Lulusan</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">Gelar Lulusan</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">Kompetensi Lulusan</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">Metode Pembelajaran</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="#" aria-expanded="false"
+                            data-bs-toggle="dropdown">
+                            Kurikulum & MK Unggulan
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="#" aria-expanded="false"
+                            data-bs-toggle="dropdown">
+                            Dosen
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="fasilitasDropdown" aria-expanded="false"
+                            data-bs-toggle="dropdown">
+                            Fasilitas
+                            <span class="fas fa-angle-down nav-link-arrow ms-1"></span>
+                        </a>
+                        <div class="dropdown-menu px-0" aria-labelledby="fasilitasDropdown">
+                            <ul class="list-style-none mb-4">
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/about.html">Kegiatan Mahasiswa</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">Organisasi Mahasiswa</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">Sarana Prasarana</a>
+                                </li>
+                            </ul>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="dashboardDropdown" aria-expanded="false" data-bs-toggle="dropdown">
-                            Dashboard
+                        <a href="#" class="nav-link dropdown-toggle" id="layananDropdown" aria-expanded="false"
+                            data-bs-toggle="dropdown">
+                            Layanan
                             <span class="fas fa-angle-down nav-link-arrow ms-1"></span>
                         </a>
-                        <div class="dropdown-menu dropdown-megamenu-sm px-0 py-2 p-lg-4" aria-labelledby="dashboardDropdown">
-                            <div class="row">
-                                <div class="col-6">
-                                    <h6 class="d-block mb-3 text-primary">User dashboard</h6>
-                                    <ul class="list-style-none mb-4">
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/dashboard/account.html" target="_blank">My account <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/dashboard/settings.html" target="_blank">Settings <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/dashboard/security.html" target="_blank">Security <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                    </ul>
-                                    <h6 class="d-block mb-3 text-primary">Items</h6>
-                                    <ul class="list-style-none">
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/dashboard/my-items.html" target="_blank">My items <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/dashboard/edit-item.html" target="_blank">Edit item <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-6">
-                                    <h6 class="d-block mb-3 text-primary">Messaging</h6>
-                                    <ul class="list-style-none mb-4">
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/dashboard/messages.html" target="_blank">Messages <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/dashboard/single-message.html" target="_blank">Chat <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                    </ul>
-                                    <h6 class="d-block mb-3 text-primary">Billing</h6>
-                                    <ul class="list-style-none mb-4">
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/dashboard/billing.html" target="_blank">Billing details <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="https://demo.themesberg.com/pixel-pro/v5/html/dashboard/invoice.html" target="_blank">Invoice <span class="badge bg-tertiary">Pro</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="dropdown-menu px-0" aria-labelledby="layananDropdown">
+                            <ul class="list-style-none mb-4">
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/about.html">Penerimaan Mahasiswa Baru</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">Sistem Informasi Akademik</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">Virtual Learning (VL)</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">E - Jurnal</a>
+                                </li>
+                            </ul>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="componentsDropdown" aria-expanded="false" data-bs-toggle="dropdown">
-                            Components
+                        <a href="#" class="nav-link dropdown-toggle" id="kerjasamaDropdown" aria-expanded="false"
+                            data-bs-toggle="dropdown">
+                            Kerjasama
                             <span class="fas fa-angle-down nav-link-arrow ms-1"></span>
                         </a>
-                        <div class="dropdown-menu dropdown-megamenu-md p-0" aria-labelledby="componentsDropdown">
-                            <div class="row g-0">
-                                <div class="col-lg-6 bg-dark d-none d-lg-block me-0 me-3">
-                                    <div class="px-0 py-3 text-center">
-                                        <img src="@@path/assets/img/megamenu_image.png" alt="Pixel Components">
-                                    </div>
-                                </div>
-                                <div class="col ps-0 py-3">
-                                    <ul class="list-style-none">
-                                        <li><a class="dropdown-item" href="@@path/html/components/accordions.html">Accordions</a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/alerts.html">Alerts</a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/badges.html">Badges</a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/cards.html">Cards</a></li>
-                                        <li><a class="dropdown-item" href="https://demo.themesberg.com/pixel-pro/v5/html/components/charts.html" target="_blank">Charts <span class="badge bg-tertiary">Pro</span></a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/bootstrap-carousels.html">Carousels</a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/breadcrumbs.html">Breadcrumbs</a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/buttons.html">Buttons</a></li>
-                                        <li><a class="dropdown-item" href="https://demo.themesberg.com/pixel-pro/v5/html/components/counters.html" target="_blank">Counters <span class="badge bg-tertiary">Pro</span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="col ps-0 py-3">
-                                    <ul class="list-style-none">
-                                        <li><a class="dropdown-item" href="@@path/html/components/dropdowns.html">Dropdowns</a></li>
-                                        <li><a class="dropdown-item" href="https://demo.themesberg.com/pixel-pro/v5/html/components/e-commerce.html" target="_blank">E-commerce <span class="badge bg-tertiary">Pro</span></a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/forms.html">Forms</a></li>
-                                        <li><a class="dropdown-item" href="https://demo.themesberg.com/pixel-pro/v5/html/components/icon-boxes.html" target="_blank">Icon Boxes <span class="badge bg-tertiary">Pro</span></a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/modals.html">Modals</a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/navs.html">Navs</a></li>
-                                        <li><a class="dropdown-item" href="https://demo.themesberg.com/pixel-pro/v5/html/components/glidejs-carousels.html" target="_blank">GlideJS <span class="badge bg-tertiary">Pro</span></a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/pagination.html">Pagination</a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/popovers.html">Popovers</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col ps-0 py-3">
-                                    <ul class="list-style-none">
-                                        <li><a class="dropdown-item" href="@@path/html/components/progress-bars.html">Progress Bars</a></li>
-                                        <li><a class="dropdown-item" href="https://demo.themesberg.com/pixel-pro/v5/html/components/steps.html" target="_blank">Steps <span class="badge bg-tertiary">Pro</span></a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/tables.html">Tables</a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/tabs.html">Tabs</a> </li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/toasts.html">Toasts</a> </li>
-                                        <li><a class="dropdown-item" href="https://demo.themesberg.com/pixel-pro/v5/html/components/timelines.html" target="_blank">Timelines <span class="badge bg-tertiary">Pro</span></a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/tooltips.html">Tooltips</a></li>
-                                        <li><a class="dropdown-item" href="@@path/html/components/typography.html">Typography</a></li>
-                                        <li><a class="dropdown-item" href="https://demo.themesberg.com/pixel-pro/v5/html/components/widgets.html" target="_blank">Widgets <span class="badge bg-tertiary">Pro</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="supportDropdown" aria-expanded="false">
-                            Support
-                            <span class="fas fa-angle-down nav-link-arrow ms-1"></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-lg" aria-labelledby="supportDropdown">
-                            <div class="col-auto px-0">
-                                <div class="list-group list-group-flush">
-                                    <a href="https://themesberg.com/docs/bootstrap-5/pixel/getting-started/quick-start/" target="_blank" class="list-group-item list-group-item-action d-flex align-items-center p-0 py-3 px-lg-4">
-                                        <span class="icon icon-sm"><span class="fas fa-file-alt"></span></span>
-                                        <div class="ms-4">
-                                            <span class="d-block font-small fw-bold mb-0">Documentation<span class="badge badge-sm badge-secondary ms-2">v3.1</span></span>
-                                            <span class="small">Examples and guides</span>
-                                        </div>
-                                    </a>
-                                    <a href="https://github.com/themesberg/pixel-bootstrap-ui-kit/issues" target="_blank" class="list-group-item list-group-item-action d-flex align-items-center p-0 py-3 px-lg-4">
-                                        <span class="icon icon-sm"><span class="fas fa-microphone-alt"></span></span>
-                                        <div class="ms-4">
-                                            <span class="d-block font-small fw-bold mb-0">Support</span>
-                                            <span class="small">Need help? Ask us!</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="dropdown-menu px-0" aria-labelledby="kerjasamaDropdown">
+                            <ul class="list-style-none mb-4">
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/about.html">Kerjasama Luar Negeri</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">Kerjasama Dalam Negeri</a>
+                                </li>
+                                <li class="mb-1 megamenu-item p-2">
+                                    <a class="megamenu-link"
+                                        href="@@path/html/pages/contact.html">MBKM & Student Exchange</a>
+                                </li>
+                            </ul>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="d-flex align-items-center gap-2">
-                <i class="bi bi-search text-orange fs-5" onclick="showSearchModal()"></i>
+                <i class="bi bi-search text-orange fs-5" id="search-button-nav" onclick="showSearchModal()"></i>
                 <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="bi bi-list text-orange fs-5"></i>
+                    <i class="bi bi-list text-orange fs-3"></i>
                 </button>
             </div>
         </div>
     </nav>
 </header>
 @section('scripts')
-<script>
-    function showSearchModal(){
-        alert('konz');
-    }
-</script>
+    <script>
+        function showSearchModal() {
+            $('#modal-search-navbar').modal('show');
+        }
+    </script>
 @endsection

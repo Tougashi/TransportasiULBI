@@ -3185,6 +3185,24 @@ progress {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.form-control-focus{
+    display: block;
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #4B5563;
+    background-color: #F9FAFB;
+    background-clip: padding-box;
+    border: 0.0625rem solid #D1D5DB;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 1rem;
+    box-shadow: inset 0 1px 2px rgba(23, 31, 56, 0.075);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .form-control {
         transition: none;
@@ -3202,9 +3220,17 @@ progress {
 .form-control:focus {
     color: #4B5563;
     background-color: #F9FAFB;
-    border-color: #4d62a3;
+    /* border-color: #4d62a3; */
     outline: 0;
-    box-shadow: inset 0 1px 2px rgba(23, 31, 56, 0.075), 0 0 0 0.2rem rgba(36, 46, 76, 0.25);
+    /* box-shadow: inset 0 1px 2px rgba(23, 31, 56, 0.075), 0 0 0 0.2rem rgba(36, 46, 76, 0.25); */
+}
+
+.form-control-focus:focus {
+    color: #4B5563;
+    background-color: #F9FAFB;
+    /* border-color: #4d62a3; */
+    outline: 0;
+    /* box-shadow: inset 0 1px 2px rgba(23, 31, 56, 0.075), 0 0 0 0.2rem rgba(36, 46, 76, 0.25); */
 }
 
 .form-control::-webkit-date-and-time-value {
@@ -24520,11 +24546,12 @@ textarea.form-control-lg {
   .navbar .navbar-nav .dropdown-megamenu-md .megamenu-link {
     color: #1F2937;
     font-weight: 400;
-    font-size: 0.875rem;
+    font-size: 13px;
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
+
 
 .navbar .navbar-nav .dropdown-megamenu .megamenu-item,
   .navbar .navbar-nav .dropdown-megamenu-sm .megamenu-item,

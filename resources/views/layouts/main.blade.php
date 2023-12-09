@@ -50,12 +50,16 @@
     <script src="{{ asset('/assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
     <script src="{{ asset('/assets/vendor/vivus/dist/vivus.min.js') }}"></script>
     <script src="{{ asset('/assets/vendor/vanillajs-datepicker/dist/js/datepicker.min.js') }}"></script>
+    <script src="{{asset('assets/js/jquery-3.7.1.min.js')}}"></script>
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Pixel JS -->
     <script src="{{ asset('/assets/js/pixel.js') }}"></script>
     @yield('scripts')
+    <script>
+
+    </script>
 
 </body>
 
