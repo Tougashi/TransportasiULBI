@@ -24,8 +24,7 @@
                 </div>
                 <ul class="navbar-nav navbar-nav-hover align-items-lg-center ms-auto me-4">
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="frontPagesDropdown" aria-expanded="false"
-                            data-bs-toggle="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="frontPagesDropdown" aria-expanded="false" data-bs-toggle="dropdown">
                             Tentang Prodi
                             <span class="fas fa-angle-down nav-link-arrow ms-1"></span>
                         </a>

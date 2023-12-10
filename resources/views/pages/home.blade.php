@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.index')
 @section('main')
     <div>
         {{-- <div class="preloader bg-orange flex-column justify-content-center align-items-center">
@@ -7,25 +7,23 @@
                     alt="">
             </svg>
         </div> --}}
-        <section class="section-header overflow-hidden pt-7 pt-lg-8 pb-9 pb-lg-12 bg-orange text-white">
+        <section class="section-header overflow-hidden pt-7 pt-lg-8 pb-9 pb-lg-12 bg-primary text-white">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
                         <div class="bootstrap-big-icon d-none d-lg-block">
-                            <img class="" src="{{ asset('assets/img/brand/Fakultas _ S1 Manajemen Transportasi.png') }}"
-                                alt="" />
+                            {{-- <img class="" src="{{ asset('assets/img/brand/Fakultas _ S1 Manajemen Transportasi.png') }}" alt="" /> --}}
                         </div>
-                        <h1 class="fw-bolder display-2">Transportasi ULBI</h1>
-                        <h2 class="lead fw-normal text-muted mb-4 px-lg-10">Free Bootstrap 5 UI Kit without jQuery
-                            that
-                            will help you prototype and design beautiful, creative and modern websites</h2>
-                        <div class="d-flex justify-content-center flex-column mb-6 mb-lg-5">
+                        <br><br>
+                        <h1 class="fw-bolder display-2">TRANSPORTASI</h1>
+                        <h2 class="lead fw-normal  mb-4 px-lg-10">UNIVERSITAS LOGISTIK & BISNIS INTERNASIONAL</h2>
+                        {{-- <div class="d-flex justify-content-center flex-column mb-6 mb-lg-5">
                             <a href="https://themesberg.com" class="d-block text-center mx-auto" target="_blank">
                                 <img src="./assets/img/themesberg.svg" class="d-block mx-auto mb-3" height="25"
                                     width="25" alt="Themesberg Logo">
                                 <span class="text-muted font-small">A Themesberg production</span>
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -50,33 +48,43 @@
                 <div class="row justify-content-center mb-5 mb-lg-6 gap-4">
                     <h3 class="text-center fw-bold">Penerimaan Mahasiswa Baru</h3>
                     <div class="col-6 col-md-2 text-center mb-4">
+                        <a href="https://enroll.ulbi.ac.id/Pendaftaran">
                         <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
                             <span class="bi bi-building-fill-add text-tertiary"></span>
                         </div>
+                        </a>
                         <h5 class="fw-bolder">Gabung ULBI</h5>
                     </div>
                     <div class="col-6 col-md-2 text-center mb-4">
+                        <a href="https://www.google.com/maps/place/Universitas+Logistik+dan+Bisnis+Internasional+(ULBI)/@-6.87455,107.5731249,17z/data=!3m1!4b1!4m6!3m5!1s0x2e68e7d1b68bb875:0xd8fcf5a9e43bd6e4!8m2!3d-6.87455!4d107.5756998!16s%2Fg%2F11t3f1g8pt?entry=ttu">
                         <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
                             <span class="bi bi-geo-alt-fill text-tertiary"></span>
                         </div>
+                        </a>
                         <h5 class="fw-bolder">Lokasi Kampus</h5>
                     </div>
                     <div class="col-6 col-md-2 text-center">
+                        <a href="https://www.instagram.com/transportasi_ulbi/">
                         <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
                             <span class="bi bi-chat-dots-fill text-tertiary"></span>
                         </div>
+                        </a>
                         <h5 class="fw-bolder">Konsultasi Online</h5>
                     </div>
                     <div class="col-6 col-md-2 text-center">
+                        <a href="https://admission.ulbi.ac.id/">
                         <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
                             <span class="bi bi-telephone-forward-fill text-tertiary"></span>
                         </div>
+                        </a>
                         <h5 class="fw-bolder">Layanan ULBI</h5>
                     </div>
                     <div class="col-6 col-md-2 text-center">
+                        <a href="mailto:s1-transportasi@ulbi.ac.id">
                         <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
                             <span class="bi bi-envelope-arrow-up-fill text-tertiary"></span>
                         </div>
+                        </a>
                         <h5 class="fw-bolder">Kirim Pesan</h5>
                     </div>
                 </div>
@@ -202,7 +210,7 @@
         </section>
 
         <section class="section section-lg pt-0">
-            <h3 class="text-center fw-bold">Galeri Dosen</h3>
+            <h3 class="text-center fw-bold">Dosen Prodi S1 Manajemen Transportasi</h3>
             <div class="container mt-5 mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide foto-dosen-slide">
@@ -211,8 +219,7 @@
                                 <img src="{{asset('/assets/img/team/profile-picture-1.jpg')}}" class="card-img-top rounded"
                                     alt="Neil Portrait">
                             </div>
-                            <div
-                                class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
+                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
                                 <h3 class="h5 card-title text-light">Neil D. Sims</h3>
                                 <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
                             </div>
@@ -224,8 +231,7 @@
                                 <img src="{{asset('/assets/img/team/profile-picture-1.jpg')}}" class="card-img-top rounded"
                                     alt="Neil Portrait">
                             </div>
-                            <div
-                                class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
+                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
                                 <h3 class="h5 card-title text-light">Neil D. Sims</h3>
                                 <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
                             </div>
@@ -237,8 +243,7 @@
                                 <img src="{{asset('/assets/img/team/profile-picture-1.jpg')}}" class="card-img-top rounded"
                                     alt="Neil Portrait">
                             </div>
-                            <div
-                                class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
+                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
                                 <h3 class="h5 card-title text-light">Neil D. Sims</h3>
                                 <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
                             </div>
@@ -250,8 +255,7 @@
                                 <img src="{{asset('/assets/img/team/profile-picture-1.jpg')}}" class="card-img-top rounded"
                                     alt="Neil Portrait">
                             </div>
-                            <div
-                                class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
+                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
                                 <h3 class="h5 card-title text-light">Neil D. Sims</h3>
                                 <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
                             </div>
@@ -263,8 +267,7 @@
                                 <img src="{{asset('/assets/img/team/profile-picture-1.jpg')}}" class="card-img-top rounded"
                                     alt="Neil Portrait">
                             </div>
-                            <div
-                                class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
+                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
                                 <h3 class="h5 card-title text-light">Neil D. Sims</h3>
                                 <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
                             </div>
@@ -276,8 +279,7 @@
                                 <img src="{{asset('/assets/img/team/profile-picture-1.jpg')}}" class="card-img-top rounded"
                                     alt="Neil Portrait">
                             </div>
-                            <div
-                                class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
+                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
                                 <h3 class="h5 card-title text-light">Neil D. Sims</h3>
                                 <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
                             </div>
@@ -289,8 +291,7 @@
                                 <img src="{{asset('/assets/img/team/profile-picture-1.jpg')}}" class="card-img-top rounded"
                                     alt="Neil Portrait">
                             </div>
-                            <div
-                                class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
+                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
                                 <h3 class="h5 card-title text-light">Neil D. Sims</h3>
                                 <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
                             </div>
@@ -302,8 +303,7 @@
                                 <img src="{{asset('/assets/img/team/profile-picture-1.jpg')}}" class="card-img-top rounded"
                                     alt="Neil Portrait">
                             </div>
-                            <div
-                                class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
+                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
                                 <h3 class="h5 card-title text-light">Neil D. Sims</h3>
                                 <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
                             </div>
@@ -315,8 +315,7 @@
                                 <img src="{{asset('/assets/img/team/profile-picture-1.jpg')}}" class="card-img-top rounded"
                                     alt="Neil Portrait">
                             </div>
-                            <div
-                                class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
+                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
                                 <h3 class="h5 card-title text-light">Neil D. Sims</h3>
                                 <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
                             </div>
