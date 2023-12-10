@@ -164,10 +164,12 @@
         </div>
     </nav>
 </header>
-@section('scripts')
+@push('scripts')
     <script>
         function showSearchModal() {
             $('#modal-search-navbar').modal('show');
         }
     </script>
-@endsection
+
+@endpush
+

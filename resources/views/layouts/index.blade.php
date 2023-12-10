@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Primary Meta Tags -->
-    <title>{{$title}}</title>
+    <title>{{ $title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="title" content={{$title}}>
+    <meta name="title" content={{ $title }}>
     <meta name="author" content="Cihils Syndicate Web Division">
     <meta name="description"
         content="Open source and free Bootstrap 5 UI Kit featuring 80 UI components, 5 example pages, and a Gulp and Sass workflow.">
@@ -50,16 +50,14 @@
     <script src="{{ asset('/assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
     <script src="{{ asset('/assets/vendor/vivus/dist/vivus.min.js') }}"></script>
     <script src="{{ asset('/assets/vendor/vanillajs-datepicker/dist/js/datepicker.min.js') }}"></script>
-    <script src="{{asset('assets/js/jquery-3.7.1.min.js')}}"></script>
+    <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Pixel JS -->
     <script src="{{ asset('/assets/js/pixel.js') }}"></script>
-    @yield('scripts')
-    <script>
+    @stack('scripts')
 
-    </script>
 
 </body>
 

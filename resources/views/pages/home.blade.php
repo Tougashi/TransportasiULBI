@@ -1,6 +1,7 @@
 @extends('layouts.index')
 @section('main')
-    <div>
+<div>
+        @include('components.modals')
         {{-- <div class="preloader bg-orange flex-column justify-content-center align-items-center">
             <svg id="loader-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 78.4">
                 <img src="{{ asset('assets/img/carousel/image-1.jpg') }}" style="margin-bottom: 25%;" id="loader-logo-image"
@@ -356,8 +357,8 @@
 
     </div>
 @endsection
-@section('scripts')
-    <script>
+@push('scripts')
+<script>
         var swiper = new Swiper(".mySwiper", {
         slidesPerView: 3,
         spaceBetween: 30,
@@ -371,4 +372,4 @@
         }
         });
     </script>
-@endsection
+@endpush
