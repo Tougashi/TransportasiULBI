@@ -63,7 +63,6 @@ d.addEventListener("DOMContentLoaded", function(event) {
         dropdownElementList.map(function (dropdownToggleEl) {
             var dropdown = new bootstrap.Dropdown(dropdownToggleEl);
             var dropdownMenu = d.querySelector('.dropdown-menu[aria-labelledby="' + dropdownToggleEl.getAttribute('id') + '"]');
-
             dropdownToggleEl.addEventListener('mouseover', function () {
                 dropdown.show();
             });

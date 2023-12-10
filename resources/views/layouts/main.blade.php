@@ -27,11 +27,13 @@
     <link type="text/css" href="{{ asset('/assets/css/pixel.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('/assets/css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
+
     @include('components.navbar')
-    <main>
+    <main class="pb-5">
         @yield('main')
         <!-- Hero -->
 
@@ -43,7 +45,7 @@
     <script src="{{ asset('/assets/vendor/@popperjs/core/dist/umd/popper.min.js') }}"></script>
     <script src="{{ asset('/assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('/assets/vendor/headroom.js/dist/headroom.min.js') }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Vendor JS -->
     <script src="{{ asset('/assets/vendor/onscreen/dist/on-screen.umd.min.js') }}"></script>
     <script src="{{ asset('/assets/vendor/jarallax/dist/jarallax.min.js') }}"></script>

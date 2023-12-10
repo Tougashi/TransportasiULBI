@@ -1,6 +1,6 @@
 <header class="header-global">
     <nav id="navbar-main" aria-label="Primary navigation"
-        class="navbar navbar-main navbar-expand-lg bg-light headroom p-0">
+        class="navbar navbar-main navbar-expand-lg bg-light headroom p-0 shadow">
         <div class="container position-relative">
             <a class="navbar-brand me-lg-5" href="#">
                 <img class="navbar-brand-dark ulbi-nav-logo"
@@ -72,14 +72,12 @@
 
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="#" aria-expanded="false"
-                            data-bs-toggle="dropdown">
+                        <a href="#" class="nav-link" aria-expanded="false">
                             Kurikulum & MK Unggulan
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="#" aria-expanded="false"
-                            data-bs-toggle="dropdown">
+                        <a href="#" class="nav-link" aria-expanded="false">
                             Dosen
                         </a>
                     </li>

@@ -1,91 +1,83 @@
-<footer class="footer pt-6 pb-5 @@classes">
+<footer class="footer pt-6 pb-5 bg-primary text-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <img class="navbar-brand-dark mb-4" height="35" src="{{asset('/assets/img/brand/light.svg')}}"
+            <div class="col-lg-4 col-md-6">
+                <img class="navbar-brand-dark mb-4" height="60" src="{{asset('assets/img/brand/ULBI - Universitas Logistik & Bisnis Internasional.png')}}"
                     alt="Logo light">
-                <p>Pixel is a free and open source Bootstrap 5 UI Kit that will help you prototype and build beautiful website pages and applications.</p>
+                <p>ULBI adalah institusi pendidikan tinggi yang didirikan oleh Yayasan Pendidikan Bhakti Pos Indonesia (YPBPI), ULBI memiliki visi menjadi perguruan tinggi vokasi yang unggul secara Nasional dalam bidang Logistik dan Manajemen Rantai Pasok
+
+                </p>
                 <ul class="social-buttons mb-5 mb-lg-0">
                     <li>
-                        <a href="https://twitter.com/themesberg" aria-label="twitter social link"
-                            class="icon-white me-2">
-                            <span class="fab fa-twitter"></span>
+                        <a href="#" aria-label="twitter social link" class="icon-white me-3">
+                            <span class="bi bi-facebook"></span>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.facebook.com/themesberg/" class="icon-white me-2"
+                        <a href="#" class="icon-white me-3"
                             aria-label="facebook social link">
-                            <span class="fab fa-facebook"></span>
+                            <span class="bi bi-twitter-x"></span>
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/themesberg" aria-label="github social link" class="icon-white me-2">
-                            <span class="fab fa-github"></span>
+                        <a href="#" aria-label="github social link" class="icon-white me-3">
+                            <span class="bi bi-youtube"></span>
                         </a>
                     </li>
                     <li>
-                        <a href="https://dribbble.com/themesberg" class="icon-white" aria-label="dribbble social link">
-                            <span class="fab fa-dribbble"></span>
+                        <a href="#" class="icon-white me-3" aria-label="dribbble social link">
+                            <span class="bi bi-pinterest"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="icon-white me-3" aria-label="dribbble social link">
+                            <span class="bi bi-tiktok"></span>
                         </a>
                     </li>
                 </ul>
             </div>
-            <div class="col-6 col-md-2 mb-5 mb-lg-0">
-                <span class="h5">Themesberg</span>
+            <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+                <span class="h5 text-light">Sistem Informasi</span>
                 <ul class="footer-links mt-2">
-                    <li><a target="_blank" href="https://themesberg.com/blog">Blog</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/themes">Themes</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/about">About Us</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/contact">Contact Us</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/blog"><span class="bi bi-dash"></span> Jurnal ULBI</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/themes"><span class="bi bi-dash"></span> ULBI Mahasiswa</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/about"><span class="bi bi-dash"></span> ULBI Orang Tua</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> ULBI Study</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> ULBI</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> E - Learning</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> Perpustakaan</a></li>
                 </ul>
             </div>
-            <div class="col-6 col-md-2 mb-5 mb-lg-0">
-                <span class="h5">Other</span>
+            <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+                <span class="h5 text-light">Layanan</span>
                 <ul class="footer-links mt-2">
-                    <li><a href="https://themesberg.com/docs/bootstrap-5/pixel/getting-started/quick-start/"
-                            target="_blank">Docs</a></li>
-                    <li><a href="https://themesberg.com/docs/pixel-bootstrap/getting-started/changelog"
-                            target="_blank">Changelog</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/licensing">License</a>
-                    </li>
-                    <li><a target="_blank"
-                            href="https://github.com/themesberg/pixel-bootstrap-ui-kit/issues">Support</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/blog"><span class="bi bi-dash"></span> BAAK ULBI</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/themes"><span class="bi bi-dash"></span> Career Center</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/about"><span class="bi bi-dash"></span> Lab ULBI</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> BP3M ULBI</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> LSP P1</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> Dasbor Bidang</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> RSS Feed</a></li>
                 </ul>
             </div>
-            <div class="col-12 col-md-4 mb-5 mb-lg-0">
-                <span class="h5">Subscribe</span>
-                <p class="text-muted font-small mt-2">Join our mailing list. We write rarely, but only the best content.
-                </p>
-                <form action="#">
-                    <div class="form-row mb-2">
-                        <div class="col-12">
-                            <label class="h6 fw-normal text-muted d-none" for="exampleInputEmail3">Email address</label>
-                            <input type="email" class="form-control mb-2" placeholder="example@company.com" name="email"
-                                aria-label="Subscribe form" id="exampleInputEmail3" required>
-                        </div>
-                        <div class="col-12 d-grid">
-                            <button type="submit" class="btn btn-tertiary" data-loading-text="Sending">
-                                <span>Subscribe</span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <p class="text-muted font-small m-0">We’ll never share your details. See our <a class="text-white"
-                        href="#">Privacy Policy</a></p>
-            </div>
-        </div>
-        <hr class="bg-secondary my-3 my-lg-5">
-        <div class="row">
-            <div class="col mb-md-0">
-                <a href="https://themesberg.com" target="_blank" class="d-flex justify-content-center mb-3">
-                    <img src="@@path/assets/img/themesberg.svg" height="30" class="me-2" alt="Themesberg Logo">
-                    <p class="text-white fw-bold footer-logo-text m-0">Themesberg</p>
-                </a>
-                <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
-                    <p class="fw-normal font-small mb-0">Copyright © Themesberg 2019-<span
-                            class="current-year">2021</span>. All rights reserved.</p>
-                </div>
+            <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+                <span class="h5 text-light">Kontak</span>
+                <ul class="footer-links mt-2 mb-5">
+                    <li><a target="_blank" href="https://themesberg.com/blog"><span class="bi bi-dash"></span> Sekretariat ULBI</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/themes"><span class="bi bi-dash"></span> HUMAS ULBI</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/about"><span class="bi bi-dash"></span> PMB ULBI</a></li>
+                </ul>
+                <span class="h5 text-light">Email</span>
+                <ul class="footer-links mt-2">
+                    <li><a target="_blank" href="https://themesberg.com/blog"><span class="bi bi-dash"></span> Prodi S1 Manajemen Transportasi</a></li>
+                </ul>
             </div>
         </div>
     </div>
 </footer>
+<div class="container-fluid bg-orange py-3 text-light w-100">
+    <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+        <p class="fw-bold mb-0">Copyright © <span
+                class="current-year"></span>. Fakultas : S1 Manajemen Transportasi. All rights reserved.</p>
+    </div>
+</div>

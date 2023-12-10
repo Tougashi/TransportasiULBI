@@ -20,3 +20,11 @@
     transition: all 0.2s;
 }
 
+.bg-orange-prodi{
+    background-color: #e84322e1 !important;
+}
+
+.foto-dosen-slide{
+    min-width: 200px !important;
+    display: block !important;
+}
