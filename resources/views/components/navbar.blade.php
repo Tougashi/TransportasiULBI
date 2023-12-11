@@ -71,17 +71,17 @@
 
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link" aria-expanded="false">
+                        <a href="/page/daftar-mata-kuliah-kurikulum" class="nav-link {{$NavbarTitle == 'Kurikulum & MK Unggulan' ? 'text-orange' : ''}}" aria-expanded="false">
                             Kurikulum & MK Unggulan
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link" aria-expanded="false">
+                        <a href="/page/profil-dosen-prodi" class="nav-link {{$NavbarTitle == 'Profil Dosen' ? 'text-orange' : ''}}" aria-expanded="false">
                             Dosen
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="fasilitasDropdown" aria-expanded="false"
+                        <a href="#" class="nav-link dropdown-toggle {{$NavbarTitle == 'Organisasi Mahasiswa' || $NavbarTitle == 'Sarana Prasarana'}}" id="fasilitasDropdown" aria-expanded="false"
                             data-bs-toggle="dropdown">
                             Fasilitas
                             <span class="fas fa-angle-down nav-link-arrow ms-1"></span>
@@ -90,65 +90,65 @@
                             <ul class="list-style-none mb-4">
                                 <li class="mb-1 megamenu-item p-2">
                                     <a class="megamenu-link"
-                                        href="@@path/html/pages/about.html">Kegiatan Mahasiswa</a>
+                                        href="/page/kegiatan-mahasiswa">Kegiatan Mahasiswa</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">Organisasi Mahasiswa</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Organisasi Mahasiswa' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Organisasi Mahasiswa' ? 'text-light' : ''}}"
+                                        href="/page/organisasi-mahasiswa">Organisasi Mahasiswa</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">Sarana Prasarana</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Sarana Prasarana' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Sarana Prasarana' ? 'text-light' : ''}}"
+                                        href="/page/sarana-prasarana">Sarana Prasarana</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="layananDropdown" aria-expanded="false"
+                        <a href="#" class="nav-link dropdown-toggle {{$NavbarTitle == 'Penerimaan Mahasiswa Baru' || $NavbarTitle == 'Sistem Informasi Akademik' || $NavbarTitle == 'Virtual Learning' || $NavbarTitle == 'E - Jurnal' ? 'text-orange' : ''}}" id="layananDropdown" aria-expanded="false"
                             data-bs-toggle="dropdown">
                             Layanan
                             <span class="fas fa-angle-down nav-link-arrow ms-1"></span>
                         </a>
                         <div class="dropdown-menu px-0" aria-labelledby="layananDropdown">
                             <ul class="list-style-none mb-4">
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/about.html">Penerimaan Mahasiswa Baru</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Penerimaan Mahasiswa Baru' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Penerimaan Mahasiswa Baru' ? 'text-light' : ''}}"
+                                        href="/page/penerimaan-mahasiswa-baru">Penerimaan Mahasiswa Baru</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">Sistem Informasi Akademik</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Sistem Informasi Akademik' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Sistem Informasi Akademik' ? 'text-light' : ''}}"
+                                        href="/page/sistem-informasi-akademik">Sistem Informasi Akademik</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">Virtual Learning (VL)</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Virtual Learning' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Virtual Learning' ? 'text-light' : ''}}"
+                                        href="/page/virtual-learning">Virtual Learning (VL)</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">E - Jurnal</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'E - Jurnal' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'E - Jurnal' ? 'text-light' : ''}}"
+                                        href="/page/e-jurnal">E - Jurnal</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="kerjasamaDropdown" aria-expanded="false"
+                        <a href="#" class="nav-link dropdown-toggle {{$NavbarTitle == 'Kerjasama Luar Negeri' || $NavbarTitle == 'Kerjasama Dalam Negeri' || $NavbarTitle == 'MBKM & Student Exchange' ? 'text-orange' : ''}}" id="kerjasamaDropdown" aria-expanded="false"
                             data-bs-toggle="dropdown">
                             Kerjasama
                             <span class="fas fa-angle-down nav-link-arrow ms-1"></span>
                         </a>
                         <div class="dropdown-menu px-0" aria-labelledby="kerjasamaDropdown">
                             <ul class="list-style-none mb-4">
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/about.html">Kerjasama Luar Negeri</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Kerjasama Luar Negeri' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Kerjasama Luar Negeri' ? 'text-light' : ''}}"
+                                        href="/page/kerjasama-luar-negeri">Kerjasama Luar Negeri</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">Kerjasama Dalam Negeri</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Kerjasama Dalam Negeri' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Kerjasama Dalam Negeri' ? 'text-light' : ''}}"
+                                        href="/page/kerjasama-dalam-negeri">Kerjasama Dalam Negeri</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">MBKM & Student Exchange</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'MBKM & Student Exchange' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'MBKM & Student Exchange' ? 'text-light' : ''}}"
+                                        href="/page/mbkm-student-exchange">MBKM & Student Exchange</a>
                                 </li>
                             </ul>
                         </div>

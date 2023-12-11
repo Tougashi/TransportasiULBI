@@ -1,7 +1,6 @@
 @extends('layouts.index')
 @section('main')
     <div>
-        @include('components.modals')
         <section class="section-header overflow-hidden pt-7 pt-lg-8 pb-9 pb-lg-12 bg-primary text-white">
             <div class="container">
                 <div class="row">

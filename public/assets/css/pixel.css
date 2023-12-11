@@ -4081,10 +4081,10 @@ textarea.form-control-lg {
         transition: none;
     }
 }
-
+/*
 .btn:hover {
     color: #1F2937;
-}
+} */
 
 .btn-check:focus + .btn, .btn:focus {
     outline: 0;

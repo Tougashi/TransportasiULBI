@@ -29,8 +29,8 @@
 </head>
 
 <body>
-
     @include('components.navbar')
+    @include('components.modals')
     <main class="pb-5">
         @yield('main')
         <!-- Hero -->
