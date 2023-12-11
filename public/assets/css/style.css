@@ -7,8 +7,9 @@
 }
 
 .ulbi-nav-logo{
-    width: 175px;
-    height: 60px !important;
+    padding: 0;
+    width: 150px;
+    height: 55px !important;
 }
 
 #search-button-nav:hover{
@@ -27,4 +28,8 @@
 .foto-dosen-slide{
     min-width: 200px !important;
     display: block !important;
+}
+
+#backToTopBtn:hover{
+    cursor: pointer;
 }

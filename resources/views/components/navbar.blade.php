@@ -1,8 +1,8 @@
 <header class="header-global">
     <nav id="navbar-main" aria-label="Primary navigation"
         class="navbar navbar-main navbar-expand-lg bg-light headroom p-0 shadow">
-        <div class="container position-relative">
-            <a class="navbar-brand me-lg-5" href="#">
+        <div class="container position-relative p-0">
+            <a class="navbar-brand me-lg-5" href="/">
                 <img class="navbar-brand-dark ulbi-nav-logo"
                     src="{{ asset('assets/img/brand/Fakultas _ S1 Manajemen Transportasi.png') }}" alt="Logo light">
                 {{-- <img class="navbar-brand-light" src="{{asset('/assets/img/brand/dark.svg')}}" alt="Logo dark"> --}}
@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-6 collapse-brand">
                             <a href="#">
-                                <img src="{{ asset('/assets/img/brand/dark.svg') }}" alt="Themesberg logo">
+                                <img src="{{ asset('assets/img/brand/Fakultas _ S1 Manajemen Transportasi.png') }}" alt="Logo light">
                             </a>
                         </div>
                         <div class="col-6 collapse-close">
@@ -24,47 +24,47 @@
                 </div>
                 <ul class="navbar-nav navbar-nav-hover align-items-lg-center ms-auto me-4">
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="frontPagesDropdown" aria-expanded="false" data-bs-toggle="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle {{$NavbarTitle == 'Profil' || $NavbarTitle == 'Visi & Misi' || $NavbarTitle == 'Struktur Organisasi' || $NavbarTitle == 'Keunikan Prodi' || $NavbarTitle == 'Akreditasi Prodi' || $NavbarTitle == 'Profil Lulusan' || $NavbarTitle == 'Gelar Lulusan' || $NavbarTitle == 'Kompetensi Lulusan' || $NavbarTitle == 'Metode Pembelajaran' ? 'text-orange' : ''}}" id="frontPagesDropdown" aria-expanded="false" data-bs-toggle="dropdown">
                             Tentang Prodi
                             <span class="fas fa-angle-down nav-link-arrow ms-1"></span>
                         </a>
                         <div class="dropdown-menu px-0" aria-labelledby="frontPagesDropdown">
                             <ul class="list-style-none mb-4">
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/about.html">Profil</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Profil' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Profil' ? 'text-light' : ''}}"
+                                        href="/page/profil-transportasi-ulbi">Profil</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">Visi & Misi</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Visi & Misi' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Visi & Misi' ? 'text-light' : ''}}"
+                                        href="/page/visi-misi">Visi & Misi</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">Struktur Organisasi</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Struktur Organisasi' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Struktur Organisasi' ? 'text-light' : ''}}"
+                                        href="/page/struktur-organisasi">Struktur Organisasi</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">Keunikan Prodi</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Keunikan Prodi' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Keunikan Prodi' ? 'text-light' : ''}}"
+                                        href="/page/keunikan-prodi">Keunikan Prodi</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">Akreditasi Prodi</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Akreditasi Prodi' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Akreditasi Prodi' ? 'text-light' : ''}}"
+                                        href="/page/akreditasi-prodi">Akreditasi Prodi</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">Profil Lulusan</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Profil Lulusan' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Profil Lulusan' ? 'text-light' : ''}}"
+                                        href="/page/profil-lulusan">Profil Lulusan</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">Gelar Lulusan</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Gelar Lulusan' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Gelar Lulusan' ? 'text-light' : ''}}"
+                                        href="/page/gelar-lulusan">Gelar Lulusan</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">Kompetensi Lulusan</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Kompetensi Lulusan' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Kompetensi Lulusan' ? 'text-light' : ''}}"
+                                        href="/page/kompetensi-lulusan">Kompetensi Lulusan</a>
                                 </li>
-                                <li class="mb-1 megamenu-item p-2">
-                                    <a class="megamenu-link"
-                                        href="@@path/html/pages/contact.html">Metode Pembelajaran</a>
+                                <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Metode Pembelajaran' ? 'bg-orange-prodi' : ''}}">
+                                    <a class="megamenu-link {{$NavbarTitle == 'Metode Pembelajaran' ? 'text-light' : ''}}"
+                                        href="/page/metode-pembelajaran">Metode Pembelajaran</a>
                                 </li>
                             </ul>
                         </div>

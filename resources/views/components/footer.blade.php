@@ -1,6 +1,6 @@
 <footer class="footer pt-6 pb-5 bg-primary text-light">
     <div class="container">
-        <div class="row">
+        <div class="row gap-3">
             <div class="col-lg-4 col-md-6">
                 <img class="navbar-brand-dark mb-4" height="60" src="{{asset('assets/img/brand/ULBI - Universitas Logistik & Bisnis Internasional.png')}}"
                     alt="Logo light">
@@ -60,10 +60,10 @@
                     <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> RSS Feed</a></li>
                 </ul>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                 <span class="h5 text-light">Kontak</span>
                 <ul class="footer-links mt-2 mb-5">
-                    <li><a target="_blank" href="https://themesberg.com/blog"><span class="bi bi-dash"></span> Sekretariat ULBI</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> Sekretariat ULBI</a></li>
                     <li><a target="_blank" href="https://themesberg.com/themes"><span class="bi bi-dash"></span> HUMAS ULBI</a></li>
                     <li><a target="_blank" href="https://themesberg.com/about"><span class="bi bi-dash"></span> PMB ULBI</a></li>
                 </ul>
