@@ -34,7 +34,7 @@
             <div class="container-fluid">
                 <div class="row justify-content-center mb-5 mb-lg-6 gap-4">
                     <h3 class="text-center fw-bold">Penerimaan Mahasiswa Baru</h3>
-                    <div class="col-6 col-md-2 text-center mb-4">
+                    <div class="col-6 col-md-2 col-sm-4 text-center mb-4">
                         <a href="https://enroll.ulbi.ac.id/Pendaftaran">
                             <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
                                 <span class="bi bi-building-fill-add text-tertiary"></span>
@@ -42,7 +42,7 @@
                         </a>
                         <h5 class="fw-bolder">Gabung ULBI</h5>
                     </div>
-                    <div class="col-6 col-md-2 text-center mb-4">
+                    <div class="col-6 col-md-2 col-sm-4 text-center mb-4">
                         <a
                             href="https://www.google.com/maps/place/Universitas+Logistik+dan+Bisnis+Internasional+(ULBI)/@-6.87455,107.5731249,17z/data=!3m1!4b1!4m6!3m5!1s0x2e68e7d1b68bb875:0xd8fcf5a9e43bd6e4!8m2!3d-6.87455!4d107.5756998!16s%2Fg%2F11t3f1g8pt?entry=ttu">
                             <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
@@ -51,7 +51,7 @@
                         </a>
                         <h5 class="fw-bolder">Lokasi Kampus</h5>
                     </div>
-                    <div class="col-6 col-md-2 text-center">
+                    <div class="col-6 col-md-2 col-sm-4 text-center">
                         <a href="https://www.instagram.com/transportasi_ulbi/">
                             <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
                                 <span class="bi bi-chat-dots-fill text-tertiary"></span>
@@ -59,7 +59,7 @@
                         </a>
                         <h5 class="fw-bolder">Konsultasi Online</h5>
                     </div>
-                    <div class="col-6 col-md-2 text-center">
+                    <div class="col-6 col-md-2 col-sm-4 text-center">
                         <a href="https://admission.ulbi.ac.id/">
                             <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
                                 <span class="bi bi-telephone-forward-fill text-tertiary"></span>
@@ -67,7 +67,7 @@
                         </a>
                         <h5 class="fw-bolder">Layanan ULBI</h5>
                     </div>
-                    <div class="col-6 col-md-2 text-center">
+                    <div class="col-6 col-md-2 col-sm-4 text-center">
                         <a href="mailto:s1-transportasi@ulbi.ac.id">
                             <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
                                 <span class="bi bi-envelope-arrow-up-fill text-tertiary"></span>
@@ -259,9 +259,9 @@
         </section>
 
         <section class="section section-lg pt-0 mb-3">
-            <div class="container pb-5" style="height: 400px; width: 800px;">
+            <div class="container pb-5">
                 <h4 class="text-center fw-bold mb-4">Video Profil ULBI</h4>
-                <iframe class="w-100 h-100 rounded-pill img-fluid"
+                <iframe class="rounded-pill mx-auto d-block img-fluid" style="height: 400px; width: 800px;"
                     src="https://www.youtube.com/embed/K6_kkg02Mac?rel=0&amp;showinfo=0&amp;autoplay=1"
                     title="YouTube video player" autoplay="1" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

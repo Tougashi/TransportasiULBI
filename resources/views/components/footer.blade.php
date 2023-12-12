@@ -1,7 +1,7 @@
 <footer class="footer pt-6 pb-5 bg-primary text-light">
     <div class="container">
         <div class="row gap-3">
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-5">
                 <img class="navbar-brand-dark mb-4" height="60" src="{{asset('assets/img/brand/ULBI - Universitas Logistik & Bisnis Internasional.png')}}"
                     alt="Logo light">
                 <p>ULBI adalah institusi pendidikan tinggi yang didirikan oleh Yayasan Pendidikan Bhakti Pos Indonesia (YPBPI), ULBI memiliki visi menjadi perguruan tinggi vokasi yang unggul secara Nasional dalam bidang Logistik dan Manajemen Rantai Pasok
@@ -36,7 +36,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+            <div class="col-lg-2 col-md-5 text-sm-right mb-5 mb-lg-0">
                 <span class="h5 text-light">Sistem Informasi</span>
                 <ul class="footer-links mt-2">
                     <li><a target="_blank" href="https://themesberg.com/blog"><span class="bi bi-dash"></span> Jurnal ULBI</a></li>
@@ -48,7 +48,7 @@
                     <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> Perpustakaan</a></li>
                 </ul>
             </div>
-            <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+            <div class="col-lg-2 col-md-5 mb-5 mb-lg-0">
                 <span class="h5 text-light">Layanan</span>
                 <ul class="footer-links mt-2">
                     <li><a target="_blank" href="https://themesberg.com/blog"><span class="bi bi-dash"></span> BAAK ULBI</a></li>
@@ -60,7 +60,7 @@
                     <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> RSS Feed</a></li>
                 </ul>
             </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+            <div class="col-lg-3 col-md-5 text-sm-right mb-5 mb-lg-0">
                 <span class="h5 text-light">Kontak</span>
                 <ul class="footer-links mt-2 mb-5">
                     <li><a target="_blank" href="#"><span class="bi bi-dash"></span> Sekretariat ULBI</a></li>
