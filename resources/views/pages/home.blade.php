@@ -1,7 +1,22 @@
 @extends('layouts.index')
 @section('main')
     <div>
-        <section class="section-header overflow-hidden pt-7 pt-lg-8 pb-9 pb-lg-12 bg-primary text-white">
+        <section class="section-lg pb-5 bg-orange">
+            <div class="container pb-5">
+                <div class="row d-flex">
+                    <div class="col-lg-6 col-12 pb-lg-0 pt-sm-5 order-sm-2 order-lg-1">
+                        <h1 class="fw-bolder text-light" style="font-size: 70px;">Manajemen<br>Transportasi</h1>
+                        <p class="fw-bold fs-5 text-light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque fuga maxime ex. Eligendi, molestiae eos consectetur adipisci accusamus quisquam deleniti nostrum laborum aliquid iusto impedit.</p>
+                        <a href="#" class="btn btn-outline-primary p-3 fs-5 mt-4 text-light">Daftar Sekarang <span class="ms-2">🚀</span></a>
+                    </div>
+                    <div class="col-lg-6 col-12 d-flex align-items-center order-sm-1 order-lg-2">
+                        <img src="{{asset('assets/img/brand/ulbi_building.jpg')}}" class="img-fluid rounded h-100 w-100" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{-- <section class="section-header overflow-hidden pt-7 pt-lg-8 pb-9 pb-lg-12 bg-primary text-white">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
@@ -28,7 +43,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <section class="section section-lg">
             <div class="container-fluid">
