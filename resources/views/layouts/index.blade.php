@@ -62,6 +62,32 @@
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const scrollUpLink = document.getElementById('scrollUpLink');
+            const backToTopBtn = document.getElementById('backToTopBtn');
+
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 200) {
+                    backToTopBtn.style.display = 'block';
+                } else {
+                    backToTopBtn.style.display = 'none';
+                }
+            });
+
+            // Smooth scroll to top when button is clicked
+            scrollUpLink.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
     <!-- Pixel JS -->
     <script src="{{ asset('/assets/js/pixel.js') }}"></script>
     @stack('scripts')

@@ -3,22 +3,21 @@
     <div>
         <section class="section-lg pb-5 bg-orange">
             <div class="container pb-5">
-                <div class="row d-flex">
+                <div class="row d-flex align-items-center">
                     <div class="col-lg-6 col-12 pb-lg-0 pt-sm-5 order-sm-2 order-lg-1">
                         <h1 class="fw-bolder text-light" style="font-size: 70px;">Manajemen<br>Transportasi</h1>
-                        <p class="fw-bold fs-5 text-light">merupakan program studi yang mempelajari tentang pengelolaan, perancangan, perbaikan, dan pengintegrasian sistem transportasi yang mencakup sarana, prasarana, rencana operasi, pemeliharaan dengan tujuan untuk menjamin pergerakan barang yang aman, cepat, mudah, ekonomis, dan ramah terhadap lingkungan.</p>
-                        <a href="https://enroll.ulbi.ac.id/Pendaftaran" class="btn btn-primary btn-outline-primary p-3 fs-5 mt-4 text-light">Daftar Sekarang <span class="ms-2">🚀</span></a>
+                        <p class="fw-bold fs-5 text-light">Merupakan program studi yang mempelajari tentang pengelolaan, perancangan, perbaikan, dan pengintegrasian sistem transportasi yang mencakup sarana, prasarana, rencana operasi, pemeliharaan dengan tujuan untuk menjamin pergerakan barang yang aman, cepat, mudah, ekonomis, dan ramah terhadap lingkungan.</p>
+                        <a href="https://enroll.ulbi.ac.id/Pendaftaran" class="btn btn-primary btn-outline-orange p-3 fs-5 mt-4 text-light">Daftar Sekarang <span class="ms-2">🚀</span></a>
                     </div>
-                    <div class="col-lg-6 col-12 d-flex align-items-center order-sm-1 order-lg-2 custom-frame">
-                        <img src="{{ asset('assets/img/illustrations/kampus.jpg') }}" class="img-fluid rounded h-100 w-100" alt="">
+                    <div class="col-lg-6 col-12 order-sm-1 order-lg-2 custom-frame">
+                        <img src="{{ asset('assets/img/illustrations/kampus.jpg') }}" class="img-fluid rounded" alt="">
                     </div>
-                    
-                    
                 </div>
             </div>
         </section>
+        
 
-        {{-- <section class="section-header overflow-hidden pt-7 pt-lg-8 pb-9 pb-lg-12 bg-primary text-white">
+        {{--  <section class="section-header overflow-hidden pt-7 pt-lg-8 pb-9 pb-lg-12 bg-primary text-white">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
@@ -35,17 +34,8 @@
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
                     <path d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path>
                 </svg></figure>
-        </section>
+        </section> --}}
 
-        <div class="section py-0">
-            <div class="container mt-n10 mt-lg-n12 z-2">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-10">
-                        <img src="./assets/img/presentation-mockup.png" alt="Pixel Free Mockup">
-                    </div>
-                </div>
-            </div>
-        </div> --}}
 
         <section class="section section-lg">
             <div class="container-fluid">
@@ -445,57 +435,71 @@
 
         </section>
 
-        <section class="section section-lg py-0">
-            <div class="container-fluid d-flex">
-                <div class="row gap-3 d-flex justify-content-center">
-                    <div class="col-lg-5 col-md-6 col-sm-12">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h3 class="h5 card-title py-2 border-bottom"><i
-                                        class="bi bi-calendar2-week-fill me-3"></i> Agenda ULBI</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
+        
+
+        <div class="container mt-5">
+            <section class="my-calendar-section">
+                <div class="card bg-orange">
+                    <div class="card-header bg-orange text-white">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="card-title mb-0 fw-bold">Agenda | Pengumuman</h3>
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-end">
+                                <div class="btn-group " role="group">
+                                    <button type="button" class="btn btn-sm btn-outline-primary text-white">Hari Ini</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary text-white">Yang Akan Datang</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-md-6 col-sm-12">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h3 class="h5 card-title py-2 border-bottom"><i
-                                        class="bi bi-calendar2-week-fill me-3"></i> Agenda ULBI</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
+                    <div class="card-body bg-primary">
+                        <div id="calendar"><section class="section section-lg py-0">
+                            <div class="container-fluid d-flex">
+                                <div class="row gap-3 d-flex justify-content-center">
+                                    <div class="col-lg-5 col-md-6 col-sm-12">
+                                        <div class="card shadow-sm">
+                                            <div class="card-body">
+                                                <h3 class="h5 card-title py-2 border-bottom"><i
+                                                        class="bi bi-calendar2-week-fill me-3"></i>Wisuda</h3>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-6 col-sm-12">
+                                        <div class="card shadow-sm">
+                                            <div class="card-body">
+                                                <h3 class="h5 card-title py-2 border-bottom"><i
+                                                        class="bi bi-calendar2-week-fill me-3"></i>Meeting dengan Mitra</h3>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-6 col-sm-12">
+                                        <div class="card shadow-sm">
+                                            <div class="card-body">
+                                                <h3 class="h5 card-title py-2 border-bottom"><i
+                                                        class="bi bi-calendar2-week-fill me-3"></i>Vacation</h3>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-6 col-sm-12">
+                                        <div class="card shadow-sm">
+                                            <div class="card-body">
+                                                <h3 class="h5 card-title py-2 border-bottom"><i class="bi bi-info-circle-fill me-3"></i>Pengumuman ULBI</h3>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-6 col-sm-12">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h3 class="h5 card-title py-2 border-bottom"><i
-                                        class="bi bi-calendar2-week-fill me-3"></i> Agenda ULBI</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-6 col-sm-12">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h3 class="h5 card-title py-2 border-bottom"><i class="bi bi-info-circle-fill me-3"></i>
-                                    Pengumuman ULBI</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
+                        </section></div>
                     </div>
                 </div>
-            </div>
-        </section>
-
+            </section>
+        </div>
+        
         <section class="section section-lg">
             <div class="container">
                 <h3 class="text-center fw-bold">Mitra Kerja Sama Kampus BUMN - APERTI BUMN</h3>
@@ -520,6 +524,7 @@
 
     </div>
 @endsection
+
 @push('scripts')
     <script>
         var swiper = new Swiper(".mySwiper", {
@@ -548,4 +553,5 @@
             }
         });
     </script>
+    
 @endpush
