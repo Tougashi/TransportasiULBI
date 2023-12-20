@@ -26,7 +26,7 @@
                     </li>
                     <li>
                         <a href="#" class="icon-white me-3" aria-label="dribbble social link">
-                            <span class="bi bi-pinterest"></span>
+                            <span class="bi bi-instagram"></span>
                         </a>
                     </li>
                     <li>

@@ -15,6 +15,7 @@
 
 */
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap');
 
 .datepicker {
     display: none;
@@ -29520,4 +29521,3 @@ blockquote {
     pointer-events: none;
 }
 
-/*# sourceMappingURL=pixel.css.map */
