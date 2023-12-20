@@ -5,7 +5,7 @@
             <div class="container pb-5">
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-6 col-12 pb-lg-0 pt-sm-5 order-sm-2 order-lg-1">
-                        <h1 class="fw-bolder text-light" style="font-size: 70px;">Manajemen<br>Transportasi</h1>
+                        <h1 id="typewriter" class="fw-bolder text-light" style="font-size: 70px; font-family: 'Poppins';"></h1>
                         <p class="fw-bold fs-5 text-light">Merupakan program studi yang mempelajari tentang pengelolaan, perancangan, perbaikan, dan pengintegrasian sistem transportasi yang mencakup sarana, prasarana, rencana operasi, pemeliharaan dengan tujuan untuk menjamin pergerakan barang yang aman, cepat, mudah, ekonomis, dan ramah terhadap lingkungan.</p>
                         <a href="https://enroll.ulbi.ac.id/Pendaftaran" class="btn btn-primary btn-outline-orange p-3 fs-5 mt-4 text-light">Daftar Sekarang <span class="ms-2">🚀</span></a>
                     </div>
@@ -265,7 +265,7 @@
             </div>
         </section>
 
-        <section class="section section-lg pt-0 mb-3">
+        <section class="section section-lg pt-0">
             <div class="container pb-5">
                 <h4 class="text-center fw-bold mb-4">Video Profil ULBI</h4>
                 <iframe class="rounded-pill mx-auto d-block img-fluid" style="height: 400px; width: 800px;"
@@ -314,7 +314,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -432,13 +431,12 @@
                     </div>
                 </div>
             </div>
-
         </section>
 
         
 
-        <div class="container mt-5">
-            <section class="my-calendar-section">
+        <section class="my-calendar-section">
+                <div class="container mt-5">
                 <div class="card bg-orange">
                     <div class="card-header bg-orange text-white">
                         <div class="row">
@@ -455,7 +453,6 @@
                     </div>
                     <div class="card-body bg-primary">
                         <div id="calendar"><section class="section section-lg py-0">
-                            <div class="container-fluid d-flex">
                                 <div class="row gap-3 d-flex justify-content-center">
                                     <div class="col-lg-5 col-md-6 col-sm-12">
                                         <div class="card shadow-sm">
@@ -493,12 +490,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                         </section></div>
                     </div>
                 </div>
+            </div>
             </section>
-        </div>
         
         <section class="section section-lg">
             <div class="container">
@@ -525,6 +521,24 @@
     </div>
 @endsection
 
+<script>
+    const text = "Manajemen Transportasi";
+    let index = 0;
+  
+    function typeWriter() {
+      document.getElementById("typewriter").textContent += text[index];
+      index++;
+  
+      if (index < text.length) {
+        setTimeout(typeWriter, 50); // Sesuaikan kecepatan ketik di sini (dalam milidetik)
+      }
+    }
+  
+    // Panggil fungsi typewriter saat halaman dimuat
+    window.onload = function () {
+      typeWriter();
+    };
+  </script>
 @push('scripts')
     <script>
         var swiper = new Swiper(".mySwiper", {

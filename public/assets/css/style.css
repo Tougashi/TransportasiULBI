@@ -1,5 +1,5 @@
 
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap');
 
 /* Styling Navbar */
 .bi.bi-search.text-light:hover{
@@ -53,4 +53,8 @@
 
 .custom-frame p {
     margin-bottom: 20px;
+}
+
+.bg-orange {
+    background-size: 100% 100%;
 }
