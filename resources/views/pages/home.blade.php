@@ -6,12 +6,14 @@
                 <div class="row d-flex">
                     <div class="col-lg-6 col-12 pb-lg-0 pt-sm-5 order-sm-2 order-lg-1">
                         <h1 class="fw-bolder text-light" style="font-size: 70px;">Manajemen<br>Transportasi</h1>
-                        <p class="fw-bold fs-5 text-light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque fuga maxime ex. Eligendi, molestiae eos consectetur adipisci accusamus quisquam deleniti nostrum laborum aliquid iusto impedit.</p>
-                        <a href="#" class="btn btn-outline-primary p-3 fs-5 mt-4 text-light">Daftar Sekarang <span class="ms-2">🚀</span></a>
+                        <p class="fw-bold fs-5 text-light">merupakan program studi yang mempelajari tentang pengelolaan, perancangan, perbaikan, dan pengintegrasian sistem transportasi yang mencakup sarana, prasarana, rencana operasi, pemeliharaan dengan tujuan untuk menjamin pergerakan barang yang aman, cepat, mudah, ekonomis, dan ramah terhadap lingkungan.</p>
+                        <a href="https://enroll.ulbi.ac.id/Pendaftaran" class="btn btn-primary btn-outline-primary p-3 fs-5 mt-4 text-light">Daftar Sekarang <span class="ms-2">🚀</span></a>
                     </div>
-                    <div class="col-lg-6 col-12 d-flex align-items-center order-sm-1 order-lg-2">
-                        <img src="{{asset('assets/img/brand/ulbi_building.jpg')}}" class="img-fluid rounded h-100 w-100" alt="">
+                    <div class="col-lg-6 col-12 d-flex align-items-center order-sm-1 order-lg-2 custom-frame">
+                        <img src="{{ asset('assets/img/illustrations/kampus.jpg') }}" class="img-fluid rounded h-100 w-100" alt="">
                     </div>
+                    
+                    
                 </div>
             </div>
         </section>
@@ -94,7 +96,7 @@
             </div>
             <div class="container">
                 <div class="col-12 pb-5">
-                    <div class="card shadow mb-5 bg-orange-prodi text-light bg-opacity-50 shadow-lg">
+                    <div class="card shadow mb-5 bg-orange text-light bg-opacity-50 shadow-lg">
                         <div class="card-body p-5 text-md-left">
                             <div class="row text-center">
                                 <div class="col-12 mb-2">
