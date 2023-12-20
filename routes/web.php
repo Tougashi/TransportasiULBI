@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ViewController;
 
 
@@ -29,6 +31,10 @@ Route::group(['middleware' => []], function () {
     Route::get('/page/kerjasama-luar-negeri', 'kerjasamaLuarNegeri')->name('kerjasamaLuarNegeri');
     Route::get('/page/kerjasama-dalam-negeri', 'kerjasamaDalamNegeri')->name('kerjasamaDalamNegeri');
     Route::get('/page/mbkm-student-exchange', 'studentExchange')->name('studentExchange');
+   });
 
+   Route::resource('backend', AuthController::class)->missing(function(Request $request){
+    return Redirect::route('backend.pages.404');
    });
 });
+

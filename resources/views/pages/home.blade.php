@@ -4,9 +4,9 @@
         <section class="section-lg pb-5 bg-orange">
             <div class="container pb-5">
                 <div class="row d-flex align-items-center">
-                    <div class="col-lg-6 col-12 pb-lg-0 pt-sm-5 order-sm-2 order-lg-1">
+                    <div class="col-lg-6 col-md-12 pb-lg-0 pt-sm-5 order-sm-2 order-lg-1 order-2 pb-2">
                         <h1 id="typewriter" class="fw-bolder text-light" style="font-size: 70px; font-family: 'Poppins';"></h1>
-                        <p class="fw-bold fs-5 text-light">Merupakan program studi yang mempelajari tentang pengelolaan,
+                        <p class="fw-bold fs-5 text-light pt-2">Merupakan program studi yang mempelajari tentang pengelolaan,
                             perancangan, perbaikan, dan pengintegrasian sistem transportasi yang mencakup sarana, prasarana,
                             rencana operasi, pemeliharaan dengan tujuan untuk menjamin pergerakan barang yang aman, cepat,
                             mudah, ekonomis, dan ramah terhadap lingkungan.</p>
@@ -14,7 +14,7 @@
                             class="btn btn-primary btn-outline-orange p-3 fs-5 mt-4 text-light">Daftar Sekarang <span
                                 class="ms-2">🚀</span></a>
                     </div>
-                    <div class="col-lg-6 col-12 order-sm-1 order-lg-2 custom-frame">
+                    <div class="col-lg-6 col-md-12 order-lg-2 order-sm-1 order-1 custom-frame">
                         <img src="{{ asset('assets/img/illustrations/kampus.jpg') }}" class="img-fluid rounded"
                             alt="">
                     </div>
@@ -27,8 +27,8 @@
             <div class="container-fluid">
                 <div class="row justify-content-center mb-5 mb-lg-6 gap-4">
                     <h3 class="text-center fw-bold">Penerimaan Mahasiswa Baru</h3>
-                    <div class="col-6 col-md-2 col-sm-4 text-center mb-4">
-                        <a href="https://enroll.ulbi.ac.id/Pendaftaran">
+                    <div class="col-6 col-md-2 col-sm-4 text-center mb-4 ">
+                        <a href="https://enroll.ulbi.ac.id/Pendaftaran" >
                             <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
                                 <span class="bi bi-building-fill-add text-tertiary"></span>
                             </div>
