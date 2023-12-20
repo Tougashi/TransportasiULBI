@@ -33,17 +33,7 @@
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
                     <path d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path>
                 </svg></figure>
-        </section>
-
-        <div class="section py-0">
-            <div class="container mt-n10 mt-lg-n12 z-2">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-10">
-                        <img src="./assets/img/presentation-mockup.png" alt="Pixel Free Mockup">
-                    </div>
-                </div>
-            </div>
-        </div> --}}
+        </section> --}}
 
         <section class="section section-lg">
             <div class="container-fluid">
