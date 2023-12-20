@@ -7,10 +7,10 @@
                     <div class="col-lg-6 col-12 pb-lg-0 pt-sm-5 order-sm-2 order-lg-1">
                         <h1 class="fw-bolder text-light" style="font-size: 70px;">Manajemen<br>Transportasi</h1>
                         <p class="fw-bold fs-5 text-light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque fuga maxime ex. Eligendi, molestiae eos consectetur adipisci accusamus quisquam deleniti nostrum laborum aliquid iusto impedit.</p>
-                        <a href="#" class="btn btn-outline-primary p-3 fs-5 mt-4 text-light">Daftar Sekarang <span class="ms-2">🚀</span></a>
+                        <a href="#" class="btn btn-primary p-3 fs-5 mt-4 text-light">Daftar Sekarang <span class="ms-2">🚀</span></a>
                     </div>
                     <div class="col-lg-6 col-12 d-flex align-items-center order-sm-1 order-lg-2">
-                        <img src="{{asset('assets/img/brand/ulbi_building.jpg')}}" class="img-fluid rounded h-100 w-100" alt="">
+                        <img src="{{asset('assets/img/brand/ulbi_building.jpg')}}" class="img-fluid rounded h-75 w-100" alt="">
                     </div>
                 </div>
             </div>
