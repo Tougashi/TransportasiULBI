@@ -91,16 +91,6 @@
     <!-- Pixel JS -->
     <script src="{{ asset('/assets/js/pixel.js') }}"></script>
     @stack('scripts')
-    <script>
-        $(window).ready(function(){
-            const wh = $(window).height();
-            if(wh > 100){
-                $('#backToTopBtn').removeClass('d-none');
-            }else{
-                $('#backToTopBtn').addClass('d-none');
-            }
-        });
-    </script>
 </body>
 
 </html>
