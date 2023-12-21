@@ -64,7 +64,7 @@
   </div>
   <!-- /.row -->
   <!-- Main row -->
-  <div class="row">
+  {{-- <div class="row">
     <!-- Left col -->
     <section class="col-lg-7 connectedSortable">
       <!-- Custom tabs (Charts with tabs)-->
@@ -572,7 +572,7 @@
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
-    </section>
+    </section> --}}
     <!-- right col -->
   </div>
 @endsection

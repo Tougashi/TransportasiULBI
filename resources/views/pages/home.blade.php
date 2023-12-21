@@ -99,10 +99,10 @@
                 </div>
             </div>
 
-            <div class="container-fluid px-5">
+            <div class="container-fluid">
                 <h3 class="text-center fw-bolder mt-5 mb-4">Berita Terbaru</h3>
-                <div class="row mt-5 gap-3 d-flex justify-content-center px-5">
-                    <div class="col-12 col-lg-3 col-md-4 mb-lg-0 m-0">
+                <div class="row mt-5 gap-3 d-flex justify-content-center">
+                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0 m-0">
                         <div class="card shadow-sm">
                             <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
                                 alt="Themesberg office">
@@ -114,7 +114,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3 col-md-4 mb-lg-0">
+                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
                         <div class="card shadow-sm">
                             <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
                                 alt="Themesberg office">
@@ -126,7 +126,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3 col-md-4 mb-lg-0">
+                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
                         <div class="card shadow-sm">
                             <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
                                 alt="Themesberg office">
@@ -138,7 +138,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3 col-md-4 mb-lg-0">
+                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
                         <div class="card shadow-sm">
                             <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
                                 alt="Themesberg office">
@@ -150,7 +150,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3 col-md-4 mb-lg-0">
+                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
                         <div class="card shadow-sm">
                             <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
                                 alt="Themesberg office">
@@ -162,7 +162,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3 col-md-4 mb-lg-0">
+                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
                         <div class="card shadow-sm">
                             <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
                                 alt="Themesberg office">
@@ -178,10 +178,10 @@
                 </div>
             </div>
 
-            <div class="container-fluid px-5 pt-5">
+            <div class="container-fluid pt-5">
                 <h3 class="text-center fw-bolder mt-5 mb-4">Kegiatan Mahasiswa Prodi : S1 Manajemen Transportasi</h3>
-                <div class="row mt-5 gap-3 d-flex justify-content-center px-5">
-                    <div class="col-12 col-lg-3 col-md-4 mb-lg-0 m-0">
+                <div class="row mt-5 gap-3 d-flex justify-content-center">
+                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0 m-0">
                         <div class="card shadow-sm">
                             <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
                                 alt="Themesberg office">
@@ -194,7 +194,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3 col-md-4 mb-lg-0">
+                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
                         <div class="card shadow-sm">
                             <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
                                 alt="Themesberg office">
@@ -207,7 +207,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3 col-md-4 mb-lg-0">
+                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
                         <div class="card shadow-sm">
                             <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
                                 alt="Themesberg office">
@@ -220,7 +220,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3 col-md-4 mb-lg-0">
+                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
                         <div class="card shadow-sm">
                             <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
                                 alt="Themesberg office">
@@ -233,7 +233,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3 col-md-4 mb-lg-0">
+                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
                         <div class="card shadow-sm">
                             <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
                                 alt="Themesberg office">
@@ -246,7 +246,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3 col-md-4 mb-lg-0">
+                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
                         <div class="card shadow-sm">
                             <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
                                 alt="Themesberg office">

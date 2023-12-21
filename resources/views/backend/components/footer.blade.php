@@ -1,7 +1,10 @@
-<footer class="main-footer h-auto">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+<footer class="main-footer h-auto text-right">
+    <strong>Copyright &copy; <span id="thisYear"></span> <a href="#">Cihils Syndicate</a>.</strong>
     All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
-    </div>
-  </footer>
+</footer>
+@push('scripts')
+    <script>
+        const date = new Date().getFullYear();
+        $('#thisYear').text(date);
+    </script>
+@endpush
