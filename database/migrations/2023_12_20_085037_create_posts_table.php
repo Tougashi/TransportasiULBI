@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug');
             $table->text('body');
             $table->text('excerpt');
-            $table->string('countView');
+            $table->string('views');
             $table->date('date');
 
             $table->unsignedBigInteger('userId');

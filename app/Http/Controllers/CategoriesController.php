@@ -2,26 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Posts;
 use App\Models\Categories;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreCategoriesRequest;
+use App\Http\Requests\UpdateCategoriesRequest;
 
-
-class DashboardController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('backend.pages.home', [
-            'title' => 'Dashboard',
-            'countPosts' => Posts::all()->count(),
-            'countCategories' => Categories::all()->count(),
-            'countAuthors' => User::all()->count(),
-            'countViewers' => Posts::all()->count('views')
-        ]);
+        //
     }
 
     /**
@@ -35,7 +27,7 @@ class DashboardController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCategoriesRequest $request)
     {
         //
     }
@@ -43,7 +35,7 @@ class DashboardController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Categories $categories)
     {
         //
     }
@@ -51,7 +43,7 @@ class DashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Categories $categories)
     {
         //
     }
@@ -59,7 +51,7 @@ class DashboardController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateCategoriesRequest $request, Categories $categories)
     {
         //
     }
@@ -67,7 +59,7 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Categories $categories)
     {
         //
     }

@@ -12,15 +12,15 @@
           <img src="{{asset('assets/backend/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{auth()->user()->author}}</a>
         </div>
       </div>
 
 
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link {{$title == 'Dashboard' ? 'active' : ''}}">
+          <li class="nav-item">
+            <a href="/backend/dashboard" class="nav-link {{$title == 'Dashboard' ? 'active' : ''}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -28,7 +28,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/backend/articles" class="nav-link {{$title == 'Articles' ? 'active' : ''}}">
               <i class="nav-icon fas fa-newspaper"></i>
               <p>
                 Artikel / Postingan
@@ -36,25 +36,25 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/layout/top-nav.html" class="nav-link">
+            <a href="/backend/categories" class="nav-link {{$title == 'Categories' ? 'active' : ''}}">
               <i class="nav-icon fas fa-copy"></i>
               <p>Kategori / Segmen</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/layout/top-nav.html" class="nav-link">
+            <a href="/backend/authors" class="nav-link {{$title == 'Authors' ? 'active' : ''}}">
               <i class="nav-icon fas fa-user"></i>
               <p>Author</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/layout/top-nav.html" class="nav-link">
+            <a href="/backend/events" class="nav-link {{$title == 'Events' ? 'active' : ''}}">
               <i class="nav-icon fas fa-calendar"></i>
               <p>Event</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/layout/top-nav.html" class="nav-link">
+            <a href="/backend/attentions" class="nav-link {{$title == 'Attentions' ? 'active' : ''}}">
               <i class="nav-icon fas fa-exclamation"></i>
               <p>Pengumuman</p>
             </a>

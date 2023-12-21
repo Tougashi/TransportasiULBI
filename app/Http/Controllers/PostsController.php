@@ -2,25 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Posts;
-use App\Models\Categories;
-use Illuminate\Http\Request;
+use App\Http\Requests\StorePostsRequest;
+use App\Http\Requests\UpdatePostsRequest;
 
-
-class DashboardController extends Controller
+class PostsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('backend.pages.home', [
-            'title' => 'Dashboard',
-            'countPosts' => Posts::all()->count(),
-            'countCategories' => Categories::all()->count(),
-            'countAuthors' => User::all()->count(),
-            'countViewers' => Posts::all()->count('views')
+        return view('backend.pages.articles', [
+            'title' => 'Articles'
         ]);
     }
 
@@ -35,7 +29,7 @@ class DashboardController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePostsRequest $request)
     {
         //
     }
@@ -43,7 +37,7 @@ class DashboardController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Posts $posts)
     {
         //
     }
@@ -51,7 +45,7 @@ class DashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Posts $posts)
     {
         //
     }
@@ -59,7 +53,7 @@ class DashboardController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdatePostsRequest $request, Posts $posts)
     {
         //
     }
@@ -67,7 +61,7 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Posts $posts)
     {
         //
     }

@@ -71,8 +71,14 @@ class AuthController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(User $user,Request $request)
     {
-        //
+        if($request->ajax()){
+            $request->session()->invalidate();
+            $request->session()->regenerate();
+            return response(200);
+        }else{
+            return response(400);
+        }
     }
 }
