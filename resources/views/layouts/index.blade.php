@@ -40,8 +40,8 @@
     @include('components.footer')
 
     <div class="d-flex justify-content-end text-orange">
-        <a href="#">
-            <div class="bg-light fixed-bottom text-center m-4 ms-auto border border-orange rounded shadow-lg d-none"
+        <a href="#" id="scrollUpLink">
+            <div class="bg-light fixed-bottom text-center m-4 ms-auto border border-orange rounded shadow-lg"
                 id="backToTopBtn" style="max-width: 60px;">
                 <div class="p-2"><span class="bi bi-arrow-up-circle-fill fs-4"></span></div>
             </div>

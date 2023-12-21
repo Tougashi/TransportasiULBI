@@ -24853,8 +24853,8 @@ textarea.form-control-lg {
  */
 .section {
     position: relative;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    /* padding-top: 3rem;
+    padding-bottom: 3rem; */
 }
 
 .section-header {
