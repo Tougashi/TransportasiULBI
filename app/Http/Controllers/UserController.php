@@ -2,34 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Posts;
-use App\Http\Requests\Request;
+use App\Models\User;
+use Illuminate\Http\Request;
 
-class PostsController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('backend.pages.articles', [
-            'title' => 'Articles',
-            'articles' => Posts::all()
+        return view('backend.pages.authors', [
+            'title' => 'Authors',
+            'authors' => User::all()
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-
-    public function event()
-    {
-        return view('backend.pages.events', [
-            'title' => 'Events',
-            'events' => Posts::where('categoryId', 1)->get()
-        ]);
-    }
-
     public function create()
     {
         //
@@ -46,7 +37,7 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Posts $posts)
+    public function show(User $user)
     {
         //
     }
@@ -54,7 +45,7 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Posts $posts)
+    public function edit(User $user)
     {
         //
     }
@@ -62,7 +53,7 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Posts $posts)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -70,7 +61,7 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Posts $posts)
+    public function destroy(User $user)
     {
         //
     }

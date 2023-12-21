@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
-use App\Http\Requests\StoreCategoriesRequest;
-use App\Http\Requests\UpdateCategoriesRequest;
-
+use App\Http\Requests\Request;
 class CategoriesController extends Controller
 {
     /**
@@ -13,12 +11,18 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.pages.categories',[
+            'title' => 'Categories',
+            'categories' => Categories::all(),
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
+
+
+
     public function create()
     {
         //
@@ -27,7 +31,7 @@ class CategoriesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategoriesRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -51,7 +55,7 @@ class CategoriesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoriesRequest $request, Categories $categories)
+    public function update(Request $request, Categories $categories)
     {
         //
     }

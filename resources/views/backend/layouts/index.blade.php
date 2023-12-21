@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{csrf_token()}}">
   <title>Transportasi ULBI | {{$title}}</title>
+  <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/img/ulbi.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/ulbi.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/ulbi.png') }}">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -99,6 +102,35 @@
 {{-- <script src="{{asset('assets/backend/dist/js/demo.js')}}"></script> --}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('assets/backend/dist/js/pages/dashboard.js')}}"></script>
+
+<!-- Datatable -->
+<script src="{{asset('assets/backend/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('assets/backend/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('assets/backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+<script src="{{asset('assets/backend/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('assets/backend/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{asset('assets/backend/plugins/jszip/jszip.min.js')}}"></script>
+<script src="{{asset('assets/backend/plugins/pdfmake/pdfmake.min.js')}}"></script>
+<script src="{{asset('assets/backend/plugins/pdfmake/vfs_fonts.js')}}"></script>
+<script src="{{asset('assets/backend/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{asset('assets/backend/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
+<script src="{{asset('assets/backend/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+
+<script>
+    function datatableInit(tableId){
+        $(tableId).DataTable({
+            'responsive' : true,
+            'buttons' : [],
+            'paging': true,
+            'lengthChange': ['50','100','200'],
+            'searching': true,
+        }).draw();
+    }
+</script>
+
+
+
 @stack('scripts')
 </body>
 </html>

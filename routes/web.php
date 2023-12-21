@@ -3,9 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CategoriesController;
 
 
 Route::group(['middleware' => []], function () {
@@ -56,6 +58,15 @@ Route::group(['middleware' => 'auth'], function(){
 
         Route::controller(PostsController::class)->group(function(){
             Route::get('/articles', 'index');
+            Route::get('/events', 'event');
+        });
+
+        Route::controller(CategoriesController::class)->group(function(){
+            Route::get('/categories', 'index');
+        });
+
+        Route::controller(UserController::class)->group(function(){
+            Route::get('/authors', 'index');
         });
 
     });
