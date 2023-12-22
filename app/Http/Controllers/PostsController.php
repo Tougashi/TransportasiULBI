@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Posts;
-use App\Http\Requests\Request;
+use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
@@ -14,7 +14,7 @@ class PostsController extends Controller
     {
         return view('backend.pages.articles', [
             'title' => 'Articles',
-            'articles' => Posts::all()
+            'articles' => Posts::where('categoryId',3)->get()
         ]);
     }
 
@@ -30,17 +30,53 @@ class PostsController extends Controller
         ]);
     }
 
-    public function create()
+    public function attention()
     {
-        //
+        return view('backend.pages.attentions', [
+            'title' => 'Attentions',
+            'attentions' => Posts::where('categoryId',2)->get()
+        ]);
+    }
+
+    public function create($articleType)
+    {
+        switch($articleType){
+            case('articles'):
+                return view('backend.pages.add-article', [
+                    'title' => 'Articles'
+                ]);
+            break;
+            case('categories'):
+                return view('backend.pages.add-category', [
+                    'title' => 'Categories'
+                ]);
+            break;
+            case('authors'):
+                return view('backend.pages.add-author', [
+                    'title' => 'Authors'
+                ]);
+            break;
+            case('events'):
+                return view('backend.pages.add-event', [
+                    'title' => 'Events'
+                ]);
+            break;
+            case('attentions'):
+                return view('backend.pages.add-attention', [
+                    'title' => 'Attentions'
+                ]);
+            break;
+            default:
+                return response(404);
+        }
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $articleType)
     {
-        //
+        return response()->json(['data' => $request->all()]);
     }
 
     /**

@@ -59,6 +59,9 @@ Route::group(['middleware' => 'auth'], function(){
         Route::controller(PostsController::class)->group(function(){
             Route::get('/articles', 'index');
             Route::get('/events', 'event');
+            Route::get('/attentions', 'attention');
+            Route::get('/{articleType}/add','create');
+            Route::post('/{articleType}/add/store','store');
         });
 
         Route::controller(CategoriesController::class)->group(function(){

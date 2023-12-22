@@ -3,6 +3,7 @@
 <div class="card">
     <!-- /.card-header -->
     <div class="card-body">
+        @include('backend.components.add-data-button')
       <table id="articlesTable" class="table table-bordered table-striped">
         <thead>
         <tr>

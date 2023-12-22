@@ -30,6 +30,8 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('assets/backend/plugins/summernote/summernote-bs4.min.css')}}">
 
+  {{-- CKEDITOR --}}
+  <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

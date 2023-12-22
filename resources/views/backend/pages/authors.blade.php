@@ -2,6 +2,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+            @include('backend.components.add-data-button')
             <table id="categoriesTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>

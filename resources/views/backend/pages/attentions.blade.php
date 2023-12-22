@@ -3,19 +3,21 @@
     <div class="card">
         <div class="card-body">
             @include('backend.components.add-data-button')
-            <table id="categoriesTable" class="table table-bordered table-striped">
+            <table id="attentionsTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Kategori</th>
+                        <th>Judul</th>
+                        <th>Deskripsi</th>
                         <th>Dibuat Pada</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($categories as $item)
+                    @foreach ($attentions as $item)
                     <tr>
                         <td>{{$loop->iteration}}</td>
-                        <td>{{$item->category}}</td>
+                        <td>{{$item->title}}</td>
+                        <td>{{$item->excerpt}}</td>
                         <td>{{$item->created_at->format('d/m/Y')}}</td>
                     </tr>
                     @endforeach
@@ -27,7 +29,7 @@
 @push('scripts')
     <script>
         $().ready(function(){
-            datatableInit('#categoriesTable');
+            datatableInit('#attentionsTable');
         });
     </script>
 @endpush
