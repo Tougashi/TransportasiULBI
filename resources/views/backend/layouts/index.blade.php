@@ -30,8 +30,10 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('assets/backend/plugins/summernote/summernote-bs4.min.css')}}">
 
-  {{-- CKEDITOR --}}
-  <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
+  {{-- trix --}}
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+
+
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -71,6 +73,10 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
+{{-- trix --}}
+<script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+
+
 <script src="{{asset('assets/backend/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('assets/backend/plugins/jquery-ui/jquery-ui.min.js')}}"></script>

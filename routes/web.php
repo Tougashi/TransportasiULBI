@@ -49,7 +49,7 @@ Route::group(['middleware' => []], function () {
 
 });
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['web','auth']], function(){
     Route::prefix('backend')->group(function(){
 
         Route::controller(DashboardController::class)->group(function(){
@@ -62,6 +62,9 @@ Route::group(['middleware' => 'auth'], function(){
             Route::get('/attentions', 'attention');
             Route::get('/{articleType}/add','create');
             Route::post('/{articleType}/add/store','store');
+
+            // EDITOR IMAGE UPLOAD
+            Route::post('/article/upload/image','uploadImage');
         });
 
         Route::controller(CategoriesController::class)->group(function(){

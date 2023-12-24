@@ -76,7 +76,45 @@ class PostsController extends Controller
      */
     public function store(Request $request, $articleType)
     {
-        return response()->json(['data' => $request->all()]);
+        $categoryType = Category::where('slug', $articleType)->first();
+        $data = $request->all();
+        $data->userId = auth()->user()->id;
+        $data->categoryId = $categoryType->slug;
+
+
+        $data->validate([
+            'title' => 'required',
+            'slug' => 'required',
+            'postBody' => 'required',
+            'author' => 'required'
+        ]);
+
+
+    }
+
+    public function uploadImage(Request $request){
+        if($request->hasFile('file')) {
+            //get filename with extension
+            $filenamewithextension = $request->file('file')->getClientOriginalName();
+
+            //get filename without extension
+            $filename = $filenamewithextension;
+
+            //get file extension
+            $extension = $request->file('file')->getClientOriginalExtension();
+
+            //filename to store
+            $filenametostore = $filename.'_'.time().'.'.$extension;
+
+            //Upload File
+            $request->file('file')->storeAs('public/uploads', $filenametostore);
+
+            // you can save image path below in database
+            $path = asset('storage/uploads/'.$filenametostore);
+
+            echo $path;
+            exit;
+        }
     }
 
     /**
