@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('slug');
             $table->text('body');
             $table->text('excerpt');
-            $table->string('views');
-            $table->date('date');
+            $table->string('views')->default(0)->nullable();
+            $table->date('date')->nullable();
 
             $table->unsignedBigInteger('userId');
             $table->foreign('userId')->references('id')->on('users');

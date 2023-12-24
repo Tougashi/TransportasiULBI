@@ -12,7 +12,8 @@
           <th>Kategori</th>
           <th>Author</th>
           <th>Views</th>
-          <th>Tanggal Posting</th>
+          <th>Waktu Posting</th>
+          <th>Aksi</th>
         </tr>
         </thead>
         <tbody>
@@ -23,7 +24,8 @@
             <td>{{$item->category->category}}</td>
             <td>{{$item->author->author}}</td>
             <td>{{$item->views}}</td>
-            <td>{{$item->created_at->format('d/m/Y')}}</td>
+            <td>{{$item->created_at->format('d F Y  H:i')}}</td>
+            <td><button class="btn btn-info"><i class="fas fa-solid fa-bars"></i></button></td>
             </tr>
         @endforeach
       </table>

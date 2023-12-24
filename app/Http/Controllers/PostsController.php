@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Posts;
+use App\Models\Categories;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PostsController extends Controller
 {
@@ -14,7 +17,7 @@ class PostsController extends Controller
     {
         return view('backend.pages.articles', [
             'title' => 'Articles',
-            'articles' => Posts::where('categoryId',3)->get()
+            'articles' => Posts::where('categoryId',1)->get()
         ]);
     }
 
@@ -76,19 +79,40 @@ class PostsController extends Controller
      */
     public function store(Request $request, $articleType)
     {
-        $categoryType = Category::where('slug', $articleType)->first();
+        $categoryType = Categories::where('slug', $articleType)->first();
         $data = $request->all();
-        $data->userId = auth()->user()->id;
-        $data->categoryId = $categoryType->slug;
+        $data['excerpt'] = Str::limit(strip_tags($request->postBody), 200);
+        $data['body'] = $request->postBody;
 
 
-        $data->validate([
+        $validators = Validator::make($data, [
             'title' => 'required',
             'slug' => 'required',
-            'postBody' => 'required',
-            'author' => 'required'
+            'body' => 'required',
+            'excerpt' => 'required',
+            'thumbnail' => 'required|image|file|max:5000',
         ]);
 
+        if($validators->fails()){
+            return response()->with('errors', $validators->errors());
+        }
+
+        $validated = $validators->validated();
+        $validated['userId'] = auth()->user()->id;
+        $validated['thumbnail'] = $request->file('thumbnail')->store('public/uploads/thumbnails');
+        if(isset($categoryType)){
+            $validated['categoryId'] = $categoryType->id;
+        }else{
+            $newCategory = Categories::create([
+                'category' => $articleType,
+                'slug' => Str::slug($articleType)
+            ]);
+
+            $validated['categoryId'] = $newCategory->id;
+        }
+        Posts::create($validated);
+
+        return redirect('/backend/articles/')->with('success', 'Artikel / Postingan berhasil di Upload');
 
     }
 

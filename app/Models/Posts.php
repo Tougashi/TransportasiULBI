@@ -11,14 +11,15 @@ class Posts extends Model
 
     protected $guarded = ['id'];
     protected $fillable = [
-        'title', 'thumbnail','slug','body','excerpt','views','date','userId','categoryId'
+        'title', 'thumbnail','slug','body','excerpt','date','userId','categoryId'
     ];
+    protected $nullable = ['views'];
 
     public function author(){
         return $this->belongsTo(\App\Models\User::class, 'userId');
     }
 
     public function category(){
-        return $this->belongsTo(\App\Models\Category::class, 'categoryId');
+        return $this->belongsTo(\App\Models\Categories::class, 'categoryId');
     }
 }
