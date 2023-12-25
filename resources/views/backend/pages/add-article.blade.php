@@ -1,10 +1,5 @@
 @extends('backend.layouts.index')
 @section('content')
-@if(session()->has('errors'))
-<script>
-    errorToasts($error);
-</script>
-@endif
     <div class="card mb-1">
         <div class="card-body">
             <div class="card-title">
@@ -72,14 +67,15 @@
             $('#slugArtikel').val(titleValSlugged);
         });
 
-        $('#thumbnailInput').on('change', function(){
+        $('#thumbnailInput').on('change', function() {
             const thumbnailPreview = $('#thumbnail');
             const image = $('#thumbnailInput').prop('files');
 
             const reader = new FileReader();
             reader.readAsDataURL(image[0]);
-            reader.onload = function(e){
-                const previewThumbnailTemplate = `<img src="${e.target.result}" alt="" class="w-100 h-100 p-0 m-0">`
+            reader.onload = function(e) {
+                const previewThumbnailTemplate =
+                    `<img src="${e.target.result}" alt="" class="w-100 h-100 p-0 m-0">`
                 $('#thumbnail').empty().append(previewThumbnailTemplate);
             }
 

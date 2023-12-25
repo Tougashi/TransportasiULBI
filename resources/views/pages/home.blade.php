@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </section>
 
 
@@ -102,163 +102,48 @@
             <div class="container-fluid">
                 <h3 class="text-center fw-bolder mt-5 mb-4">Berita Terbaru</h3>
                 <div class="row mt-5 gap-3 d-flex justify-content-center">
+                    @forelse ($articles as $article)
                     <div class="col-8 col-lg-3 col-md-8 mb-lg-0 m-0">
                         <div class="card shadow-sm">
-                            <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
+                            <img src="{{asset('/storage/'.$article->thumbnail)}}" class="card-img-top rounded-top"
                                 alt="Themesberg office">
                             <div class="card-body">
-                                <h3 class="h5 card-title mt-3">We partnered up with Google</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                    of
-                                    the card's content.</p>
+                                <h3 class="h5 card-title mt-3">{{$article->title}}</h3>
+                                <p class="card-text">{!! $article->excerpt !!}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
-                        <div class="card shadow-sm">
-                            <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
-                                alt="Themesberg office">
-                            <div class="card-body">
-                                <h3 class="h5 card-title mt-3">We partnered up with Google</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                    of
-                                    the card's content.</p>
-                            </div>
-                        </div>
+                    @empty
+                    <div class="col-12 text-center">
+                        <div class="text-primary fw-bold h4 text-underline">Tidak ada Berita Terbaru</div>
                     </div>
-                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
-                        <div class="card shadow-sm">
-                            <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
-                                alt="Themesberg office">
-                            <div class="card-body">
-                                <h3 class="h5 card-title mt-3">We partnered up with Google</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                    of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
-                        <div class="card shadow-sm">
-                            <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
-                                alt="Themesberg office">
-                            <div class="card-body">
-                                <h3 class="h5 card-title mt-3">We partnered up with Google</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                    of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
-                        <div class="card shadow-sm">
-                            <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
-                                alt="Themesberg office">
-                            <div class="card-body">
-                                <h3 class="h5 card-title mt-3">We partnered up with Google</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                    of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
-                        <div class="card shadow-sm">
-                            <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
-                                alt="Themesberg office">
-                            <div class="card-body">
-                                <h3 class="h5 card-title mt-3">We partnered up with Google</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforelse
+
                 </div>
             </div>
+
 
             <div class="container-fluid pt-5">
                 <h3 class="text-center fw-bolder mt-5 mb-4">Kegiatan Mahasiswa Prodi : S1 Manajemen Transportasi</h3>
                 <div class="row mt-5 gap-3 d-flex justify-content-center">
+
+                    @forelse ( $kegiatanMhs as $item)
                     <div class="col-8 col-lg-3 col-md-8 mb-lg-0 m-0">
                         <div class="card shadow-sm">
-                            <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
+                            <img src="{{ asset('/storage/'.$item->thumbnail) }}" class="card-img-top rounded-top"
                                 alt="Themesberg office">
                             <div class="card-body">
-                                <h3 class="h5 card-title mt-3">We partnered up with Google</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of
-                                    the card's content.</p>
+                                <h3 class="h5 card-title mt-3">{{$item->title}}</h3>
+                                <p class="card-text">{!! $item->excerpt !!}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
-                        <div class="card shadow-sm">
-                            <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
-                                alt="Themesberg office">
-                            <div class="card-body">
-                                <h3 class="h5 card-title mt-3">We partnered up with Google</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of
-                                    the card's content.</p>
-                            </div>
-                        </div>
+
+                    @empty
+                    <div class="col-12 text-center">
+                        <div class="text-primary fw-bold h4 text-underline">Tidak ada Kegiatan Mahasiswa Terbaru</div>
                     </div>
-                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
-                        <div class="card shadow-sm">
-                            <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
-                                alt="Themesberg office">
-                            <div class="card-body">
-                                <h3 class="h5 card-title mt-3">We partnered up with Google</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
-                        <div class="card shadow-sm">
-                            <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
-                                alt="Themesberg office">
-                            <div class="card-body">
-                                <h3 class="h5 card-title mt-3">We partnered up with Google</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
-                        <div class="card shadow-sm">
-                            <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
-                                alt="Themesberg office">
-                            <div class="card-body">
-                                <h3 class="h5 card-title mt-3">We partnered up with Google</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-8 col-lg-3 col-md-8 mb-lg-0">
-                        <div class="card shadow-sm">
-                            <img src="{{ asset('/assets/img/blog/image-1.jpg') }}" class="card-img-top rounded-top"
-                                alt="Themesberg office">
-                            <div class="card-body">
-                                <h3 class="h5 card-title mt-3">We partnered up with Google</h3>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </section>
@@ -269,16 +154,16 @@
                     <div class="card-header bg-orange text-white">
                         <div class="row">
                             <div class="col-md-6">
-                                <h3 class="card-title mb-0 fw-bold">Agenda | Pengumuman</h3>
+                                <h3 class="card-title mb-0 fw-bold">{{count($agendas) > 0 ? count($agendas) : ''}} Agenda | {{count($agendas) > 0 ? count($agendas) : ''}}  Pengumuman</h3>
                             </div>
-                            <div class="col-md-6 d-flex justify-content-end">
+                            {{-- <div class="col-md-6 d-flex justify-content-end">
                                 <div class="btn-group " role="group">
                                     <button type="button" class="btn btn-sm btn-outline-primary text-white">Hari
                                         Ini</button>
                                     <button type="button" class="btn btn-sm btn-outline-primary text-white">Yang Akan
                                         Datang</button>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="card-body bg-primary py-5 rounded-bottom">
@@ -286,17 +171,28 @@
                             <section class="section section-lg py-0">
                                 <div class="container-fluid d-flex">
                                     <div class="row gap-3 d-flex justify-content-center">
+                                        @forelse ( $pengumumans as $item)
                                         <div class="col-lg-5 col-md-6 col-sm-12">
                                             <div class="card shadow-sm">
                                                 <div class="card-body">
                                                     <h3 class="h5 card-title py-2 border-bottom"><i
-                                                            class="bi bi-calendar2-week-fill me-3"></i>Wisuda</h3>
-                                                    <p class="card-text">Some quick example text to build on the card title
-                                                        and make up the bulk of the card's content.</p>
+                                                            class="bi bi-calendar2-week-fill me-3"></i>{{$item->title}} | <span class="text-orange">{{$item->category->category}}</span></h3>
+                                                    <p class="card-text">{!! $item->excerpt !!}</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-5 col-md-6 col-sm-12">
+                                        @empty
+                                        <div class="col-12">
+                                            <div class="card shadow-sm">
+                                                <div class="card-body">
+                                                    <h3 class="h5 card-title py-2 border-bottom">
+                                                        Data Kosong
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforelse
+                                        {{-- <div class="col-lg-5 col-md-6 col-sm-12">
                                             <div class="card shadow-sm">
                                                 <div class="card-body">
                                                     <h3 class="h5 card-title py-2 border-bottom"><i
@@ -326,7 +222,7 @@
                                                         and make up the bulk of the card's content.</p>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </section>
@@ -509,7 +405,7 @@
 
 
 
-        
+
 
         <section class="section section-lg">
             <div class="container">
@@ -538,7 +434,7 @@
                             class="me-1" alt="">
                     </div>
                 </div>
-            </div> 
+            </div>
         </section>
 
     </div>

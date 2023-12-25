@@ -17,7 +17,9 @@ class PostsController extends Controller
     {
         return view('backend.pages.articles', [
             'title' => 'Articles',
-            'articles' => Posts::where('categoryId',1)->get()
+            'articles' => Posts::whereHas('category', function($q){
+                $q->where('category','articles');
+            })->get()
         ]);
     }
 
@@ -29,7 +31,9 @@ class PostsController extends Controller
     {
         return view('backend.pages.events', [
             'title' => 'Events',
-            'events' => Posts::where('categoryId', 1)->get()
+            'events' => Posts::whereHas('category', function($q){
+                $q->where('category','events');
+            })->get()
         ]);
     }
 
@@ -37,7 +41,9 @@ class PostsController extends Controller
     {
         return view('backend.pages.attentions', [
             'title' => 'Attentions',
-            'attentions' => Posts::where('categoryId',2)->get()
+            'attentions' => Posts::whereHas('category', function($q){
+                $q->where('category','attentions');
+            })->get()
         ]);
     }
 
@@ -91,15 +97,18 @@ class PostsController extends Controller
             'body' => 'required',
             'excerpt' => 'required',
             'thumbnail' => 'required|image|file|max:5000',
+        ], $messages = [
+            'body.required' => 'Input Isi Artikel tidak boleh kosong, periksa kembali',
+            'thumbnail.required' => 'Thumbnail wajib diisi',
         ]);
 
         if($validators->fails()){
-            return response()->with('errors', $validators->errors());
+            return back()->with('errors', $validators->errors());
         }
 
         $validated = $validators->validated();
         $validated['userId'] = auth()->user()->id;
-        $validated['thumbnail'] = $request->file('thumbnail')->store('public/uploads/thumbnails');
+        $validated['thumbnail'] = $request->file('thumbnail')->store('uploads/thumbnails');
         if(isset($categoryType)){
             $validated['categoryId'] = $categoryType->id;
         }else{
@@ -168,8 +177,9 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Posts $posts)
+    public function destroy(Posts $posts, $articleType, $id)
     {
-        //
+        $data = Posts::where('id', $id)->delete();
+        return back()->with('success', 'Data Artikel berhasil dihapus');
     }
 }

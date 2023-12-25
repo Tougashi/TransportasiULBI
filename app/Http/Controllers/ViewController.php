@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Posts;
 use Illuminate\Http\Request;
 
 class ViewController extends Controller
@@ -11,6 +12,18 @@ class ViewController extends Controller
         return view('pages.home', [
             'NavbarTitle' => 'Beranda',
             'title' => 'Fakultas : S1 Manajemen Transportasi',
+            'articles' => Posts::where('created_at', '<=', now())->whereHas('category', function($query){
+                $query->where('slug', 'articles');
+            })->latest()->get(),
+            'kegiatanMhs' => Posts::where('created_at', '<=', now())->whereHas('category', function($query){
+                $query->where('slug', 'kegiatan-mahasiswa');
+            })->latest()->get(),
+            'pengumumans' => Posts::where('date','>=',now())->whereHas('category', function($query){
+                $query->where('slug', 'pengumuman');
+            })->latest()->get(),
+            'agendas' => Posts::where('date','>=',now())->whereHas('category', function($query){
+                $query->where('slug', 'agenda');
+            })->latest()->get(),
         ]);
     }
 

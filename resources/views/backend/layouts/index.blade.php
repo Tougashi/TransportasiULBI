@@ -98,7 +98,7 @@
     <!-- Bootstrap 4 -->
     <script src="{{ asset('assets/backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-    <script src="{{asset('assets/backend/plugins/moment/moment.min.js')}}"></script>
+    <script src="{{ asset('assets/backend/plugins/moment/moment.min.js') }}"></script>
 
     <script src="{{ asset('assets/backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
     </script>
@@ -123,7 +123,6 @@
     <script src="{{ asset('assets/backend/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('assets/backend/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('assets/backend/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-
     <script>
         function datatableInit(tableId) {
             $(tableId).DataTable({
@@ -146,15 +145,37 @@
         function errorToasts(message) {
             $(document).Toasts('create', {
                 class: 'bg-danger',
-                title: 'Error Ditemukan',
+                title: 'Kesalahan Ditemukan',
                 position: 'topRight',
                 body: message,
                 autohide: true,
-                delay: 2000
+                delay: 5000
+            });
+        }
+
+        function successToasts(message) {
+            $(document).Toasts('create', {
+                class: 'bg-success',
+                title: 'Sukses',
+                position: 'topRight',
+                body: message,
+                autohide: true,
+                delay: 5000
             });
         }
     </script>
-
+    @if (session()->has('errors'))
+        @foreach (json_decode(session('errors')) as $item)
+            <script>
+                errorToasts('{{ $item[0] }}');
+            </script>
+        @endforeach
+    @endif
+    @if (session()->has('success'))
+        <script>
+            successToasts('{{ session('success') }}');
+        </script>
+    @endif
 
 
     @stack('scripts')
