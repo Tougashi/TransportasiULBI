@@ -132,10 +132,10 @@
                             <div class="card-body">
                                 <h3 class="h5 card-title mt-3">{{$kegiatan->title}}</h3>
                                 <p class="card-text">{!! $kegiatan->excerpt !!}</p>
+                            </a>
                             </div>
                         </div>
                     </div>
-                    </a>
                     @empty
                     <div class="col-12 text-center">
                         <div class="text-primary fw-bold h4 text-underline">Tidak ada Kegiatan Mahasiswa Terbaru</div>
