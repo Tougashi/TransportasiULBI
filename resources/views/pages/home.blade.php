@@ -97,7 +97,6 @@
                 </div>
             </div>
 
-
             <div class="container-fluid">
                 <h3 class="text-center fw-bolder mt-5 mb-4">Berita Terbaru</h3>
                 <div class="row mt-5 gap-3 d-flex justify-content-center">
@@ -121,7 +120,6 @@
 
                 </div>
             </div>
-
 
             <div class="container-fluid pt-5">
                 <h3 class="text-center fw-bolder mt-5 mb-4">Kegiatan Mahasiswa Prodi : S1 Manajemen Transportasi</h3>
@@ -184,9 +182,7 @@
                                         <div class="col-12">
                                             <div class="card shadow-sm">
                                                 <div class="card-body">
-                                                    <h3 class="h5 card-title py-2 border-bottom">
-                                                        Data Kosong
-                                                    </h3>
+                                                    <h3 class="h5 card-title py-2 border-bottom">Data Kosong</h3>
                                                 </div>
                                             </div>
                                         </div>
