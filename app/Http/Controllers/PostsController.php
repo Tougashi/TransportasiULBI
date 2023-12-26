@@ -200,26 +200,15 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        $post = Posts::find($id);
-
-        if ($post && $post->thumbnail) {
-            $thumbnailPath = 'thumbnails/' . $post->thumbnail;
+        // $data = Posts::where('id', $id)->delete();
         
-            // Periksa apakah file thumbnail ada sebelum dihapus
-            if (Storage::exists($thumbnailPath)) {
-                Storage::delete($thumbnailPath);
-        
-                // Hapus secara permanen dari database jika menggunakan soft delete
-                $post->forceDelete();
-        
-                return back()->with('success', 'Data Artikel berhasil dihapus');
-            } else {
-                return back()->with('error', 'File thumbnail tidak ditemukan di storage');
-            }
-        } else {
-            return back()->with('error', 'Post atau thumbnail tidak ditemukan');
+        $posts = Posts::find($id);
+        Storage::delete('' . $posts->thumbnail);
+        if($posts->thumbnail) {
         }
-        
 
+        Posts::destroy($id);
+
+        return back()->with('success', 'Data Artikel berhasil dihapus');
     }
 }
