@@ -109,8 +109,10 @@ class PostsController extends Controller
 
         $validated = $validators->validated();
         $validated['userId'] = auth()->user()->id;
-        $validated['thumbnail'] = $request->file('thumbnail')->storeAs('public/thumbnails');
-        if(isset($categoryType)){
+        $validated['thumbnail'] = 'thumbnails'.'/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
+        $request->file('thumbnail')->storeAs('public/thumbnails', $validated['thumbnail'] );
+
+        if(isset($categoryType)){   
             $validated['categoryId'] = $categoryType->id;
         }else{
             $newCategory = Categories::create([
@@ -120,7 +122,9 @@ class PostsController extends Controller
 
             $validated['categoryId'] = $newCategory->id;
         }
-        Posts::create($validated);
+        Posts::create($validated, [
+            // 'thumbnail' => '/thumbnails' . $thumbnails
+        ]);
 
         return redirect('/backend/articles/')->with('success', 'Artikel / Postingan berhasil di Upload');
 
