@@ -171,13 +171,13 @@
                             <section class="section section-lg py-0">
                                 <div class="container-fluid d-flex">
                                     <div class="row gap-3 d-flex justify-content-center">
-                                        @forelse ( $pengumumans as $item)
+                                        @forelse ($pengumumans as $item)
                                         <div class="col-lg-5 col-md-6 col-sm-12">
                                             <div class="card shadow-sm">
                                                 <div class="card-body">
                                                     <h3 class="h5 card-title py-2 border-bottom"><i
                                                             class="bi bi-calendar2-week-fill me-3"></i>{{$item->title}} | <span class="text-orange">{{$item->category->category}}</span></h3>
-                                                    <p class="card-text">{!! $item->excerpt !!}</p>
+                                                     <p class="card-text">{!! $item->excerpt !!}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -192,37 +192,6 @@
                                             </div>
                                         </div>
                                         @endforelse
-                                        {{-- <div class="col-lg-5 col-md-6 col-sm-12">
-                                            <div class="card shadow-sm">
-                                                <div class="card-body">
-                                                    <h3 class="h5 card-title py-2 border-bottom"><i
-                                                            class="bi bi-calendar2-week-fill me-3"></i>Meeting dengan Mitra
-                                                    </h3>
-                                                    <p class="card-text">Some quick example text to build on the card title
-                                                        and make up the bulk of the card's content.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5 col-md-6 col-sm-12">
-                                            <div class="card shadow-sm">
-                                                <div class="card-body">
-                                                    <h3 class="h5 card-title py-2 border-bottom"><i
-                                                            class="bi bi-calendar2-week-fill me-3"></i>Vacation</h3>
-                                                    <p class="card-text">Some quick example text to build on the card title
-                                                        and make up the bulk of the card's content.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5 col-md-6 col-sm-12">
-                                            <div class="card shadow-sm">
-                                                <div class="card-body">
-                                                    <h3 class="h5 card-title py-2 border-bottom"><i
-                                                            class="bi bi-info-circle-fill me-3"></i>Pengumuman ULBI</h3>
-                                                    <p class="card-text">Some quick example text to build on the card title
-                                                        and make up the bulk of the card's content.</p>
-                                                </div>
-                                            </div>
-                                        </div> --}}
                                     </div>
                                 </div>
                             </section>

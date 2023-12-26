@@ -62,6 +62,8 @@ Route::group(['middleware' => ['web','auth']], function(){
             Route::get('/attentions', 'attention');
             Route::get('/{articleType}/add','create');
             Route::post('/{articleType}/add/store','store');
+            Route::get('/{articleType}/show/{id}','show');
+            Route::put('/{articleType}/edit/{id}','edit');
             Route::get('/{articleType}/delete/{id}','destroy');
 
             // EDITOR IMAGE UPLOAD

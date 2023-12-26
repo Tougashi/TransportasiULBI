@@ -128,7 +128,7 @@
             $(tableId).DataTable({
                 paging: true,
                 lengthChange: false,
-                searching: false,
+                searching: true,
                 info: true,
                 autoWidth: false,
                 responsive: true,
@@ -157,6 +157,17 @@
             $(document).Toasts('create', {
                 class: 'bg-success',
                 title: 'Sukses',
+                position: 'topRight',
+                body: message,
+                autohide: true,
+                delay: 5000
+            });
+        }
+
+        function infoToasts(message) {
+            $(document).Toasts('create', {
+                class: 'bg-info',
+                title: 'Informasi',
                 position: 'topRight',
                 body: message,
                 autohide: true,

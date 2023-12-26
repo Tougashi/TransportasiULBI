@@ -153,9 +153,29 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Posts $posts)
+    public function show(Posts $posts, $articleType, $id)
     {
-        //
+        $article = Posts::where('id',$id)->first();
+        $datas  = [
+            'title' => 'Article',
+            'article' => $article,
+        ];
+        switch($articleType){
+            case('articles'):
+                return view('backend.pages.edit-article', $datas);
+            break;
+            case('categories'):
+                return view('backend.pages.edit-category', $datas);
+            break;
+            case('events'):
+                return view('backend.pages.edit-event', $datas);
+            break;
+            case('attentions'):
+                return view('backend.pages.add-attention', $datas);
+            break;
+            default:
+                return response(404);
+        }
     }
 
     /**
