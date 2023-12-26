@@ -24,6 +24,7 @@ class ViewController extends Controller
             'agendas' => Posts::where('date','>=',now())->whereHas('category', function($query){
                 $query->where('slug', 'agenda');
             })->latest()->get(),
+            'posts' => Posts::all()
         ]);
     }
 
