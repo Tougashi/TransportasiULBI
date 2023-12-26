@@ -126,30 +126,30 @@ class PostsController extends Controller
 
     }
 
-    // public function uploadImage(Request $request){
-    //     if($request->hasFile('file')) {
-    //         //get filename with extension
-    //         $filenamewithextension = $request->file('file')->getClientOriginalName();
+    public function uploadImage(Request $request){
+        if($request->hasFile('file')) {
+            //get filename with extension
+            $filenamewithextension = $request->file('file')->getClientOriginalName();
 
-    //         //get filename without extension
-    //         $filename = $filenamewithextension;
+            //get filename without extension
+            $filename = $filenamewithextension;
 
-    //         //get file extension
-    //         $extension = $request->file('file')->getClientOriginalExtension();
+            //get file extension
+            $extension = $request->file('file')->getClientOriginalExtension();
 
-    //         //filename to store
-    //         $filenametostore = $filename.'_'.time().'.'.$extension;
+            //filename to store
+            $filenametostore = $filename.'_'.time().'.'.$extension;
 
-    //         //Upload File
-    //         $request->file('file')->storeAs('public/uploads', $filenametostore);
+            //Upload File
+            $request->file('file')->storeAs('public/uploads', $filenametostore);
 
-    //         // you can save image path below in database
-    //         $path = asset('storage/uploads/'.$filenametostore);
+            // you can save image path below in database
+            $path = asset('storage/uploads/'.$filenametostore);
 
-    //         echo $path;
-    //         exit;
-    //     }
-    // }
+            echo $path;
+            exit;
+        }
+    }
 
     /**
      * Display the specified resource.
@@ -201,7 +201,7 @@ class PostsController extends Controller
     public function destroy($id)
     {
         // $data = Posts::where('id', $id)->delete();
-        
+
         $posts = Posts::find($id);
         Storage::delete('' . $posts->thumbnail);
         if($posts->thumbnail) {
