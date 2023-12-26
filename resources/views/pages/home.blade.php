@@ -105,8 +105,8 @@
                     @forelse ($articles as $article)
                     <div class="col-8 col-lg-3 col-md-8 mb-lg-0 m-0">
                         <div class="card shadow-sm">
-                            <img src="{{asset('/storage/'.$article->thumbnail)}}" class="card-img-top rounded-top"
-                                alt="Themesberg office">
+                            <img src="{{asset('storage/'.$article->thumbnail)}}" class="card-img-top rounded-top"
+                                alt="Thumbnail">
                             <div class="card-body">
                                 <h3 class="h5 card-title mt-3">{{$article->title}}</h3>
                                 <p class="card-text">{!! $article->excerpt !!}</p>
