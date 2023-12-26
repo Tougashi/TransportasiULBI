@@ -13,6 +13,8 @@ use App\Http\Controllers\CategoriesController;
 Route::group(['middleware' => []], function () {
    Route::controller(ViewController::class)->group(function(){
     Route::get('/', 'main')->name('beranda');
+    Route::get('/berita/{posts:slug}', 'berita')->name('berita');
+    Route::get('/kegiatan/{posts:slug}', 'kegiatan')->name('kegiatan');
     Route::prefix('page')->group(function(){
         Route::get('/profil-transportasi-ulbi', 'profil')->name('profil');
         Route::get('/visi-misi', 'visiMisi')->name('visiMisi');

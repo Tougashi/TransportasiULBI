@@ -4,18 +4,16 @@
         <section class="section-bg section">
             <img src="{{ asset('assets/img/pages/bg4.png') }}" alt="Background Image" class="background-image">
             <div class="container pb-5 content">
+                <br><br><br><br>
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-6 col-md-12 pb-lg-0 pt-sm-5 order-sm-2 order-lg-1 order-2 pb-2">
                         <h1 id="typewriter" class="fw-bolder text-light" style="font-size: 70px; font-family: 'Poppins';"></h1>
-                        <p class="fw-bold fs-5 text-light pt-2">Merupakan program studi yang mempelajari tentang pengelolaan,
-                            perancangan, perbaikan, dan pengintegrasian sistem transportasi yang mencakup sarana, prasarana,
-                            rencana operasi, pemeliharaan dengan tujuan untuk menjamin pergerakan barang yang aman, cepat,
-                            mudah, ekonomis, dan ramah terhadap lingkungan.</p>
+                        <p class="fw-bold fs-5 text-light pt-2">Gada Kite Barang Ga Sampe</p>
                         <a href="https://enroll.ulbi.ac.id/Pendaftaran"
                             class="btn btn-orange btn-outline-primary p-3 fs-5 mt-4 text-light">Daftar Sekarang <span class="ms-2">🚀</span></a>
                     </div>
                     <div class="col-lg-6 col-md-12 order-lg-2 order-sm-1 order-1 custom-frame">
-                        <img src="{{ asset('assets/img/illustrations/kampus.jpg') }}" class="img-fluid rounded enlarged-image"  alt="">
+                        <img src="{{ asset('assets/img/illustrations/banner.jpg') }}" class="img-fluid rounded enlarged-image"  alt="">
                     </div>
                 </div>
             </div>
@@ -99,20 +97,22 @@
                 </div>
             </div>
 
+
             <div class="container-fluid">
                 <h3 class="text-center fw-bolder mt-5 mb-4">Berita Terbaru</h3>
                 <div class="row mt-5 gap-3 d-flex justify-content-center">
-                    @forelse ($posts as $post)
+                    @forelse ($News as $article)
                     <div class="col-8 col-lg-3 col-md-8 mb-lg-0 m-0">
                         <div class="card shadow-sm">
-                            <img src="{{asset('storage/' . $post->thumbnail)}}" class="card-img-top rounded-top"
-                                alt="Thumbnail">
+                            <a href="/berita/{{ $article->slug }}">
+                            <img src="{{asset('storage/' . $article->thumbnail)}}" class="card-img-top rounded-top" alt="Thumbnail">
                             <div class="card-body">
-                                <h3 class="h5 card-title mt-3">{{$post->title}}</h3>
-                                <p class="card-text">{!! $post->excerpt !!}</p>
+                                <h3 class="h5 card-title mt-3">{{$article->title}}</h3>
+                                <p class="card-text">{!! $article->excerpt !!}</p>
                             </div>
                         </div>
                     </div>
+                    </a>
                     @empty
                     <div class="col-12 text-center">
                         <div class="text-primary fw-bold h4 text-underline">Tidak ada Berita Terbaru</div>
@@ -126,19 +126,18 @@
             <div class="container-fluid pt-5">
                 <h3 class="text-center fw-bolder mt-5 mb-4">Kegiatan Mahasiswa Prodi : S1 Manajemen Transportasi</h3>
                 <div class="row mt-5 gap-3 d-flex justify-content-center">
-
-                    @forelse ( $kegiatanMhs as $item)
+                    @forelse ($Kegiatan as $kegiatan)
                     <div class="col-8 col-lg-3 col-md-8 mb-lg-0 m-0">
                         <div class="card shadow-sm">
-                            <img src="{{ asset('/storage/'.$item->thumbnail) }}" class="card-img-top rounded-top"
-                                alt="Themesberg office">
+                            <a href="/kegiatan/{{ $kegiatan->slug }}">
+                            <img src="{{ asset('storage/' . $kegiatan->thumbnail) }}" class="card-img-top rounded-top" alt="Thumbnail">
                             <div class="card-body">
-                                <h3 class="h5 card-title mt-3">{{$item->title}}</h3>
-                                <p class="card-text">{!! $item->excerpt !!}</p>
+                                <h3 class="h5 card-title mt-3">{{$kegiatan->title}}</h3>
+                                <p class="card-text">{!! $kegiatan->excerpt !!}</p>
                             </div>
                         </div>
                     </div>
-
+                    </a>
                     @empty
                     <div class="col-12 text-center">
                         <div class="text-primary fw-bold h4 text-underline">Tidak ada Kegiatan Mahasiswa Terbaru</div>

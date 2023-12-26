@@ -12,10 +12,10 @@ class ViewController extends Controller
         return view('pages.home', [
             'NavbarTitle' => 'Beranda',
             'title' => 'Fakultas : S1 Manajemen Transportasi',
-            'articles' => Posts::where('created_at', '<=', now())->whereHas('category', function($query){
+            'News' => Posts::where('created_at', '<=', now())->whereHas('category', function($query){
                 $query->where('slug', 'articles');
             })->latest()->get(),
-            'kegiatanMhs' => Posts::where('created_at', '<=', now())->whereHas('category', function($query){
+            'Kegiatan' => Posts::where('created_at', '<=', now())->whereHas('category', function($query){
                 $query->where('slug', 'kegiatan-mahasiswa');
             })->latest()->get(),
             'pengumumans' => Posts::where('date','>=',now())->whereHas('category', function($query){
@@ -25,6 +25,22 @@ class ViewController extends Controller
                 $query->where('slug', 'agenda');
             })->latest()->get(),
             'posts' => Posts::all()
+        ]);
+    }
+
+    public function berita()
+    {
+        return view('pages.berita',[
+            'title' => 'Berita',
+            'NavbarTitle' => 'Berita',
+        ]);
+    }
+
+    public function kegiatan()
+    {
+        return view('pages.kegiatan',[
+            'title' => 'Kegiatan Mahasiswa',
+            'NavbarTitle' => 'Kegiatan',
         ]);
     }
 
