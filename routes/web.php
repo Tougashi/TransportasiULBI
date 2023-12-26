@@ -67,7 +67,7 @@ Route::group(['middleware' => ['web','auth']], function(){
             Route::get('/{articleType}/show/{id}','show');
             Route::put('/{articleType}/edit/{id}','edit');
             Route::put('/{articleType}/update/{id}','update');
-            Route::get('/{articleType}/delete/{id}','destroy');
+            Route::get('/{articleType}/{id}','destroy');
 
             // EDITOR IMAGE UPLOAD
             Route::post('/article/upload/image','uploadImage');

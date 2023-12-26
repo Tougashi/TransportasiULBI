@@ -110,7 +110,7 @@ class PostsController extends Controller
         $validated = $validators->validated();
         $validated['userId'] = auth()->user()->id;
         $validated['thumbnail'] = 'thumbnails'.'/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
-        $request->file('thumbnail')->storeAs('public/thumbnails', $validated['thumbnail'] );
+        $request->file('thumbnail')->storeAs('public/', $validated['thumbnail'] );
 
         if(isset($categoryType)){   
             $validated['categoryId'] = $categoryType->id;
@@ -142,7 +142,7 @@ class PostsController extends Controller
             $extension = $request->file('file')->getClientOriginalExtension();
 
             //filename to store
-            $filenametostore = $filename.'_'.time().'.'.$extension;
+            $filenametostore = time().'.'.$extension;
 
             //Upload File
             $request->file('file')->storeAs('public/uploads', $filenametostore);
@@ -202,13 +202,17 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy($articleType, $id)
     {
         // $data = Posts::where('id', $id)->delete();
 
         $posts = Posts::find($id);
-        Storage::delete('' . $posts->thumbnail);
         if($posts->thumbnail) {
+            Storage::delete('public/' . $posts->thumbnail);
+        }
+
+        if($posts->body) {
+            Storage::delete('public/' . $posts->body);
         }
 
         Posts::destroy($id);

@@ -109,9 +109,9 @@
                                 <h3 class="h5 card-title mt-3">{{$article->title}}</h3>
                                 <p class="card-text">{!! $article->excerpt !!}</p>
                             </div>
+                            </a>
                         </div>
                     </div>
-                    </a>
                     @empty
                     <div class="col-12 text-center">
                         <div class="text-primary fw-bold h4 text-underline">Tidak ada Berita Terbaru</div>
