@@ -109,7 +109,7 @@ class PostsController extends Controller
 
         $validated = $validators->validated();
         $validated['userId'] = auth()->user()->id;
-        $validated['thumbnail'] = $request->file('thumbnail')->store('/thumbnails');
+        $validated['thumbnail'] = $request->file('thumbnail')->storeAs('public/thumbnails');
         if(isset($categoryType)){
             $validated['categoryId'] = $categoryType->id;
         }else{
