@@ -7,6 +7,7 @@ use App\Models\Categories;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -108,7 +109,7 @@ class PostsController extends Controller
 
         $validated = $validators->validated();
         $validated['userId'] = auth()->user()->id;
-        $validated['thumbnail'] = $request->file('thumbnail')->store('uploads/thumbnails');
+        $validated['thumbnail'] = $request->file('thumbnail')->store('/thumbnails');
         if(isset($categoryType)){
             $validated['categoryId'] = $categoryType->id;
         }else{
@@ -125,30 +126,30 @@ class PostsController extends Controller
 
     }
 
-    public function uploadImage(Request $request){
-        if($request->hasFile('file')) {
-            //get filename with extension
-            $filenamewithextension = $request->file('file')->getClientOriginalName();
+    // public function uploadImage(Request $request){
+    //     if($request->hasFile('file')) {
+    //         //get filename with extension
+    //         $filenamewithextension = $request->file('file')->getClientOriginalName();
 
-            //get filename without extension
-            $filename = $filenamewithextension;
+    //         //get filename without extension
+    //         $filename = $filenamewithextension;
 
-            //get file extension
-            $extension = $request->file('file')->getClientOriginalExtension();
+    //         //get file extension
+    //         $extension = $request->file('file')->getClientOriginalExtension();
 
-            //filename to store
-            $filenametostore = $filename.'_'.time().'.'.$extension;
+    //         //filename to store
+    //         $filenametostore = $filename.'_'.time().'.'.$extension;
 
-            //Upload File
-            $request->file('file')->storeAs('public/uploads', $filenametostore);
+    //         //Upload File
+    //         $request->file('file')->storeAs('public/uploads', $filenametostore);
 
-            // you can save image path below in database
-            $path = asset('storage/uploads/'.$filenametostore);
+    //         // you can save image path below in database
+    //         $path = asset('storage/uploads/'.$filenametostore);
 
-            echo $path;
-            exit;
-        }
-    }
+    //         echo $path;
+    //         exit;
+    //     }
+    // }
 
     /**
      * Display the specified resource.
@@ -197,9 +198,28 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Posts $posts, $articleType, $id)
+    public function destroy($id)
     {
-        $data = Posts::where('id', $id)->delete();
-        return back()->with('success', 'Data Artikel berhasil dihapus');
+        $post = Posts::find($id);
+
+        if ($post && $post->thumbnail) {
+            $thumbnailPath = 'thumbnails/' . $post->thumbnail;
+        
+            // Periksa apakah file thumbnail ada sebelum dihapus
+            if (Storage::exists($thumbnailPath)) {
+                Storage::delete($thumbnailPath);
+        
+                // Hapus secara permanen dari database jika menggunakan soft delete
+                $post->forceDelete();
+        
+                return back()->with('success', 'Data Artikel berhasil dihapus');
+            } else {
+                return back()->with('error', 'File thumbnail tidak ditemukan di storage');
+            }
+        } else {
+            return back()->with('error', 'Post atau thumbnail tidak ditemukan');
+        }
+        
+
     }
 }

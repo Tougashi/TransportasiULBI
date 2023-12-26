@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
 
        \App\Models\User::create([
             'email' => 'hthamrin@rahmawati.desa.id',
-            'username' => 'uuyainah',
+            'username' => 'admin',
             'password' => bcrypt('password'), //password
             'author' => 'Sadina Yuliana Hastuti'
        ]);
