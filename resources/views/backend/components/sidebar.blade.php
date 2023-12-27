@@ -28,37 +28,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/backend/articles" class="nav-link {{$title == 'Articles' ? 'active' : ''}}">
-              <i class="nav-icon fas fa-newspaper"></i>
-              <p>
-                Artikel / Postingan
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="/backend/categories" class="nav-link {{$title == 'Categories' ? 'active' : ''}}">
               <i class="nav-icon fas fa-copy"></i>
-              <p>Kategori / Segmen</p>
+              <p>Kategori</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="/backend/authors" class="nav-link {{$title == 'Authors' ? 'active' : ''}}">
-              <i class="nav-icon fas fa-user"></i>
-              <p>Author</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/backend/events" class="nav-link {{$title == 'Events' ? 'active' : ''}}">
-              <i class="nav-icon fas fa-calendar"></i>
-              <p>Event</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/backend/attentions" class="nav-link {{$title == 'Attentions' ? 'active' : ''}}">
-              <i class="nav-icon fas fa-exclamation"></i>
-              <p>Pengumuman</p>
-            </a>
-          </li>
+         <x-sidebar-category-list title="{{$title}}"/>
+
 
         </ul>
       </nav>

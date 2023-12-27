@@ -18,7 +18,7 @@ class DashboardController extends Controller
         return view('backend.pages.home', [
             'title' => 'Dashboard',
             'countPosts' => Posts::all()->count(),
-            'countCategories' => Categories::all()->count(),
+            'categories' => Categories::all(),
             'countAuthors' => User::all()->count(),
             'countViewers' => Posts::all()->count('views')
         ]);

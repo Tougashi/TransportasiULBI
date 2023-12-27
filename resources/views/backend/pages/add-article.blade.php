@@ -1,4 +1,9 @@
 @extends('backend.layouts.index')
+@section('plugins')
+    <link rel="stylesheet" href="{{ asset('/assets/backend/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/backend/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+    <script src="{{ asset('/assets/backend/plugins/select2/js/select2.full.min.js') }}"></script>
+@endsection
 @section('content')
     <div class="card mb-1">
         <div class="card-body">
@@ -20,6 +25,15 @@
                     <label class="col-form-label" for="slugArtikel">Slug</label>
                     <input type="text" name="slug" class="form-control disabled" readonly id="slugArtikel"
                         placeholder="Slug Postingan / Artikel">
+                </div>
+                <div class="form-group pb-1">
+                    <label class="col-form-label" for="slugArtikel">Kategori</label>
+                    <select class="form-control select2" style="width: 100%;" required>
+                        <option></option>
+                        @foreach ($categories as $item)
+                            <option value="{{ $item->id }}">{{ $item->category }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group pb-1">
                     <div class="container row d-flex">
@@ -61,4 +75,12 @@
 @endsection
 @push('scripts')
     @include('components.live-thumbnail')
+    <script>
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+    </script>
 @endpush

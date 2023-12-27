@@ -50,10 +50,12 @@ class PostsController extends Controller
 
     public function create($articleType)
     {
+        $categories = Categories::all();
         switch($articleType){
             case('articles'):
                 return view('backend.pages.add-article', [
-                    'title' => 'Articles'
+                    'title' => 'Articles',
+                    'categories' => $categories
                 ]);
             break;
             case('categories'):
@@ -98,6 +100,7 @@ class PostsController extends Controller
             'body' => 'required',
             'excerpt' => 'required',
             'thumbnail' => 'required|image|file|max:5000',
+            'categoryId' => 'required'
         ], $messages = [
             'body.required' => 'Input Isi Artikel tidak boleh kosong, periksa kembali',
             'thumbnail.required' => 'Thumbnail wajib diisi',
@@ -112,16 +115,16 @@ class PostsController extends Controller
         $validated['thumbnail'] = 'thumbnails'.'/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
         $request->file('thumbnail')->storeAs('public/', $validated['thumbnail'] );
 
-        if(isset($categoryType)){   
-            $validated['categoryId'] = $categoryType->id;
-        }else{
-            $newCategory = Categories::create([
-                'category' => $articleType,
-                'slug' => Str::slug($articleType)
-            ]);
+        // if(isset($categoryType)){
+        //     $validated['categoryId'] = $categoryType->id;
+        // }else{
+        //     $newCategory = Categories::create([
+        //         'category' => $articleType,
+        //         'slug' => Str::slug($articleType)
+        //     ]);
 
-            $validated['categoryId'] = $newCategory->id;
-        }
+        //     $validated['categoryId'] = $newCategory->id;
+        // }
         Posts::create($validated, [
             // 'thumbnail' => '/thumbnails' . $thumbnails
         ]);

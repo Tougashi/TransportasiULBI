@@ -40,8 +40,7 @@
     <link rel="stylesheet"
         href="{{ asset('assets/backend/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/backend/plugins/toastr/toastr.min.css') }}">
-
-
+    @yield('plugins')
 
 </head>
 

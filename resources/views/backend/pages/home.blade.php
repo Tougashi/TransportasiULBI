@@ -20,7 +20,7 @@
       <!-- small box -->
       <div class="small-box bg-success">
         <div class="inner">
-          <h3>{{$countCategories}}</h3>
+          <h3>{{count($categories)}}</h3>
 
           <p>Segmen / Kategori</p>
         </div>
