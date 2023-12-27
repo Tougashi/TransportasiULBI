@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Posts;
-use App\Models\Categories;
+use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use Termwind\Components\BreakLine;
 
-class PostsController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +19,7 @@ class PostsController extends Controller
     {
         return view('backend.pages.articles', [
             'title' => 'Articles',
-            'articles' => Posts::whereHas('category', function($q){
+            'articles' => Post::whereHas('category', function($q){
                 $q->where('category','articles');
             })->get()
         ]);
@@ -32,7 +33,7 @@ class PostsController extends Controller
     {
         return view('backend.pages.events', [
             'title' => 'Events',
-            'events' => Posts::whereHas('category', function($q){
+            'events' => Post::whereHas('category', function($q){
                 $q->where('category','events');
             })->get()
         ]);
@@ -42,7 +43,7 @@ class PostsController extends Controller
     {
         return view('backend.pages.attentions', [
             'title' => 'Attentions',
-            'attentions' => Posts::whereHas('category', function($q){
+            'attentions' => Post::whereHas('category', function($q){
                 $q->where('category','attentions');
             })->get()
         ]);
@@ -50,17 +51,17 @@ class PostsController extends Controller
 
     public function create($articleType)
     {
-        $categories = Categories::all();
+        $category = Category::all();
         switch($articleType){
             case('articles'):
                 return view('backend.pages.add-article', [
                     'title' => 'Articles',
-                    'categories' => $categories
+                    'category' => $category
                 ]);
             break;
-            case('categories'):
+            case('category'):
                 return view('backend.pages.add-category', [
-                    'title' => 'Categories'
+                    'title' => 'Category'
                 ]);
             break;
             case('authors'):
@@ -88,7 +89,7 @@ class PostsController extends Controller
      */
     public function store(Request $request, $articleType)
     {
-        $categoryType = Categories::where('slug', $articleType)->first();
+        $categoryType = Category::where('slug', $articleType)->first();
         $data = $request->all();
         $data['excerpt'] = Str::limit(strip_tags($request->postBody), 200);
         $data['body'] = $request->postBody;
@@ -118,15 +119,14 @@ class PostsController extends Controller
         // if(isset($categoryType)){
         //     $validated['categoryId'] = $categoryType->id;
         // }else{
-        //     $newCategory = Categories::create([
+        //     $newCategory = Category::create([
         //         'category' => $articleType,
         //         'slug' => Str::slug($articleType)
         //     ]);
 
         //     $validated['categoryId'] = $newCategory->id;
         // }
-        Posts::create($validated, [
-            // 'thumbnail' => '/thumbnails' . $thumbnails
+        Post::create($validated, [
         ]);
 
         return redirect('/backend/articles/')->with('success', 'Artikel / Postingan berhasil di Upload');
@@ -161,9 +161,9 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Posts $posts, $articleType, $id)
+    public function show(Post $post, $articleType, $id)
     {
-        $article = Posts::where('id',$id)->first();
+        $article = Post::where('id',$id)->first();
         $datas  = [
             'title' => 'Article',
             'article' => $article,
@@ -172,7 +172,7 @@ class PostsController extends Controller
             case('articles'):
                 return view('backend.pages.edit-article', $datas);
             break;
-            case('categories'):
+            case('category'):
                 return view('backend.pages.edit-category', $datas);
             break;
             case('events'):
@@ -189,7 +189,7 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Posts $posts)
+    public function edit(Post $post)
     {
         //
     }
@@ -197,7 +197,7 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Posts $posts)
+    public function update(Request $request, Post $post)
     {
         //
     }
@@ -207,19 +207,31 @@ class PostsController extends Controller
      */
     public function destroy($articleType, $id)
     {
-        // $data = Posts::where('id', $id)->delete();
-
-        $posts = Posts::find($id);
-        if($posts->thumbnail) {
-            Storage::delete('public/' . $posts->thumbnail);
+        $post = Post::find($id);
+    
+        if ($post->thumbnail) {
+            Storage::delete('public/' . $post->thumbnail);
         }
-
-        if($posts->body) {
-            Storage::delete('public/' . $posts->body);
+    
+        if ($post->body) {
+            $bodyPath = 'public/' . $post->body;
+    
+            // Menghapus file dengan ekstensi .jpg, .jpeg, atau .png
+            $imageFiles = glob(storage_path('app/' . $bodyPath) . '/*.+(jpg|jpeg|png)', GLOB_BRACE);
+    
+            foreach ($imageFiles as $imageFile) {
+                Storage::delete('public/' . $bodyPath . '/' . basename($imageFile));
+            }
+    
+            // Hapus direktori body jika kosong setelah penghapusan file gambar
+            if (count(glob(storage_path('app/' . $bodyPath) . '/*')) === 0) {
+                Storage::deleteDirectory('public/' . $bodyPath);
+            }
         }
-
-        Posts::destroy($id);
-
+    
+        Post::destroy($id);
+    
         return back()->with('success', 'Data Artikel berhasil dihapus');
     }
+    
 }

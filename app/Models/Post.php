@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Posts extends Model
+class Post extends Model
 {
     use HasFactory;
 
@@ -20,6 +20,6 @@ class Posts extends Model
     }
 
     public function category(){
-        return $this->belongsTo(\App\Models\Categories::class, 'categoryId');
+        return $this->belongsTo(\App\Models\Category::class, 'categoryId');
     }
 }

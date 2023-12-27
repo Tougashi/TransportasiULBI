@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Category;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,13 +14,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory(10)->create();
+        User::factory(10)->create();
 
-       \App\Models\User::create([
+        User::create([
             'email' => 'hthamrin@rahmawati.desa.id',
             'username' => 'admin',
             'password' => bcrypt('password'), //password
             'author' => 'Sadina Yuliana Hastuti'
-       ]);
+        ]);
+
+        Category::create([
+            'category' => 'Berita',
+            'slug' => 'berita'
+        ]);
+        Category::create([
+            'category' => 'Kegiatan',
+            'slug' => 'kegiatan'
+        ]);
+        Category::create([
+            'category' => 'Event',
+            'slug' => 'event'
+        ]);
+        Category::create([
+            'category' => 'Pengumuman',
+            'slug' => 'pengumuman'
+        ]);
+
     }
 }

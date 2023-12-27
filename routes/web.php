@@ -5,9 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
-use App\Http\Controllers\PostsController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DosenController;
 
 
 Route::group(['middleware' => []], function () {
@@ -58,13 +59,13 @@ Route::group(['middleware' => ['web','auth']], function(){
             Route::get('/dashboard', 'index');
         });
 
-        Route::controller(PostsController::class)->group(function(){
+        Route::controller(PostController::class)->group(function(){
             Route::get('/articles', 'index');
             Route::get('/events', 'event');
             Route::get('/attentions', 'attention');
             Route::get('/{articleType}/add','create');
             Route::post('/{articleType}/add/store','store');
-            Route::get('/{articleType}/show/{id}','show');
+            Route::get('/{articleType}{id}','show');
             Route::put('/{articleType}/edit/{id}','edit');
             Route::put('/{articleType}/update/{id}','update');
             Route::get('/{articleType}/{id}','destroy');
@@ -73,7 +74,13 @@ Route::group(['middleware' => ['web','auth']], function(){
             Route::post('/article/upload/image','uploadImage');
         });
 
-        Route::controller(CategoriesController::class)->group(function(){
+        Route::controller(DosenController::class)->group(function(){
+            Route::get('/dosen', 'index');
+            Route::get('/add-dosen', 'create');
+            Route::get('/add-dosen', 'store');
+        });
+
+        Route::controller(CategoryController::class)->group(function(){
             Route::get('/categories', 'index');
         });
 

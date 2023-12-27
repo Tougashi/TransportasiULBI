@@ -8,7 +8,7 @@
     <div class="card mb-1">
         <div class="card-body">
             <div class="card-title">
-                Tambah data Postingan / Artikel Baru
+                Tambah data Dosen
             </div>
         </div>
     </div>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group pb-1">
                     <label class="col-form-label" for="slugArtikel">Kategori</label>
-                    <select class="form-control select2" style="width: 100%;" name="categoryId" required>
+                    <select class="form-control select2" style="width: 100%;" required>
                         <option></option>
                         @foreach ($categories as $item)
                             <option value="{{ $item->id }}">{{ $item->category }}</option>
