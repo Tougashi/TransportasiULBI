@@ -52,36 +52,11 @@ class PostController extends Controller
     public function create($articleType)
     {
         $category = Category::all();
-        switch($articleType){
-            case('articles'):
-                return view('backend.pages.add-article', [
-                    'title' => 'Articles',
-                    'category' => $category
-                ]);
-            break;
-            case('category'):
-                return view('backend.pages.add-category', [
-                    'title' => 'Category'
-                ]);
-            break;
-            case('authors'):
-                return view('backend.pages.add-author', [
-                    'title' => 'Authors'
-                ]);
-            break;
-            case('events'):
-                return view('backend.pages.add-event', [
-                    'title' => 'Events'
-                ]);
-            break;
-            case('attentions'):
-                return view('backend.pages.add-attention', [
-                    'title' => 'Attentions'
-                ]);
-            break;
-            default:
-                return response(404);
-        }
+        return view('backend.pages.add-article', [
+            'title' => 'Berita',
+            'category' => $category
+        ]);
+    
     }
 
     /**
@@ -116,16 +91,6 @@ class PostController extends Controller
         $validated['thumbnail'] = 'thumbnails'.'/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
         $request->file('thumbnail')->storeAs('public/', $validated['thumbnail'] );
 
-        // if(isset($categoryType)){
-        //     $validated['categoryId'] = $categoryType->id;
-        // }else{
-        //     $newCategory = Category::create([
-        //         'category' => $articleType,
-        //         'slug' => Str::slug($articleType)
-        //     ]);
-
-        //     $validated['categoryId'] = $newCategory->id;
-        // }
         Post::create($validated, [
         ]);
 

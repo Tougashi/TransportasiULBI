@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Posts;
-use App\Models\Categories;
+use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 
@@ -17,10 +17,10 @@ class DashboardController extends Controller
     {
         return view('backend.pages.home', [
             'title' => 'Dashboard',
-            'countPosts' => Posts::all()->count(),
-            'categories' => Categories::all(),
+            'countPosts' => Post::all()->count(),
+            'categories' => Category::all(),
             'countAuthors' => User::all()->count(),
-            'countViewers' => Posts::all()->count('views')
+            'countViewers' => Post::all()->count('views')
         ]);
     }
 

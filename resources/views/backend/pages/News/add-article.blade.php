@@ -30,7 +30,7 @@
                     <label class="col-form-label" for="slugArtikel">Kategori</label>
                     <select class="form-control select2" style="width: 100%;" name="categoryId" required>
                         <option></option>
-                        @foreach ($categories as $item)
+                        @foreach ($category as $item)
                             <option value="{{ $item->id }}">{{ $item->category }}</option>
                         @endforeach
                     </select>

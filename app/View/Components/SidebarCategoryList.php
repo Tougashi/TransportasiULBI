@@ -3,7 +3,7 @@
 namespace App\View\Components;
 
 use Closure;
-use App\Models\Categories;
+use App\Models\Category;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
@@ -16,7 +16,7 @@ class SidebarCategoryList extends Component
 
     public function __construct($title)
     {
-        $this->categories = Categories::all();
+        $this->categories = Category::all();
         $this->title = $title;
 
     }
