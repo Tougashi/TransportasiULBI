@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Posts;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class ViewController extends Controller
@@ -12,19 +12,19 @@ class ViewController extends Controller
         return view('pages.home', [
             'NavbarTitle' => 'Beranda',
             'title' => 'Fakultas : S1 Manajemen Transportasi',
-            'News' => Posts::where('created_at', '<=', now())->whereHas('category', function($query){
+            'News' => Post::where('created_at', '<=', now())->whereHas('category', function($query){
                 $query->where('slug', 'articles');
             })->latest()->get(),
-            'Kegiatan' => Posts::where('created_at', '<=', now())->whereHas('category', function($query){
+            'Kegiatan' => Post::where('created_at', '<=', now())->whereHas('category', function($query){
                 $query->where('slug', 'kegiatan-mahasiswa');
             })->latest()->get(),
-            'pengumumans' => Posts::where('date','>=',now())->whereHas('category', function($query){
+            'pengumumans' => Post::where('date','>=',now())->whereHas('category', function($query){
                 $query->where('slug', 'pengumuman');
             })->latest()->get(),
-            'agendas' => Posts::where('date','>=',now())->whereHas('category', function($query){
+            'agendas' => Post::where('date','>=',now())->whereHas('category', function($query){
                 $query->where('slug', 'agenda');
             })->latest()->get(),
-            'posts' => Posts::all()
+            'posts' => Post::all()
         ]);
     }
 

@@ -15,49 +15,59 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    // public $tipe;
+    public function index($articleType)
     {
-        return view('backend.pages.articles', [
-            'title' => 'Articles',
-            'articles' => Post::whereHas('category', function($q){
-                $q->where('category','articles');
-            })->get()
-        ]);
+        $this->tipe = $articleType;
+        $articles = Post::whereHas('category', function($q){
+            $q->where('slug',$this->tipe);
+        })->get();
+        $datas = [
+            'title' => Category::where('slug',$articleType)->pluck('category')->first(),
+            'articles' => $articles
+        ];
+        switch($articleType){
+            case 'berita':
+                return view('backend.pages.News.articles', $datas);
+            default:
+            return view('errors.404');
+            break;
+        };
     }
 
     /**
      * Show the form for creating a new resource.
      */
 
-    public function event()
-    {
-        return view('backend.pages.events', [
-            'title' => 'Events',
-            'events' => Post::whereHas('category', function($q){
-                $q->where('category','events');
-            })->get()
-        ]);
-    }
+    // public function event()
+    // {
+    //     return view('backend.pages.Event.article', [
+    //         'title' => 'Events',
+    //         'events' => Post::whereHas('category', function($q){
+    //             $q->where('category','events');
+    //         })->get()
+    //     ]);
+    // }
 
-    public function attention()
-    {
-        return view('backend.pages.attentions', [
-            'title' => 'Attentions',
-            'attentions' => Post::whereHas('category', function($q){
-                $q->where('category','attentions');
-            })->get()
-        ]);
-    }
+    // public function attention()
+    // {
+    //     return view('backend.pages.attentions', [
+    //         'title' => 'Attentions',
+    //         'attentions' => Post::whereHas('category', function($q){
+    //             $q->where('category','attentions');
+    //         })->get()
+    //     ]);
+    // }
 
-    public function create($articleType)
-    {
-        $category = Category::all();
-        return view('backend.pages.add-article', [
-            'title' => 'Berita',
-            'category' => $category
-        ]);
-    
-    }
+    // public function create($articleType)
+    // {
+    //     $category = Category::all();
+    //     return view('backend.pages.add-article', [
+    //         'title' => 'Berita',
+    //         'category' => $category
+    //     ]);
+
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -128,7 +138,7 @@ class PostController extends Controller
      */
     public function show(Post $post, $articleType, $id)
     {
-        $article = Post::where('id',$id)->first();
+        $article = Post::find($id);
         $datas  = [
             'title' => 'Article',
             'article' => $article,
@@ -173,30 +183,30 @@ class PostController extends Controller
     public function destroy($articleType, $id)
     {
         $post = Post::find($id);
-    
+
         if ($post->thumbnail) {
             Storage::delete('public/' . $post->thumbnail);
         }
-    
+
         if ($post->body) {
             $bodyPath = 'public/' . $post->body;
-    
+
             // Menghapus file dengan ekstensi .jpg, .jpeg, atau .png
             $imageFiles = glob(storage_path('app/' . $bodyPath) . '/*.+(jpg|jpeg|png)', GLOB_BRACE);
-    
+
             foreach ($imageFiles as $imageFile) {
                 Storage::delete('public/' . $bodyPath . '/' . basename($imageFile));
             }
-    
+
             // Hapus direktori body jika kosong setelah penghapusan file gambar
             if (count(glob(storage_path('app/' . $bodyPath) . '/*')) === 0) {
                 Storage::deleteDirectory('public/' . $bodyPath);
             }
         }
-    
+
         Post::destroy($id);
-    
+
         return back()->with('success', 'Data Artikel berhasil dihapus');
     }
-    
+
 }

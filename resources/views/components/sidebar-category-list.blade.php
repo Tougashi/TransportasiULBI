@@ -1,5 +1,5 @@
-<li class="nav-item">
-    <a href="#" class="nav-link">
+<li class="nav-item  {{$categories[0]->category == $title ? 'menu-open' : ''}}">
+    <a href="#" class="nav-link {{$categories[0]->category == $title ? 'active' : ''}}">
         <i class="nav-icon fas fa-list"></i>
         <p>
             Segmen
@@ -10,7 +10,7 @@
     <ul class="nav nav-treeview">
         @foreach ($categories as $item)
             <li class="nav-item">
-                <a href="/backend/{{$item->slug}}" class="nav-link {{$item->category == $title}}">
+                <a href="/backend/{{$item->slug}}/list" class="nav-link {{$item->category == $title ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>{{ $item->category }}</p>
                 </a>

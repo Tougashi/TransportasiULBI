@@ -13,7 +13,7 @@ class AuthController extends Controller
      */
     public function index()
     {
-        return view('backend.pages.login', [
+        return view('backend.pages.Auth.login', [
             'title' => 'Dashboard'
         ]);
     }
