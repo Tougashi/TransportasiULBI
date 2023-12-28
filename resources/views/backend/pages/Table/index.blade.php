@@ -1,15 +1,23 @@
 @extends('backend.layouts.index')
 @section('content')
+    <div class="card mb-1">
+        <div class="card-body">
+            <div class="card-title">
+                Tambah data {{ $title }}
+            </div>
+        </div>
+    </div>
     <div class="card">
-        <!-- /.card-header -->
         {{-- @dd($tableHeads) --}}
         <div class="card-body">
-            @include('backend.components.add-data-button')
+            @if ($title !== 'Kategori')
+                @include('backend.components.add-data-button')
+            @endif
             <table id="articlesTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        @foreach ( $tableHeads as $heads)
-                        <th>{{$heads}}</th>
+                        @foreach ($tableHeads as $heads)
+                            <th>{{ $heads }}</th>
                         @endforeach
                     </tr>
                 </thead>
@@ -17,17 +25,29 @@
                     @foreach ($tableBodies as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item['judul'] }}</td>
-                            <td>{{ $item['author'] }}</td>
+                            @if (isset($item['judul']))
+                                <td>{{ $item['judul'] }}</td>
+                            @endif
+                            @if (isset($item['category']))
+                                <td>{{ $item['category'] }}</td>
+                            @endif
+                            @if (isset($item['author']))
+                                <td>{{ $item['author'] }}</td>
+                            @endif
                             @if (isset($item['tanggalPelaksanaan']))
                                 <td>{{ $item['tanggalPelaksanaan'] }}</td>
                             @endif
-                            <td>{{ $item['views'] }}</td>
+                            @if (isset($item['views']))
+                                <td>{{ $item['views'] }}</td>
+                            @endif
                             <td>{{ $item['tanggalPosting'] }}</td>
                             <td>
                                 <div class="d-flex">
-                                    <a class="btn btn-info" href="{{url()->current().'/show/'.$item['id']}}"><i class="fas fa-solid fa-eye"></i></a>
-                                    <a class="btn btn-danger" href="{{url()->current().'/'.$item['id']}}" onclick="return(confirm('Apakah anda yakin akan menghapus data ini ?'))"><i class="fas fa-solid fa-trash"></i></a>
+                                    <a class="btn btn-info" href="{{ url()->current() . '/show/' . $item['id'] }}"><i
+                                            class="fas fa-solid fa-eye"></i></a>
+                                    <a class="btn btn-danger" href="{{ url()->current() . '/' . $item['id'] }}"
+                                        onclick="return(confirm('Apakah anda yakin akan menghapus data ini ?'))"><i
+                                            class="fas fa-solid fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>

@@ -77,11 +77,47 @@ class PostController extends Controller
                     ];
                 }
             break;
+            case 'dosen':
+                foreach ($articles as $item) {
+                    $datas['tableBodies'][] = [
+                        'id' => $item->id,
+                        'judul' => $item->title,
+                        'author' => $item->author->author,
+                        'tanggalPelaksanaan' => $item->date,
+                        'tanggalPosting' => $item->created_at->format('d F Y H:i'),
+                    ];
+                }
+            break;
+            case 'review':
+                foreach ($articles as $item) {
+                    $datas['tableBodies'][] = [
+                        'id' => $item->id,
+                        'judul' => $item->title,
+                        'author' => $item->author->author,
+                        'tanggalPelaksanaan' => $item->date,
+                        'tanggalPosting' => $item->created_at->format('d F Y H:i'),
+                    ];
+                }
+            break;
+            case 'categories':
+                $datas['tableHeads'] = ['No', 'Kategori', 'Dibuat Pada','Aksi'];
+                $datas['title'] = 'Kategori';
+                $categories = Category::all();
+                foreach ($categories as $item) {
+                    $datas['tableBodies'][] = [
+                        'id' => $item->id,
+                        'category' => $item->category,
+                        'tanggalPosting' => $item->created_at->format('d F Y H:i'),
+                    ];
+
+
+                }
+                break;
             default:
                 return view('errors.404');
                 break;
         }
-        return view('backend.pages.posts.index', $datas);
+        return view('backend.pages.Table.index', $datas);
     }
 
     /**
@@ -90,17 +126,34 @@ class PostController extends Controller
 
     public function create($articleType)
     {
-        $title = Category::where('slug', $articleType)->pluck('category')->first();
-        $datas = [];
+        // $title = Category::where('slug', $articleType)->pluck('category')->first();
+        // dd($title);
+        $datas = [
+            'title' => Category::where('slug', $articleType)->pluck('category')->first()
+        ];
         switch ($articleType) {
             case 'berita':
-                $datas['formField'] = ['title', 'slug', 'body', 'excerpt', 'thumbnail'];
+                return view('backend.pages.News.add-article', $datas);
+                break;
+            case 'kegiatan':
+                return view('backend.pages.Kegiatan.add-kegiatan', $datas);
+                break;
+            case 'event':
+                return view('backend.pages.Event.add-event', $datas);
+                break;
+            case 'pengumuman':
+                return view('backend.pages.Attention.add-attention', $datas);
+                break;
+            case 'dosen':
+                return view('backend.pages.Dosen.add-dosen', $datas);
+                break;
+            case 'review':
+                return view('backend.pages.Review.add-review', $datas);
                 break;
             default:
             return response(404);
             break;
         }
-        return view('backend.pages.posts.add-article', $datas);
     }
 
     /**
