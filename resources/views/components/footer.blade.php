@@ -9,28 +9,22 @@
                 </p>
                 <ul class="social-buttons mb-5 mb-lg-0">
                     <li>
-                        <a href="#" aria-label="twitter social link" class="icon-white me-3">
+                        <a href="https://www.facebook.com/ulbi.official" aria-label="facebook" class="icon-white me-3">
                             <span class="bi bi-facebook"></span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="icon-white me-3"
-                            aria-label="facebook social link">
-                            <span class="bi bi-twitter-x"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" aria-label="github social link" class="icon-white me-3">
+                        <a href="https://www.youtube.com/@ADMISSIONULBI" aria-label="youtube" class="icon-white me-3">
                             <span class="bi bi-youtube"></span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="icon-white me-3" aria-label="dribbble social link">
+                        <a href="https://www.instagram.com/transportasi_ulbi/" class="icon-white me-3" aria-label="instagram">
                             <span class="bi bi-instagram"></span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="icon-white me-3" aria-label="dribbble social link">
+                        <a href="https://www.tiktok.com/@kampus.ulbi" class="icon-white me-3" aria-label="tiktok">
                             <span class="bi bi-tiktok"></span>
                         </a>
                     </li>
