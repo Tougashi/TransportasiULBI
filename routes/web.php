@@ -8,7 +8,7 @@ use App\Http\Controllers\ViewController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DosenController;
+// use App\Http\Controllers\DosenController;
 
 
 Route::group(['middleware' => []], function () {
@@ -74,15 +74,15 @@ Route::group(['middleware' => ['web','auth']], function(){
             Route::post('/article/upload/image','uploadImage');
         });
 
-        Route::controller(DosenController::class)->group(function(){
-            Route::get('/{articleType}/list-dosen', 'index');
-            Route::get('/{articleType}/add-dosen', 'create');
-            Route::get('/{articleType}/add-dosen/store', 'store');
-            Route::get('/{articleType}/{id}', 'show');
-            Route::get('/{articleType}/edit/{id}', 'edit');
-            Route::get('/{articleType}/update/{id}', 'update');
-            // Route::get('/{articleType}/delete/{id}', 'destroy');
-        });
+        // Route::controller(DosenController::class)->group(function(){
+        //     Route::get('/{articleType}/list-dosen', 'index');
+        //     Route::get('/{articleType}/add-dosen', 'create');
+        //     Route::get('/{articleType}/add-dosen/store', 'store');
+        //     Route::get('/{articleType}/{id}', 'show');
+        //     Route::get('/{articleType}/edit/{id}', 'edit');
+        //     Route::get('/{articleType}/update/{id}', 'update');
+        //     Route::get('/{articleType}/delete/{id}', 'destroy');
+        // });
 
         Route::controller(CategoryController::class)->group(function(){
             Route::get('/categories', 'index');
