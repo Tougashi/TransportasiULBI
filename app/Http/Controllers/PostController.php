@@ -92,7 +92,6 @@ class PostController extends Controller
     {
         $title = Category::where('slug', $articleType)->pluck('category')->first();
         $datas = [];
-        return view('backend.pages.posts.add-article', $datas);
         switch ($articleType) {
             case 'berita':
                 $datas['formField'] = ['title', 'slug', 'body', 'excerpt', 'thumbnail'];
@@ -101,6 +100,7 @@ class PostController extends Controller
             return response(404);
             break;
         }
+        return view('backend.pages.posts.add-article', $datas);
     }
 
     /**
