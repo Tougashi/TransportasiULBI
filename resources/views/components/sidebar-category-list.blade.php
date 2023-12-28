@@ -1,5 +1,5 @@
-<li class="nav-item  {{$categories[0]->category == $title ? 'menu-open' : ''}}">
-    <a href="#" class="nav-link {{$categories[0]->category == $title ? 'active' : ''}}">
+<li class="nav-item  {{$category == $title ? 'menu-open' : ''}}">
+    <a href="#" class="nav-link {{$category == $title ? 'active' : ''}}">
         <i class="nav-icon fas fa-list"></i>
         <p>
             Segmen

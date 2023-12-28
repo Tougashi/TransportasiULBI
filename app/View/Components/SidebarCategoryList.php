@@ -12,12 +12,13 @@ class SidebarCategoryList extends Component
     /**
      * Create a new component instance.
      */
-    public $categories, $title;
+    public $categories, $title, $category;
 
     public function __construct($title)
     {
         $this->categories = Category::all();
         $this->title = $title;
+        $this->category = Category::where('slug', $title)->pluck('category')->first();
 
     }
 
