@@ -2,7 +2,7 @@
 @section('content')
     <div class="card">
         <!-- /.card-header -->
-        {{-- @dd($tableBodies) --}}
+        {{-- @dd($tableHeads) --}}
         <div class="card-body">
             @include('backend.components.add-data-button')
             <table id="articlesTable" class="table table-bordered table-striped">

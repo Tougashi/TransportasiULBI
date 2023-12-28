@@ -27,15 +27,6 @@
                         placeholder="Slug Postingan / Artikel">
                 </div>
                 <div class="form-group pb-1">
-                    <label class="col-form-label" for="slugArtikel">Kategori</label>
-                    <select class="form-control select2" style="width: 100%;" name="categoryId" required>
-                        <option></option>
-                        @foreach ($category as $item)
-                            <option value="{{ $item->id }}">{{ $item->category }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group pb-1">
                     <div class="container row d-flex">
                         <div class="col-6">
                             <label class="col-form-label" for="thumbnailInput">Thumbnail</label><br>
