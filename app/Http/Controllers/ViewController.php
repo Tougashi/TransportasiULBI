@@ -13,10 +13,10 @@ class ViewController extends Controller
             'NavbarTitle' => 'Beranda',
             'title' => 'Fakultas : S1 Manajemen Transportasi',
             'News' => Post::where('created_at', '<=', now())->whereHas('category', function($query){
-                $query->where('slug', 'articles');
+                $query->where('slug', 'berita');
             })->latest()->get(),
             'Kegiatan' => Post::where('created_at', '<=', now())->whereHas('category', function($query){
-                $query->where('slug', 'kegiatan-mahasiswa');
+                $query->where('slug', 'kegiatan');
             })->latest()->get(),
             'pengumumans' => Post::where('date','>=',now())->whereHas('category', function($query){
                 $query->where('slug', 'pengumuman');

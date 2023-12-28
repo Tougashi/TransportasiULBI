@@ -210,10 +210,10 @@ class PostController extends Controller
             $filenametostore = time() . '.' . $extension;
 
             //Upload File
-            $request->file('file')->storeAs('public/uploads', $filenametostore);
+            $request->file('file')->storeAs('public/', $filenametostore);
 
             // you can save image path below in database
-            $path = asset('storage/uploads/' . $filenametostore);
+            $path = asset('storage/public/' . $filenametostore);
 
             echo $path;
             exit();
@@ -268,34 +268,42 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      */
 
-    public function destroy($articleType, $id)
-    {
-        $post = Post::find($id);
-
-        if ($post->thumbnail) {
-            Storage::delete('public/' . $post->thumbnail);
-        }
-
-        if ($post->body) {
-            $bodyContent = $post->body;
-
-            $pattern = '/\b(?:\w*\.)(jpg|jpeg|png)\b/';
-            preg_match_all($pattern, $bodyContent, $matches);
-
-            if (!empty($matches[0])) {
-                foreach ($matches[0] as $filename) {
-                    Storage::delete('public/' . $filename);
-                }
-            }
-
-            $bodyPath = 'public/' . dirname($post->body);
-            if (count(glob(storage_path('app/' . $bodyPath) . '/*')) === 0) {
-                Storage::deleteDirectory($bodyPath);
-            }
-        }
-
-        Post::destroy($id);
-
-        return back()->with('success', 'Data Artikel berhasil dihapus');
-    }
+     public function destroy($articleType, $id)
+     {
+         $post = Post::find($id);
+     
+         if ($post->thumbnail) {
+             Storage::delete('public/' . $post->thumbnail);
+         }
+     
+         if ($post->body) {
+             $bodyContent = $post->body;
+     
+             // Menggunakan pola ekspresi reguler yang dapat menangani nama file dengan angka
+             $pattern = '/\b(?:\w*\/)(\d+\.(jpg|jpeg|png))\b/';
+             preg_match_all($pattern, $bodyContent, $matches);
+     
+             if (!empty($matches[1])) {
+                 foreach ($matches[1] as $filename) {
+                     Storage::delete('public/' . $filename);
+                 }
+             }
+     
+             $bodyPath = 'public/' . dirname($post->body);
+     
+             // Menggunakan Storage::allFiles untuk mendapatkan daftar semua file dalam direktori
+             $filesInDirectory = Storage::allFiles($bodyPath);
+     
+             // Hapus direktori jika tidak ada file lagi
+             if (empty($filesInDirectory)) {
+                 Storage::deleteDirectory($bodyPath);
+             }
+         }
+     
+         Post::destroy($id);
+     
+         return back()->with('success', 'Data Artikel berhasil dihapus');
+     }
+     
+     
 }
