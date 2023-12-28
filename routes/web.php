@@ -60,7 +60,7 @@ Route::group(['middleware' => ['web','auth']], function(){
         });
 
         Route::controller(PostController::class)->group(function(){
-            Route::get('/{articleType}/list', 'index');
+            Route::get('/{articleType}', 'index');
             Route::get('/events', 'event');
             Route::get('/attentions', 'attention');
             Route::get('/{articleType}/add','create');
