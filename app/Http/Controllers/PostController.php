@@ -191,7 +191,7 @@ class PostController extends Controller
 
         Post::create($validated, []);
 
-        return redirect('/backend/berita/list')->with('success', 'Artikel / Postingan berhasil di Upload');
+        return redirect('/admin/'.$categoryType->slug)->with('success', 'Artikel / Postingan berhasil di Upload');
     }
 
     public function uploadImage(Request $request)
