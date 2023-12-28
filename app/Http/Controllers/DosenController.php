@@ -14,7 +14,7 @@ class DosenController extends Controller
      */
     public function index()
     {
-        return view('backend.pages.dosen', [
+        return view('backend.pages.dosen.dosen', [
             'title' => 'Dosen',
             'Dosen' => Post::whereHas('category', function($q){
                 $q->where('category','Dosen');
@@ -27,7 +27,7 @@ class DosenController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.add-dosen', [
+        return view('backend.pages.dosen.add-dosen', [
             'title' => 'Tambah Data Dosen',
 
         ]);

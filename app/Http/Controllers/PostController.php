@@ -15,7 +15,7 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public $tipe;
+    public $tipe;
     public function index($articleType)
     {
         $this->tipe = $articleType;
@@ -59,15 +59,15 @@ class PostController extends Controller
     //     ]);
     // }
 
-    // public function create($articleType)
-    // {
-    //     $category = Category::all();
-    //     return view('backend.pages.add-article', [
-    //         'title' => 'Berita',
-    //         'category' => $category
-    //     ]);
+    public function create($articleType)
+    {
+        $category = Category::all();
+        return view('backend.pages.news.add-article', [
+            'title' => 'Berita',
+            'category' => $category
+        ]);
 
-    // }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -104,7 +104,7 @@ class PostController extends Controller
         Post::create($validated, [
         ]);
 
-        return redirect('/backend/articles/')->with('success', 'Artikel / Postingan berhasil di Upload');
+        return redirect('/backend/berita/list')->with('success', 'Artikel / Postingan berhasil di Upload');
 
     }
 
@@ -180,33 +180,37 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
     public function destroy($articleType, $id)
     {
         $post = Post::find($id);
-
+    
         if ($post->thumbnail) {
             Storage::delete('public/' . $post->thumbnail);
         }
-
+    
         if ($post->body) {
-            $bodyPath = 'public/' . $post->body;
+            $bodyContent = $post->body;
 
-            // Menghapus file dengan ekstensi .jpg, .jpeg, atau .png
-            $imageFiles = glob(storage_path('app/' . $bodyPath) . '/*.+(jpg|jpeg|png)', GLOB_BRACE);
-
-            foreach ($imageFiles as $imageFile) {
-                Storage::delete('public/' . $bodyPath . '/' . basename($imageFile));
+            $pattern = '/\b(?:\w*\.)(jpg|jpeg|png)\b/';
+            preg_match_all($pattern, $bodyContent, $matches);
+    
+            if (!empty($matches[0])) {
+                foreach ($matches[0] as $filename) {
+                    Storage::delete('public/' . $filename);
+                }
             }
-
-            // Hapus direktori body jika kosong setelah penghapusan file gambar
+    
+            $bodyPath = 'public/' . dirname($post->body);
             if (count(glob(storage_path('app/' . $bodyPath) . '/*')) === 0) {
-                Storage::deleteDirectory('public/' . $bodyPath);
+                Storage::deleteDirectory($bodyPath);
             }
         }
-
+    
         Post::destroy($id);
-
+    
         return back()->with('success', 'Data Artikel berhasil dihapus');
     }
+    
 
 }

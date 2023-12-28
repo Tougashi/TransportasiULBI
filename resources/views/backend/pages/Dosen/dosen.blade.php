@@ -1,4 +1,4 @@
-@extends('backend.layouts.index')
+{{-- @extends('backend.layouts.index')
 @section('content')
     <div class="card">
         <!-- /.card-header -->
@@ -44,4 +44,4 @@
             datatableInit('#articlesTable');
         });
     </script>
-@endpush
+@endpush --}}

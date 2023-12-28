@@ -39,6 +39,10 @@ class DatabaseSeeder extends Seeder
             'category' => 'Pengumuman',
             'slug' => 'pengumuman'
         ]);
+        Category::create([
+            'category' => 'Dosen',
+            'slug' => 'dosen'
+        ]);
 
     }
 }

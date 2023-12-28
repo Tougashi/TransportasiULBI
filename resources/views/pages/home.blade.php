@@ -112,7 +112,7 @@
                             </a>
                         </div>
                     </div>
-                    @empty
+                    @empty 
                     <div class="col-12 text-center">
                         <div class="text-primary fw-bold h4 text-underline">Tidak ada Berita Terbaru</div>
                     </div>

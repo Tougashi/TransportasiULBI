@@ -68,16 +68,20 @@ Route::group(['middleware' => ['web','auth']], function(){
             Route::get('/{articleType}{id}','show');
             Route::put('/{articleType}/edit/{id}','edit');
             Route::put('/{articleType}/update/{id}','update');
-            Route::get('/{articleType}/{id}','destroy');
+            Route::get('/{articleType}/delete/{id}','destroy');
 
             // EDITOR IMAGE UPLOAD
             Route::post('/article/upload/image','uploadImage');
         });
 
         Route::controller(DosenController::class)->group(function(){
-            Route::get('/dosen', 'index');
-            Route::get('/add-dosen', 'create');
-            Route::get('/add-dosen', 'store');
+            Route::get('/{articleType}/list-dosen', 'index');
+            Route::get('/{articleType}/add-dosen', 'create');
+            Route::get('/{articleType}/add-dosen/store', 'store');
+            Route::get('/{articleType}/{id}', 'show');
+            Route::get('/{articleType}/edit/{id}', 'edit');
+            Route::get('/{articleType}/update/{id}', 'update');
+            // Route::get('/{articleType}/delete/{id}', 'destroy');
         });
 
         Route::controller(CategoryController::class)->group(function(){
