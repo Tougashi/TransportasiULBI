@@ -19,55 +19,85 @@ class PostController extends Controller
     public function index($articleType)
     {
         $this->tipe = $articleType;
-        $articles = Post::whereHas('category', function($q){
-            $q->where('slug',$this->tipe);
+        $articles = Post::with('author')->whereHas('category', function ($q) {
+            $q->where('slug', $this->tipe);
         })->get();
         $datas = [
-            'title' => Category::where('slug',$articleType)->pluck('category')->first(),
-            'articles' => $articles
+            'title' => Category::where('slug', $articleType)
+                ->pluck('category')
+                ->first(),
+            'articles' => $articles,
+            'tableHeads' => ['No', 'Judul', 'Author', 'Views', 'Tanggal Posting','Aksi'],
+            'tableBodies' => [],
         ];
-        switch($articleType){
+        switch ($articleType) {
             case 'berita':
-                return view('backend.pages.News.articles', $datas);
+                foreach($articles as $item){
+                    $datas['tableBodies'][] = [
+                        'id' => $item->id,
+                        'judul' => $item->title,
+                        'author' => $item->author->author,
+                        'views' => $item->views,
+                        'tanggalPosting' => $item->created_at->format('d F Y H:i')
+                    ];
+                }
+                return view('backend.pages.posts.index', $datas);
+            case 'kegiatan':
+                foreach($articles as $item){
+                    $datas['tableBodies'][] = [
+                        'id' => $item->id,
+                        'judul' => $item->title,
+                        'author' => $item->author->author,
+                        'views' => $item->views,
+                        'tanggalPosting' => $item->created_at->format('d F Y H:i')
+                    ];
+                }
+                return view('backend.pages.posts.index', $datas);
+            case 'event':
+                array_splice($datas['tableHeads'], 3, 0, 'Tanggal Pelaksanaan');
+                foreach($articles as $item){
+                    $datas['tableBodies'][] = [
+                        'id' => $item->id,
+                        'judul' => $item->title,
+                        'author' => $item->author->author,
+                        'tanggalPelaksanaan' => $item->date,
+                        'views' => $item->date,
+                        'tanggalPosting' => $item->created_at->format('d F Y H:i')
+                    ];
+                }
+                return view('backend.pages.posts.index', $datas);
+            case 'pengumuman':
+                foreach($articles as $item){
+                    $datas['tableBodies'][] = [
+                        'id' => $item->id,
+                        'judul' => $item->title,
+                        'author' => $item->author->author,
+                        'tanggalPelaksanaan' => $item->date,
+                        'tanggalPosting' => $item->created_at->format('d F Y H:i')
+                    ];
+                }
+                return view('backend.pages.posts.index', $datas);
             default:
-            return view('errors.404');
+                return view('errors.404');
             break;
-        };
+        }
     }
 
     /**
      * Show the form for creating a new resource.
      */
 
-    // public function event()
-    // {
-    //     return view('backend.pages.Event.article', [
-    //         'title' => 'Events',
-    //         'events' => Post::whereHas('category', function($q){
-    //             $q->where('category','events');
-    //         })->get()
-    //     ]);
-    // }
 
-    // public function attention()
-    // {
-    //     return view('backend.pages.attentions', [
-    //         'title' => 'Attentions',
-    //         'attentions' => Post::whereHas('category', function($q){
-    //             $q->where('category','attentions');
-    //         })->get()
-    //     ]);
-    // }
 
-    // public function create($articleType)
-    // {
-    //     $category = Category::all();
-    //     return view('backend.pages.add-article', [
-    //         'title' => 'Berita',
-    //         'category' => $category
-    //     ]);
+    public function create($articleType)
+    {
+        $category = Category::all();
+        return view('backend.pages.posts.add-article', [
+            'title' => 'Berita',
+            'category' => $category
+        ]);
 
-    // }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -79,37 +109,39 @@ class PostController extends Controller
         $data['excerpt'] = Str::limit(strip_tags($request->postBody), 200);
         $data['body'] = $request->postBody;
 
+        $validators = Validator::make(
+            $data,
+            [
+                'title' => 'required',
+                'slug' => 'required',
+                'body' => 'required',
+                'excerpt' => 'required',
+                'thumbnail' => 'required|image|file|max:5000',
+                'categoryId' => 'required',
+            ],
+            $messages = [
+                'body.required' => 'Input Isi Artikel tidak boleh kosong, periksa kembali',
+                'thumbnail.required' => 'Thumbnail wajib diisi',
+            ],
+        );
 
-        $validators = Validator::make($data, [
-            'title' => 'required',
-            'slug' => 'required',
-            'body' => 'required',
-            'excerpt' => 'required',
-            'thumbnail' => 'required|image|file|max:5000',
-            'categoryId' => 'required'
-        ], $messages = [
-            'body.required' => 'Input Isi Artikel tidak boleh kosong, periksa kembali',
-            'thumbnail.required' => 'Thumbnail wajib diisi',
-        ]);
-
-        if($validators->fails()){
+        if ($validators->fails()) {
             return back()->with('errors', $validators->errors());
         }
 
         $validated = $validators->validated();
         $validated['userId'] = auth()->user()->id;
-        $validated['thumbnail'] = 'thumbnails'.'/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
-        $request->file('thumbnail')->storeAs('public/', $validated['thumbnail'] );
+        $validated['thumbnail'] = 'thumbnails' . '/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
+        $request->file('thumbnail')->storeAs('public/', $validated['thumbnail']);
 
-        Post::create($validated, [
-        ]);
+        Post::create($validated, []);
 
-        return redirect('/backend/articles/')->with('success', 'Artikel / Postingan berhasil di Upload');
-
+        return redirect('/backend/'.$articleType)->with('success', 'Artikel / Postingan berhasil di Upload');
     }
 
-    public function uploadImage(Request $request){
-        if($request->hasFile('file')) {
+    public function uploadImage(Request $request)
+    {
+        if ($request->hasFile('file')) {
             //get filename with extension
             $filenamewithextension = $request->file('file')->getClientOriginalName();
 
@@ -120,16 +152,16 @@ class PostController extends Controller
             $extension = $request->file('file')->getClientOriginalExtension();
 
             //filename to store
-            $filenametostore = time().'.'.$extension;
+            $filenametostore = time() . '.' . $extension;
 
             //Upload File
             $request->file('file')->storeAs('public/uploads', $filenametostore);
 
             // you can save image path below in database
-            $path = asset('storage/uploads/'.$filenametostore);
+            $path = asset('storage/uploads/' . $filenametostore);
 
             echo $path;
-            exit;
+            exit();
         }
     }
 
@@ -139,23 +171,23 @@ class PostController extends Controller
     public function show(Post $post, $articleType, $id)
     {
         $article = Post::find($id);
-        $datas  = [
+        $datas = [
             'title' => 'Article',
             'article' => $article,
         ];
-        switch($articleType){
-            case('articles'):
+        switch ($articleType) {
+            case 'articles':
                 return view('backend.pages.edit-article', $datas);
-            break;
-            case('category'):
+                break;
+            case 'category':
                 return view('backend.pages.edit-category', $datas);
-            break;
-            case('events'):
+                break;
+            case 'events':
                 return view('backend.pages.edit-event', $datas);
-            break;
-            case('attentions'):
+                break;
+            case 'attentions':
                 return view('backend.pages.add-attention', $datas);
-            break;
+                break;
             default:
                 return response(404);
         }
@@ -208,5 +240,4 @@ class PostController extends Controller
 
         return back()->with('success', 'Data Artikel berhasil dihapus');
     }
-
 }
