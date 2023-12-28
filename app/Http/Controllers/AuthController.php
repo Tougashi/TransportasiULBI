@@ -30,7 +30,7 @@ class AuthController extends Controller
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/backend/dashboard');
+            return redirect()->intended('/admin/dashboard');
         }
 
         return back()->with('loginError', 'Username yang anda masukan salah');

@@ -42,7 +42,7 @@ Route::group(['middleware' => []], function () {
        });
     });
 
-   Route::prefix('backend')->group(function(){
+   Route::prefix('admin')->group(function(){
        Route::controller(AuthController::class)->group(function(){
             Route::get('/','index')->name('login');
             Route::post('/','store');

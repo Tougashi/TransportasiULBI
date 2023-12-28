@@ -17,10 +17,10 @@
       </div>
 
 
-      <nav class="mt-2">
+      <nav class="my-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="/backend/dashboard" class="nav-link {{$title == 'Dashboard' ? 'active' : ''}}">
+            <a href="/admin/dashboard" class="nav-link {{$title == 'Dashboard' ? 'active' : ''}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -28,11 +28,16 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/backend/categories" class="nav-link {{$title == 'Categories' ? 'active' : ''}}">
+            <a href="/admin/categories" class="nav-link {{$title == 'Categories' ? 'active' : ''}}">
               <i class="nav-icon fas fa-copy"></i>
               <p>Kategori</p>
             </a>
           </li>
+
+          <div class="my-3 py-1 border-top border-bottom">
+            <p class="text-light fw-bold mb-0 py-1 text-center">ARTIKEL</p>
+          </div>
+
          <x-sidebar-category-list title="{{$title}}"/>
 
 

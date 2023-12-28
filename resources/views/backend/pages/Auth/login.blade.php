@@ -26,7 +26,7 @@
                         class="img-fluid w-25"><br><span class="h3">{{ $title }}</span></a>
             </div>
             <div class="card-body">
-                <form action="/backend" method="post">
+                <form action="/admin" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="text" class="form-control {{session()->has('loginError') ? 'is-invalid' : ''}}" name="username" placeholder="Username">

@@ -24,15 +24,59 @@ class PostController extends Controller
         })->get();
         $datas = [
             'title' => Category::where('slug',$articleType)->pluck('category')->first(),
-            'articles' => $articles
+            'articles' => $articles,
+            'tableHeads' => ['No', 'Judul', 'Author', 'Views', 'Tanggal Posting','Aksi'],
+            'tableBodies' => [],
         ];
-        switch($articleType){
+        return view('backend.pages.posts.index', $datas);
+        switch ($articleType) {
             case 'berita':
-                return view('backend.pages.News.articles', $datas);
+                foreach($articles as $item){
+                    $datas['tableBodies'][] = [
+                        'id' => $item->id,
+                        'judul' => $item->title,
+                        'author' => $item->author->author,
+                        'views' => $item->views,
+                        'tanggalPosting' => $item->created_at->format('d F Y H:i')
+                    ];
+                }
+            case 'kegiatan':
+                foreach($articles as $item){
+                    $datas['tableBodies'][] = [
+                        'id' => $item->id,
+                        'judul' => $item->title,
+                        'author' => $item->author->author,
+                        'views' => $item->views,
+                        'tanggalPosting' => $item->created_at->format('d F Y H:i')
+                    ];
+                }
+            case 'event':
+                array_splice($datas['tableHeads'], 3, 0, 'Tanggal Pelaksanaan');
+                foreach($articles as $item){
+                    $datas['tableBodies'][] = [
+                        'id' => $item->id,
+                        'judul' => $item->title,
+                        'author' => $item->author->author,
+                        'tanggalPelaksanaan' => $item->date,
+                        'views' => $item->date,
+                        'tanggalPosting' => $item->created_at->format('d F Y H:i')
+                    ];
+                }
+            case 'pengumuman':
+                foreach($articles as $item){
+                    $datas['tableBodies'][] = [
+                        'id' => $item->id,
+                        'judul' => $item->title,
+                        'author' => $item->author->author,
+                        'tanggalPelaksanaan' => $item->date,
+                        'tanggalPosting' => $item->created_at->format('d F Y H:i')
+                    ];
+                }
             default:
             return view('errors.404');
             break;
         };
+
     }
 
     /**
@@ -184,33 +228,33 @@ class PostController extends Controller
     public function destroy($articleType, $id)
     {
         $post = Post::find($id);
-    
+
         if ($post->thumbnail) {
             Storage::delete('public/' . $post->thumbnail);
         }
-    
+
         if ($post->body) {
             $bodyContent = $post->body;
 
             $pattern = '/\b(?:\w*\.)(jpg|jpeg|png)\b/';
             preg_match_all($pattern, $bodyContent, $matches);
-    
+
             if (!empty($matches[0])) {
                 foreach ($matches[0] as $filename) {
                     Storage::delete('public/' . $filename);
                 }
             }
-    
+
             $bodyPath = 'public/' . dirname($post->body);
             if (count(glob(storage_path('app/' . $bodyPath) . '/*')) === 0) {
                 Storage::deleteDirectory($bodyPath);
             }
         }
-    
+
         Post::destroy($id);
-    
+
         return back()->with('success', 'Data Artikel berhasil dihapus');
     }
-    
+
 
 }
