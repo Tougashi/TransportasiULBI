@@ -53,7 +53,7 @@ Route::group(['middleware' => []], function () {
 });
 
 Route::group(['middleware' => ['web','auth']], function(){
-    Route::prefix('backend')->group(function(){
+    Route::prefix('admin')->group(function(){
 
         Route::controller(DashboardController::class)->group(function(){
             Route::get('/dashboard', 'index');
