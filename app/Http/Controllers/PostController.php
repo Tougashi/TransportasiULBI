@@ -161,6 +161,8 @@ class PostController extends Controller
         $data = $request->all();
         $data['excerpt'] = Str::limit(strip_tags($request->postBody), 200);
         $data['body'] = $request->postBody;
+        $data['categoryId'] = $categoryType->id;
+
 
         $validators = Validator::make(
             $data,
