@@ -54,7 +54,7 @@ class PostController extends Controller
                 }
             break;
             case 'event':
-                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Aksi'];
+                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Tanggal Posting','Aksi'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
@@ -65,7 +65,7 @@ class PostController extends Controller
                 }
             break;
             case 'pengumuman':
-                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Aksi'];
+                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Tanggal Posting','Aksi'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
@@ -76,13 +76,12 @@ class PostController extends Controller
                 }
             break;
             case 'dosen':
-                $datas['tableHeads'] = ['No','Nama Dosen', 'Jabatan', 'Aksi'];
+                $datas['tableHeads'] = ['No','Nama Dosen', 'Jabatan', 'Tanggal Posting', 'Aksi'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
                         'judul' => $item->title,
                         'author' => $item->author->author,
-                        'tanggalPelaksanaan' => $item->date,
                         'tanggalPosting' => $item->created_at->format('d F Y H:i'),
                     ];
                 }
@@ -93,8 +92,7 @@ class PostController extends Controller
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
                         'judul' => $item->title,
-                        'author' => $item->author->author,
-                        'tanggalPelaksanaan' => $item->date,
+                        'author' => $item->body,
                         'tanggalPosting' => $item->created_at->format('d F Y H:i'),
                     ];
                 }
@@ -109,8 +107,6 @@ class PostController extends Controller
                         'category' => $item->category,
                         'tanggalPosting' => $item->created_at->format('d F Y H:i'),
                     ];
-
-
                 }
                 break;
             default:
