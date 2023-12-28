@@ -54,30 +54,29 @@ class PostController extends Controller
                 }
             break;
             case 'event':
-                array_splice($datas['tableHeads'], 3, 0, 'Tanggal Pelaksanaan');
+                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Aksi'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
                         'judul' => $item->title,
-                        'author' => $item->author->author,
                         'tanggalPelaksanaan' => $item->date,
-                        'views' => $item->date,
                         'tanggalPosting' => $item->created_at->format('d F Y H:i'),
                     ];
                 }
             break;
             case 'pengumuman':
+                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Aksi'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
                         'judul' => $item->title,
-                        'author' => $item->author->author,
                         'tanggalPelaksanaan' => $item->date,
                         'tanggalPosting' => $item->created_at->format('d F Y H:i'),
                     ];
                 }
             break;
             case 'dosen':
+                $datas['tableHeads'] = ['No','Nama Dosen', 'Jabatan', 'Aksi'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
@@ -89,6 +88,7 @@ class PostController extends Controller
                 }
             break;
             case 'review':
+                $datas['tableHeads'] = ['No','Nama', 'Kalimat Testimoni', 'Tanggal Posting', 'Aksi'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
