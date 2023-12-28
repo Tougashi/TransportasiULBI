@@ -34,14 +34,14 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="form-group pb-1">
+                    <div class="form-group pb-1">
                         <label class="col-form-label" for="bodyArtikel">Isi Artikel</label>
                         <div id="bodyValue">{!!$article->body!!}</div>
                         <div id="trixField" class="d-none">
                             <input type="hidden" name="postBody" id="postBody" required value="{{$article->body}}">
                             <trix-editor input="postBody" class="trix-content"></trix-editor>
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="row w-100">
                         <div class="col-lg-4 col-sm-4 col-12">
                             <button class="btn btn-secondary w-100">Batal</button>

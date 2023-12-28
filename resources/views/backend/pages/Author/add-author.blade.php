@@ -8,7 +8,7 @@
     <div class="card mb-1">
         <div class="card-body">
             <div class="card-title">
-                Tambah data Dosen
+                Tambah data {{$title}}
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
                     <input type="text" name="slug" class="form-control disabled" readonly id="slugArtikel"
                         placeholder="Slug Postingan / Artikel">
                 </div>
-                <div class="form-group pb-1">
+                {{-- <div class="form-group pb-1">
                     <label class="col-form-label" for="slugArtikel">Kategori</label>
                     <select class="form-control select2" style="width: 100%;" required>
                         <option></option>
@@ -34,7 +34,7 @@
                             <option value="{{ $item->id }}">{{ $item->category }}</option>
                         @endforeach
                     </select>
-                </div>
+                </div> --}}
                 <div class="form-group pb-1">
                     <div class="container row d-flex">
                         <div class="col-6">
