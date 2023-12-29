@@ -27,7 +27,7 @@ class PostController extends Controller
                 ->pluck('category')
                 ->first(),
             'articles' => $articles,
-            'tableHeads' => ['No', 'Judul', 'Author', 'Views', 'Tanggal Posting', 'Aksi'],
+            'tableHeads' => ['No', 'Judul', 'Author', 'Views', 'Dibuat pada', 'Aksi'],
             'tableBodies' => [],
         ];
         switch ($articleType) {
@@ -54,7 +54,7 @@ class PostController extends Controller
                 }
             break;
             case 'event':
-                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Tanggal Posting','Aksi'];
+                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Dibuat pada','Aksi'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
@@ -65,7 +65,7 @@ class PostController extends Controller
                 }
             break;
             case 'pengumuman':
-                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Tanggal Posting','Aksi'];
+                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Dibuat pada','Aksi'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
@@ -76,7 +76,7 @@ class PostController extends Controller
                 }
             break;
             case 'dosen':
-                $datas['tableHeads'] = ['No','Nama Dosen', 'Jabatan', 'Tanggal Posting', 'Aksi'];
+                $datas['tableHeads'] = ['No','Nama Dosen', 'Jabatan', 'Dibuat pada', 'Aksi'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
@@ -87,7 +87,7 @@ class PostController extends Controller
                 }
             break;
             case 'review':
-                $datas['tableHeads'] = ['No','Nama', 'Kalimat Testimoni', 'Tanggal Posting', 'Aksi'];
+                $datas['tableHeads'] = ['No','Nama', 'Kalimat Testimoni', 'Dibuat pada', 'Aksi'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
@@ -167,11 +167,12 @@ class PostController extends Controller
         $validators = Validator::make(
             $data,
             [
-                'title' => 'required',
-                'slug' => 'required',
-                'body' => 'required',
-                'excerpt' => 'required',
-                'thumbnail' => 'required|image|file|max:5000',
+                'title' => 'nullable',
+                'slug' => 'nullable',
+                'body' => 'nullable',
+                'excerpt' => 'nullable',
+                'thumbnail' => 'nullable|image|file|max:5000',
+                'date' => 'nullable',
                 'categoryId' => 'required',
             ],
             $messages = [
@@ -179,15 +180,18 @@ class PostController extends Controller
                 'thumbnail.required' => 'Thumbnail wajib diisi',
             ],
         );
-
+        if ($request->hasFile('thumbnail')) {
+            $validated['thumbnail'] = 'thumbnails' . '/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
+            $request->file('thumbnail')->storeAs('public/', $validated['thumbnail']);
+        }
         if ($validators->fails()) {
             return back()->with('errors', $validators->errors());
         }
 
         $validated = $validators->validated();
         $validated['userId'] = auth()->user()->id;
-        $validated['thumbnail'] = 'thumbnails' . '/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
-        $request->file('thumbnail')->storeAs('public/', $validated['thumbnail']);
+        // $validated['thumbnail'] = 'thumbnails' . '/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
+        // $request->file('thumbnail')->storeAs('public/', $validated['thumbnail']);
 
         Post::create($validated, []);
 
@@ -197,26 +201,10 @@ class PostController extends Controller
     public function uploadImage(Request $request)
     {
         if ($request->hasFile('file')) {
-            //get filename with extension
-            $filenamewithextension = $request->file('file')->getClientOriginalName();
-
-            //get filename without extension
-            $filename = $filenamewithextension;
-
-            //get file extension
-            $extension = $request->file('file')->getClientOriginalExtension();
-
-            //filename to store
-            $filenametostore = time() . '.' . $extension;
-
-            //Upload File
-            $request->file('file')->storeAs('public/uploads/', $filenametostore);
-
-            // you can save image path below in database
+            $file = $request->file('file');
+            $filenametostore = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(storage_path('app/public/uploads'), $filenametostore);
             $path = asset('storage/uploads/' . $filenametostore);
-
-
-
             echo $path;
             exit();
         }
@@ -304,7 +292,7 @@ class PostController extends Controller
 
          Post::destroy($id);
 
-         return back()->with('success', 'Data Artikel berhasil dihapus');
+         return back()->with('success', 'Data berhasil dihapus');
      }
 
 

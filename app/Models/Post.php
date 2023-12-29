@@ -11,7 +11,7 @@ class Post extends Model
 
     protected $guarded = ['id'];
     protected $fillable = [
-        'title', 'thumbnail','slug','body','excerpt','date','userId','categoryId'
+        'title', 'thumbnail','slug','body','excerpt','date','userId','categoryId','date'
     ];
     protected $nullable = ['views'];
 

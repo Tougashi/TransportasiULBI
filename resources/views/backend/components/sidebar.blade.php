@@ -35,7 +35,7 @@
           </li>
 
           <div class="my-3 py-1 border-top border-bottom">
-            <p class="text-light fw-bold mb-0 py-1 text-center">ARTIKEL</p>
+            <p class="text-light fw-bold mb-0 py-1 text-center">DATA</p>
           </div>
 
          <x-sidebar-category-list title="{{$title}}"/>

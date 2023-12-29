@@ -18,37 +18,12 @@
                 @csrf
                 <div class="form-group pb-1">
                     <label class="col-form-label" for="judulArtikel">Judul Pengumuman</label>
-                    <input type="text" name="title" class="form-control" id="judulArtikel"
-                        placeholder="Judul Pengumuman" required>
+                    <input type="text" name="title" class="form-control" id="judulArtikel" placeholder="Judul Pengumuman" required>
                 </div>
                 <div class="form-group pb-1">
-                    <label class="col-form-label" for="dateArtikel">Tanggal</label>
-                    <input type="date" name="date" class="form-control disabled" id="dateArtikel"
-                        placeholder="Tanggal Pengumuman">
+                    <label class="col-form-label" for="dateArtikel">Tanggal Pengumuman yang akan datang</label>
+                    <input type="date" name="date" class="form-control" id="dateArtikel" placeholder="Tanggal Pengumuman" required>
                 </div>
-                {{-- <div class="form-group pb-1">
-                    <div class="container row d-flex">
-                        <div class="col-6">
-                            <label class="col-form-label" for="thumbnailInput">Thumbnail</label><br>
-                            <input type="file" src="" alt="" class="form-control" name="thumbnail"
-                                id="thumbnailInput" required>
-                        </div>
-                        <div class="col-6">
-                            <label class="col-form-label" for="thumbnailInput">Preview</label><br>
-                            <div
-                                class="container border border-primary rounded h-100 d-flex align-items-center justify-content-center">
-                                <div class="" id="thumbnail">
-                                    Pratinjau Thumbnail Unggahan anda akan muncul disini
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group pb-1">
-                    <label class="col-form-label" for="bodyArtikel">Isi Artikel</label>
-                    <input type="hidden" name="postBody" id="postBody" required>
-                    <trix-editor input="postBody" class="trix-content"></trix-editor>
-                </div> --}}
                 <div class="row w-100">
                     <div class="col-lg-4 col-sm-4 col-12">
                         <button class="btn btn-secondary w-100">Batal</button>

@@ -18,12 +18,18 @@ class ViewController extends Controller
             'Kegiatan' => Post::where('created_at', '<=', now())->whereHas('category', function($query){
                 $query->where('slug', 'kegiatan');
             })->latest()->get(),
-            'pengumuman' => Post::where('date','>=',now())->whereHas('category', function($query){
-                $query->where('slug', 'pengumuman')->where('slug', 'event');
-            })->latest()->get(),
-            'event' => Post::where('date','>=',now())->whereHas('category', function($query){
+            'pengumuman' => Post::where('date', '>=', now())
+            ->whereHas('category', function($query) {
+                $query->where('slug', 'pengumuman');
+            })
+            ->latest()
+            ->get(),        
+            'event' => Post::where('date', '>=', now())
+            ->whereHas('category', function($query) {
                 $query->where('slug', 'event');
-            })->latest()->get(),
+            })
+            ->latest()
+            ->get(),     
             'dosen' => Post::where('date','>=',now())->whereHas('category', function($query){
                 $query->where('slug', 'dosen');
             })->latest()->get(),
