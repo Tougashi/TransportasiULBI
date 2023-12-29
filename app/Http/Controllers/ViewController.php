@@ -23,13 +23,13 @@ class ViewController extends Controller
                 $query->where('slug', 'pengumuman');
             })
             ->latest()
-            ->get(),        
+            ->get(),
             'event' => Post::where('date', '>=', now())
             ->whereHas('category', function($query) {
                 $query->where('slug', 'event');
             })
             ->latest()
-            ->get(),     
+            ->get(),
             'dosen' => Post::where('date','>=',now())->whereHas('category', function($query){
                 $query->where('slug', 'dosen');
             })->latest()->get(),

@@ -16,6 +16,9 @@ class PostController extends Controller
      * Display a listing of the resource.
      */
     public $tipe;
+    public $imagePath;
+
+
     public function index($articleType)
     {
         $this->tipe = $articleType;
@@ -190,10 +193,13 @@ class PostController extends Controller
 
         $validated = $validators->validated();
         $validated['userId'] = auth()->user()->id;
+        $validated['image-body'] = json_encode($request->bodyImage);
         // $validated['thumbnail'] = 'thumbnails' . '/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
         // $request->file('thumbnail')->storeAs('public/', $validated['thumbnail']);
 
         Post::create($validated, []);
+
+        // return response()->json(['data' => $validated]);
 
         return redirect('/admin/'.$categoryType->slug)->with('success', 'Artikel / Postingan berhasil di Upload');
     }

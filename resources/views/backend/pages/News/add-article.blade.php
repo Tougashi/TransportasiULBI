@@ -53,6 +53,7 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name="bodyImage" id="bodyImageField" value="">
                 <div class="form-group pb-1">
                     <label class="col-form-label" for="bodyArtikel">Isi Artikel</label>
                     <input type="hidden" name="postBody" id="postBody" required>

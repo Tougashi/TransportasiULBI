@@ -14,9 +14,6 @@ return new class extends Migration
         Schema::create('body_images', function (Blueprint $table) {
             $table->id();
             $table->string('imagePath');
-
-            $table->unsignedBigInteger('postId');
-            $table->foreign('postId')->references('id')->on('posts');
             $table->timestamps();
         });
     }

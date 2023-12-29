@@ -12,6 +12,5 @@ class bodyImage extends Model
     protected $guarded = 'id';
     protected $fillable = [
         'imagePath',
-        'postId',
     ];
 }

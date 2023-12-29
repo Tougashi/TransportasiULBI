@@ -17,11 +17,14 @@ return new class extends Migration
             $table->string('thumbnail')->nullable();
             $table->string('slug')->nullable();
             $table->text('body')->nullable();
-            // $table->json('image-body');
+            $table->json('image-body');
             $table->text('excerpt')->nullable();
             $table->string('views')->default(0)->nullable();
             $table->date('date')->nullable();
 
+
+            // $table->unsignedBigInteger('imageId');
+            // $table->foreign('imageId')->references('id')->on('body_images');
             $table->unsignedBigInteger('userId');
             $table->foreign('userId')->references('id')->on('users');
             $table->unsignedBigInteger('categoryId');
