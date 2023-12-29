@@ -70,7 +70,7 @@ Route::group(['middleware' => ['web','auth']], function(){
             Route::get('/{articleType}/delete/{id}','destroy');
 
             // EDITOR IMAGE UPLOAD
-            Route::post('/article/upload/image','uploadImage');
+            Route::post('/upload/image','uploadImage')->name('upload-image-body');
         });
 
         // Route::controller(DosenController::class)->group(function(){

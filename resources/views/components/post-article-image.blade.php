@@ -1,6 +1,6 @@
 <script>
     $().ready(function() {
-        var HOST = "{{ url('/') . $url }}";
+        var HOST = "{{ route('upload-image-body') }}";
 
         addEventListener("trix-attachment-add", function(event) {
         if (event.attachment.file) {
