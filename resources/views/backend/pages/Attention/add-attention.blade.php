@@ -17,25 +17,16 @@
             <form action="{{ url()->current() . '/store' }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group pb-1">
-                    <label class="col-form-label" for="judulArtikel">Judul Artikel</label>
+                    <label class="col-form-label" for="judulArtikel">Judul Pengumuman</label>
                     <input type="text" name="title" class="form-control" id="judulArtikel"
-                        placeholder="Judul Postingan / Artikel" required>
+                        placeholder="Judul Pengumuman" required>
                 </div>
                 <div class="form-group pb-1">
-                    <label class="col-form-label" for="slugArtikel">Slug</label>
-                    <input type="text" name="slug" class="form-control disabled" readonly id="slugArtikel"
-                        placeholder="Slug Postingan / Artikel">
+                    <label class="col-form-label" for="dateArtikel">Tanggal</label>
+                    <input type="date" name="date" class="form-control disabled" id="dateArtikel"
+                        placeholder="Tanggal Pengumuman">
                 </div>
                 {{-- <div class="form-group pb-1">
-                    <label class="col-form-label" for="slugArtikel">Kategori</label>
-                    <select class="form-control select2" style="width: 100%;" required>
-                        <option></option>
-                        @foreach ($categories as $item)
-                            <option value="{{ $item->id }}">{{ $item->category }}</option>
-                        @endforeach
-                    </select>
-                </div> --}}
-                <div class="form-group pb-1">
                     <div class="container row d-flex">
                         <div class="col-6">
                             <label class="col-form-label" for="thumbnailInput">Thumbnail</label><br>
@@ -57,7 +48,7 @@
                     <label class="col-form-label" for="bodyArtikel">Isi Artikel</label>
                     <input type="hidden" name="postBody" id="postBody" required>
                     <trix-editor input="postBody" class="trix-content"></trix-editor>
-                </div>
+                </div> --}}
                 <div class="row w-100">
                     <div class="col-lg-4 col-sm-4 col-12">
                         <button class="btn btn-secondary w-100">Batal</button>
