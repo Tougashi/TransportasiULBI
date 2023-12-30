@@ -30,7 +30,7 @@ class PostController extends Controller
                 ->pluck('category')
                 ->first(),
             'articles' => $articles,
-            'tableHeads' => ['No', 'Judul', 'Author', 'Views', 'Dibuat pada'],
+            'tableHeads' => ['No', 'Judul', 'Author', 'Views', 'Dibuat pada', ' '],
             'tableBodies' => [],
         ];
         switch ($articleType) {
@@ -161,9 +161,11 @@ class PostController extends Controller
     public function store(Request $request, $articleType)
     {
         $categoryType = Category::where('slug', $articleType)->first();
-        
+        $data = $request->all();
+        $data['categoryId'] = $categoryType->id;
+
         $validators = Validator::make(
-            $request->all(),
+            $data,
             [
                 'title' => 'nullable',
                 'slug' => 'nullable',
