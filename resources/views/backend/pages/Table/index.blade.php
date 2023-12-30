@@ -23,6 +23,7 @@
                 </thead>
                 <tbody>
                     @foreach ($tableBodies as $item)
+                    {{-- @dd($item) --}}
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             @if (isset($item['judul']))
@@ -42,8 +43,8 @@
                             @endif
                             <td>{{ $item['tanggalPosting'] }}</td>
                             <td>
-                                <div class="d-flex">
-                                    <td>
+                                {{-- <div class="d-flex">
+                                    <td> --}}
                                         <div class="d-flex">
                                             @if (!request()->is('admin/categories'))
                                                 <a class="btn btn-info" href="{{ url()->current() . '/show/' . $item['id'] }}">
@@ -55,11 +56,11 @@
                                                 </a>
                                             @endif
                                         </div>
-                                    </td>
-                                    
-                                </div>
+                                    {{-- </td>
+
+                                </div> --}}
                             </td>
-                            
+
                         </tr>
                     @endforeach
             </table>
