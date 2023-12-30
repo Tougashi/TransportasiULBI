@@ -84,7 +84,7 @@ class PostController extends Controller
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
                         'judul' => $item->title,
-                        'body' => $item->body->body,
+                        'body' => $item->body,
                         'tanggalPosting' => $item->created_at->format('d F Y H:i'),
                     ];
                 }
@@ -227,16 +227,19 @@ class PostController extends Controller
         ];
         switch ($articleType) {
             case 'articles':
-                return view('backend.pages.edit-article', $datas);
+                return view('backend.pages.news.edit-article', $datas);
                 break;
             case 'category':
-                return view('backend.pages.edit-category', $datas);
+                return view('backend.pages.category.edit-category', $datas);
                 break;
             case 'events':
-                return view('backend.pages.edit-event', $datas);
+                return view('backend.pages.event.edit-event', $datas);
                 break;
             case 'attentions':
-                return view('backend.pages.add-attention', $datas);
+                return view('backend.pages.attention.edit-attention', $datas);
+                break;
+            case 'dosen':
+                return view('backend.pages.dosen.edit-dosen', $datas);
                 break;
             default:
                 return response(404);

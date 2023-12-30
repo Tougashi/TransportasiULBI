@@ -23,7 +23,7 @@
                 </div>
                 <div class="form-group pb-1">
                     <label class="col-form-label" for="judulArtikel">Jabatan Dosen</label>
-                    <input type="text" name="body" class="form-control" id="judulArtikel"
+                    <input type="text" name="postBody" class="form-control" id="bodyArtikel"
                         placeholder="Jabatan Dosen" required>
                 </div>
                 <div class="form-group pb-1">
@@ -44,6 +44,7 @@
                         </div>
                     </div>
                 </div>
+                <br><br>
                 <div class="row w-100">
                     <div class="col-lg-4 col-sm-4 col-12">
                         <button class="btn btn-secondary w-100">Batal</button>
