@@ -23,7 +23,6 @@
                 </thead>
                 <tbody>
                     @foreach ($tableBodies as $item)
-                    {{-- @dd($item) --}}
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             @if (isset($item['judul']))
@@ -42,11 +41,9 @@
                                 <td>{{ $item['views'] }}</td>
                             @endif
                             <td>{{ $item['tanggalPosting'] }}</td>
-                            <td>
-                                {{-- <div class="d-flex">
-                                    <td> --}}
+                            @if (!request()->is('admin/categories'))
+                                    <td>
                                         <div class="d-flex">
-                                            @if (!request()->is('admin/categories'))
                                                 <a class="btn btn-info" href="{{ url()->current() . '/show/' . $item['id'] }}">
                                                     <i class="fas fa-solid fa-eye"></i>
                                                 </a>
@@ -54,13 +51,9 @@
                                                     onclick="return(confirm('Apakah anda yakin akan menghapus data ini ?'))">
                                                     <i class="fas fa-solid fa-trash"></i>
                                                 </a>
-                                            @endif
                                         </div>
-                                    {{-- </td>
-
-                                </div> --}}
-                            </td>
-
+                                    </td>
+                                    @endif
                         </tr>
                     @endforeach
             </table>
