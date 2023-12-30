@@ -51,13 +51,13 @@
         });
         function endSession(){
             $.ajax({
-                url: '/backend/logout',
+                url: '/admin/logout',
                 method: 'DELETE',
                 headers: {
                     'X-CSRF-TOKEN' : token
                 },
                 success: function(response){
-                    window.location.href = '/backend';
+                    window.location.href = '/admin';
                 },
                 error: function(error){
                     console.log(error.message);

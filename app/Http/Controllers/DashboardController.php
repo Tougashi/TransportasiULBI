@@ -20,7 +20,7 @@ class DashboardController extends Controller
             'countPosts' => Post::all()->count(),
             'categories' => Category::all(),
             'countAuthors' => User::all()->count(),
-            'countViewers' => Post::all()->count('views')
+            'countViewers' => Post::sum('views')
         ]);
     }
 
