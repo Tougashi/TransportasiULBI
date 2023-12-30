@@ -28,7 +28,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/categories" class="nav-link {{$title == 'Categories' ? 'active' : ''}}">
+            <a href="/admin/categories" class="nav-link {{$title == 'Kategori' ? 'active' : ''}}">
               <i class="nav-icon fas fa-copy"></i>
               <p>Kategori</p>
             </a>

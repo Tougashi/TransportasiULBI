@@ -103,7 +103,7 @@
                     @forelse ($News as $article)
                     <div class="col-8 col-lg-3 col-md-8 mb-lg-0 m-0">
                         <div class="card shadow-sm">
-                            <a href="/berita/{{ $article->slug }}">
+                            <a href="/page/berita/{{ $article->slug }}">
                             <img src="{{asset('storage/' . $article->thumbnail)}}" class="card-img-top rounded-top" alt="Thumbnail">
                             <div class="card-body">
                                 <h3 class="h5 card-title mt-3">{{$article->title}}</h3>

@@ -40,12 +40,22 @@ class ViewController extends Controller
         ]);
     }
 
-    public function berita()
+    public function berita($slug)
     {
-        return view('pages.berita',[
-            'title' => 'Berita',
-            'NavbarTitle' => 'Berita',
-        ]);
+        $post = Post::with('author')->where('slug', $slug)->first();
+        $popularPosts = Post::orderBy('views', 'DESC')->get();
+        if(isset($post)){
+            $increaseViews = (intval($post->views) + intval(1));
+            $post->where('id',$post->id)->update(['views' => $increaseViews]);
+            return view('pages.berita',[
+                'title' => 'Berita',
+                'data' => $post,
+                'NavbarTitle' => 'Berita',
+                'popularPost' => $popularPosts,
+            ]);
+        }else{
+            return response(404, 'Postingan tidak ditemukan!');
+        }
     }
 
     public function kegiatan()
@@ -187,4 +197,8 @@ class ViewController extends Controller
             'title' => 'Fakultas : S1 Manajemen Transportasi',
         ]);
     }
+
+
+
+
 }

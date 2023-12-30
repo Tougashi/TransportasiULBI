@@ -13,9 +13,9 @@ use App\Http\Controllers\CategoryController;
 Route::group(['middleware' => []], function () {
    Route::controller(ViewController::class)->group(function(){
     Route::get('/', 'main')->name('beranda');
-    Route::get('/berita/{posts:slug}', 'berita')->name('berita');
     Route::get('/kegiatan/{posts:slug}', 'kegiatan')->name('kegiatan');
     Route::prefix('page')->group(function(){
+        Route::get('/berita/{slug}', 'berita')->name('berita');
         Route::get('/profil-transportasi-ulbi', 'profil')->name('profil');
         Route::get('/visi-misi', 'visiMisi')->name('visiMisi');
         Route::get('/struktur-organisasi', 'strukturOrganisasi')->name('strukturOrganisasi');
@@ -64,7 +64,7 @@ Route::group(['middleware' => ['web','auth']], function(){
             Route::get('/attentions', 'attention');
             Route::get('/{articleType}/add','create');
             Route::post('/{articleType}/add/store','store');
-            Route::get('/{articleType}{id}','show');
+            Route::get('/{articleType}/show/{id}','show');
             Route::put('/{articleType}/edit/{id}','edit');
             Route::put('/{articleType}/update/{id}','update');
             Route::get('/{articleType}/delete/{id}','destroy');
