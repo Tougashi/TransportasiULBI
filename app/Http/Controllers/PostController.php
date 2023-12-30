@@ -57,7 +57,7 @@ class PostController extends Controller
                 }
             break;
             case 'event':
-                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Dibuat pada','Aksi'];
+                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Dibuat pada'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
@@ -68,7 +68,7 @@ class PostController extends Controller
                 }
             break;
             case 'pengumuman':
-                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Dibuat pada'];
+                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Dibuat pada' ];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
