@@ -163,6 +163,8 @@ class PostController extends Controller
         $categoryType = Category::where('slug', $articleType)->first();
         $data = $request->all();
         $data['categoryId'] = $categoryType->id;
+        $data['excerpt'] = Str::limit(strip_tags($request->postBody), 200);
+        $data['body'] = $request->postBody;
 
         $validators = Validator::make(
             $data,
