@@ -22,7 +22,7 @@
         <div class="inner">
           <h3>{{count($categories)}}</h3>
 
-          <p>Segmen / Kategori</p>
+          <p>Kategori</p>
         </div>
         <div class="icon">
           <i class="fas fa-copy"></i>

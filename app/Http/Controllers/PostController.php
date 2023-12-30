@@ -30,7 +30,7 @@ class PostController extends Controller
                 ->pluck('category')
                 ->first(),
             'articles' => $articles,
-            'tableHeads' => ['No', 'Judul', 'Author', 'Views', 'Dibuat pada', 'Aksi'],
+            'tableHeads' => ['No', 'Judul', 'Author', 'Views', 'Dibuat pada'],
             'tableBodies' => [],
         ];
         switch ($articleType) {
@@ -68,7 +68,7 @@ class PostController extends Controller
                 }
             break;
             case 'pengumuman':
-                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Dibuat pada','Aksi'];
+                $datas['tableHeads'] = ['No','Judul', 'Tanggal Pelaksanaan', 'Dibuat pada'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
@@ -79,7 +79,7 @@ class PostController extends Controller
                 }
             break;
             case 'dosen':
-                $datas['tableHeads'] = ['No','Nama Dosen', 'Jabatan', 'Dibuat pada', 'Aksi'];
+                $datas['tableHeads'] = ['No','Nama Dosen', 'Jabatan', 'Dibuat pada'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
@@ -90,7 +90,7 @@ class PostController extends Controller
                 }
             break;
             case 'review':
-                $datas['tableHeads'] = ['No','Nama', 'Kalimat Testimoni', 'Dibuat pada', 'Aksi'];
+                $datas['tableHeads'] = ['No','Nama', 'Kalimat Testimoni', 'Dibuat pada'];
                 foreach ($articles as $item) {
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
@@ -101,7 +101,7 @@ class PostController extends Controller
                 }
             break;
             case 'categories':
-                $datas['tableHeads'] = ['No', 'Kategori', 'Dibuat Pada','Aksi'];
+                $datas['tableHeads'] = ['No', 'Kategori', 'Dibuat Pada'];
                 $datas['title'] = 'Kategori';
                 $categories = Category::all();
                 foreach ($categories as $item) {
@@ -161,14 +161,9 @@ class PostController extends Controller
     public function store(Request $request, $articleType)
     {
         $categoryType = Category::where('slug', $articleType)->first();
-        $data = $request->all();
-        $data['excerpt'] = Str::limit(strip_tags($request->postBody), 200);
-        $data['body'] = $request->postBody;
-        $data['categoryId'] = $categoryType->id;
-
-
+        
         $validators = Validator::make(
-            $data,
+            $request->all(),
             [
                 'title' => 'nullable',
                 'slug' => 'nullable',
@@ -178,15 +173,12 @@ class PostController extends Controller
                 'date' => 'nullable',
                 'categoryId' => 'required',
             ],
-            $messages = [
+            [
                 'body.required' => 'Input Isi Artikel tidak boleh kosong, periksa kembali',
                 'thumbnail.required' => 'Thumbnail wajib diisi',
-            ],
+            ]
         );
-        if ($request->hasFile('thumbnail')) {
-            $validated['thumbnail'] = 'thumbnails' . '/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
-            $request->file('thumbnail')->storeAs('public/', $validated['thumbnail']);
-        }
+
         if ($validators->fails()) {
             return back()->with('errors', $validators->errors());
         }
@@ -194,15 +186,18 @@ class PostController extends Controller
         $validated = $validators->validated();
         $validated['userId'] = auth()->user()->id;
         $validated['image-body'] = json_encode($request->bodyImage);
-        // $validated['thumbnail'] = 'thumbnails' . '/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
-        // $request->file('thumbnail')->storeAs('public/', $validated['thumbnail']);
 
-        Post::create($validated, []);
+        if ($request->hasFile('thumbnail')) {
+            $thumbnailPath = 'thumbnails/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
+            $request->file('thumbnail')->storeAs('public/', $thumbnailPath);
+            $validated['thumbnail'] = $thumbnailPath;
+        }
 
-        // return response()->json(['data' => $validated]);
+        Post::create($validated);
 
         return redirect('/admin/'.$categoryType->slug)->with('success', 'Artikel / Postingan berhasil di Upload');
     }
+
 
     public function uploadImage(Request $request)
     {
