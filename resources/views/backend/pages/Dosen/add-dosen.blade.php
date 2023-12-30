@@ -17,28 +17,19 @@
             <form action="{{ url()->current() . '/store' }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group pb-1">
-                    <label class="col-form-label" for="judulArtikel">Judul Artikel</label>
+                    <label class="col-form-label" for="judulArtikel">Nama Dosen</label>
                     <input type="text" name="title" class="form-control" id="judulArtikel"
-                        placeholder="Judul Postingan / Artikel" required>
+                        placeholder="Nama Dosen" required>
                 </div>
                 <div class="form-group pb-1">
-                    <label class="col-form-label" for="slugArtikel">Slug</label>
-                    <input type="text" name="slug" class="form-control disabled" readonly id="slugArtikel"
-                        placeholder="Slug Postingan / Artikel">
+                    <label class="col-form-label" for="judulArtikel">Jabatan Dosen</label>
+                    <input type="text" name="body" class="form-control" id="judulArtikel"
+                        placeholder="Jabatan Dosen" required>
                 </div>
-                {{-- <div class="form-group pb-1">
-                    <label class="col-form-label" for="slugArtikel">Kategori</label>
-                    <select class="form-control select2" style="width: 100%;" required>
-                        <option></option>
-                        @foreach ($categories as $item)
-                            <option value="{{ $item->id }}">{{ $item->category }}</option>
-                        @endforeach
-                    </select>
-                </div> --}}
                 <div class="form-group pb-1">
                     <div class="container row d-flex">
                         <div class="col-6">
-                            <label class="col-form-label" for="thumbnailInput">Thumbnail</label><br>
+                            <label class="col-form-label" for="thumbnailInput">Foto Dosen</label><br>
                             <input type="file" src="" alt="" class="form-control" name="thumbnail"
                                 id="thumbnailInput" required>
                         </div>
@@ -47,16 +38,11 @@
                             <div
                                 class="container border border-primary rounded h-100 d-flex align-items-center justify-content-center">
                                 <div class="" id="thumbnail">
-                                    Pratinjau Thumbnail Unggahan anda akan muncul disini
+                                    Pratinjau Foto Unggahan anda akan muncul disini
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group pb-1">
-                    <label class="col-form-label" for="bodyArtikel">Isi Artikel</label>
-                    <input type="hidden" name="postBody" id="postBody" required>
-                    <trix-editor input="postBody" class="trix-content"></trix-editor>
                 </div>
                 <div class="row w-100">
                     <div class="col-lg-4 col-sm-4 col-12">

@@ -17,14 +17,14 @@
             <form action="{{ url()->current() . '/store' }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group pb-1">
-                    <label class="col-form-label" for="judulArtikel">Judul Artikel</label>
+                    <label class="col-form-label" for="judulArtikel">Judul Berita</label>
                     <input type="text" name="title" class="form-control" id="judulArtikel"
-                        placeholder="Judul Postingan / Artikel" required>
+                        placeholder="Judul Berita" required>
                 </div>
                 <div class="form-group pb-1">
                     <label class="col-form-label" for="slugArtikel">Slug</label>
                     <input type="text" name="slug" class="form-control disabled" readonly id="slugArtikel"
-                        placeholder="Slug Postingan / Artikel">
+                        placeholder="Slug Berita">
                 </div>
                 {{-- <div class="form-group pb-1">
                     <label class="col-form-label" for="slugArtikel">Kategori</label>
@@ -55,7 +55,7 @@
                 </div>
                 <input type="hidden" name="bodyImage" id="bodyImageField" value="">
                 <div class="form-group pb-1">
-                    <label class="col-form-label" for="bodyArtikel">Isi Artikel</label>
+                    <label class="col-form-label" for="bodyArtikel">Isi Berita</label>
                     <input type="hidden" name="postBody" id="postBody" required>
                     <trix-editor input="postBody" class="trix-content"></trix-editor>
                 </div>

@@ -30,7 +30,7 @@ class PostController extends Controller
                 ->pluck('category')
                 ->first(),
             'articles' => $articles,
-            'tableHeads' => ['No', 'Judul', 'Author', 'Views', 'Dibuat pada', ''],
+            'tableHeads' => ['No', 'Judul', 'Author', 'body', 'Views', 'Dibuat pada', ''],
             'tableBodies' => [],
         ];
         switch ($articleType) {
@@ -84,7 +84,7 @@ class PostController extends Controller
                     $datas['tableBodies'][] = [
                         'id' => $item->id,
                         'judul' => $item->title,
-                        'author' => $item->author->author,
+                        'body' => $item->body->body,
                         'tanggalPosting' => $item->created_at->format('d F Y H:i'),
                     ];
                 }

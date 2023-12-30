@@ -34,6 +34,9 @@
                             @if (isset($item['author']))
                                 <td>{{ $item['author'] }}</td>
                             @endif
+                            @if (isset($item['body']))
+                                <td>{{ $item['body'] }}</td>
+                            @endif
                             @if (isset($item['tanggalPelaksanaan']))
                                 <td>{{ $item['tanggalPelaksanaan'] }}</td>
                             @endif
