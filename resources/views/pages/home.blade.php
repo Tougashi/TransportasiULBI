@@ -6,8 +6,8 @@
             <div class="container pb-5 content">
                 <br><br><br><br>
                 <div class="row d-flex align-items-center">
-                    <div class="col-lg-6 col-md-12 pb-lg-0 pt-sm-5 order-sm-2 order-lg-1 order-2 pb-2">
-                        <h1 id="typewriter" class="fw-bolder text-light" style="font-size: 70px; font-family: 'Poppins';"></h1>
+                    <div class="col-lg-6 col-md-12 pb-lg-0 pt-sm-5 order-sm-2 order-lg-1 order-2 pb-2 managemen">
+                        <h1 id="typewriter" class="fw-bolder text-light managemen" style="font-size: auto; font-family: 'Poppins';"></h1>
                         <p class="fw-bold fs-5 text-light pt-2">Gada Kite Barang Ga Sampe</p>
                         <a href="https://enroll.ulbi.ac.id/Pendaftaran"
                             class="btn btn-orange btn-outline-primary p-3 fs-5 mt-4 text-light">Daftar Sekarang <span class="ms-2">🚀</span></a>
@@ -20,6 +20,7 @@
 
         </section>
 
+        <br><br>
 
         <section class="section section-lg">
             <div class="container-fluid">
@@ -104,7 +105,7 @@
                     <div class="col-8 col-lg-3 col-md-8 mb-lg-0 m-0">
                         <div class="card shadow-sm">
                             <a href="/page/berita/{{ $article->slug }}">
-                            <img src="{{asset('storage/' . $article->thumbnail)}}" class="card-img-top rounded-top" alt="Thumbnail">
+                            <img src="{{ asset('storage/' . $article->thumbnail)}}" class="card-img-top rounded-top" alt="Thumbnail">
                             <div class="card-body">
                                 <h3 class="h5 card-title mt-3">{{$article->title}}</h3>
                                 <p class="card-text">{!! $article->excerpt !!}</p>
@@ -173,7 +174,7 @@
                                             <div class="card shadow-sm">
                                                 <div class="card-body">
                                                     <h3 class="h5 card-title py-2 border-bottom">
-                                                        <i class="bi bi-calendar2-week-fill me-2"></i>{{$item->title}}
+                                                        <i class="bi bi-calendar2-week-fill me-2"></i>{{$item->title}} |
                                                         <span class="text-orange">{{$item->category->category}}</span></h3>
                                                      <p class="card-text">{!! $item->date !!}</p>
                                                 </div>
@@ -193,7 +194,7 @@
                                             <div class="card shadow-sm">
                                                 <div class="card-body">
                                                     <h3 class="h5 card-title py-2 border-bottom">
-                                                        <i class="bi bi-calendar2-week-fill me-2"></i>{{$item->title}}
+                                                        <i class="bi bi-calendar2-week-fill me-2"></i>{{$item->title}} |
                                                         <span class="text-orange me-6">{{$item->category->category}}</span>
                                                     </h3>
                                                     <p class="card-text">{!! $item->date !!}</p>
@@ -237,8 +238,8 @@
                         <div class="swiper-slide w-100">
                             <div class="card shadow">
                                 <div class="card-body d-block">
-                                    <p class="card-text">{{$item->title}}</p>
                                     <h3 class="h5 card-title mt-3">{{$item->body}}</h3>
+                                    <p class="card-text text-center">{{$item->title}}</p>
                                 </div>
                             </div>
                         </div>
@@ -293,15 +294,12 @@
                         </div>
                     </div>
                 </div>
-
-
                 @endforelse
             </div>
-
         </section>
 
 
-
+<br>
 
 
         <section class="section section-lg">

@@ -80,3 +80,42 @@
     position: relative;
     z-index: 1; 
 }
+
+
+
+/* Gaya dasar untuk semua perangkat */
+body {
+    font-size: 16px;
+  }
+  
+  /* Gaya untuk layar tablet */
+  @media only screen and (min-width: 768px) and (max-width: 1199px) {
+    .managemen{
+        font-size: 60px;
+    }
+    body {
+      font-size: 30px;
+    }
+  }
+
+  /* Gaya untuk layar hp */
+  @media only screen and (min-width: 360px) and (max-width: 550px) {
+    .managemen {
+        font-size: 50px;
+        text-align: center;
+    }
+    body {
+      font-size: 20px;
+    }
+  }
+  
+  /* Gaya untuk layar desktop atau laptop */
+  @media only screen and (min-width: 1200px) {
+    .managemen {
+        font-size: 70px;
+    }
+    body {
+      font-size: 20px;
+    }
+  }
+  

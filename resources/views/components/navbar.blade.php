@@ -2,7 +2,7 @@
     <nav id="navbar-main" aria-label="Primary navigation"
         class="navbar navbar-main navbar-expand-lg bg-light headroom p-0 shadow">
         <div class="container position-relative p-0">
-            <a class="navbar-brand me-lg-5" href="/">
+            <a class="navbar-brand me-lg-6" href="/">
                 <img class="navbar-brand-dark ulbi-nav-logo"
                     src="{{ asset('assets/img/brand/Fakultas _ S1 Manajemen Transportasi.png') }}" alt="Logo light">
                 {{-- <img class="navbar-brand-light" src="{{asset('/assets/img/brand/dark.svg')}}" alt="Logo dark"> --}}
