@@ -251,7 +251,7 @@
                                 </div>
                             </div>
                         </div>
-                        @endforelse 
+                        @endforelse
                     </div>
                 </div>
 
@@ -286,7 +286,7 @@
                                 <img src="{{ asset('assets/img/team/profile-picture-1.jpg') }}"
                                     class="card-img-top rounded" alt="Neil Portrait">
                             </div>
-                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
+                            <div class="card-body position-relative mt-n6 bg-orange text-center rounded-bottom">
                                 <h3 class="h5 card-title text-light">Developer</h3>
                                 <p class="mt-3">Developing Transportasi ULBI's Official Website's</p>
                             </div>
