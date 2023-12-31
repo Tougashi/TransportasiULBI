@@ -42,13 +42,13 @@ class ViewController extends Controller
 
     public function berita($slug)
     {
-        $post = Post::with('author')->where('slug', $slug)->first();
+        $post = Post::with('author')->where('slug', $slug)->get();
         $popularPosts = Post::orderBy('views', 'DESC')->get();
         if(isset($post)){
-            $increaseViews = (intval($post->views) + intval(1));
-            $post->where('id',$post->id)->update(['views' => $increaseViews]);
+            $increaseViews = (intval($post[0]->views) + intval(1));
+            Post::where('id',$post[0]->id)->update(['views' => $increaseViews]);
             return view('pages.berita',[
-                'title' => 'Berita',
+                'title' => 'Berita | '.$post[0]->title,
                 'data' => $post,
                 'NavbarTitle' => 'Berita',
                 'popularPost' => $popularPosts,
