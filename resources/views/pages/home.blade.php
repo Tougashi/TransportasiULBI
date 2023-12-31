@@ -127,7 +127,7 @@
                     @forelse ($Kegiatan as $kegiatan)
                     <div class="col-8 col-lg-3 col-md-8 mb-lg-0 m-0">
                         <div class="card shadow-sm">
-                            <a href="/kegiatan/{{ $kegiatan->slug }}">
+                            <a href="/berita/{{ $kegiatan->slug }}">
                             <img src="{{ asset('storage/' . $kegiatan->thumbnail) }}" class="card-img-top rounded-top" alt="Thumbnail">
                             <div class="card-body">
                                 <h3 class="h5 card-title mt-3">{{$kegiatan->title}}</h3>
@@ -180,10 +180,10 @@
                                             </div>
                                         </div>
                                         @empty
-                                        <div class="col-12">
+                                        <div class="col-lg-12">
                                             <div class="card shadow-sm">
                                                 <div class="card-body">
-                                                    <h3 class="h5 card-title py-2 border-bottom">Data Kosong</h3>
+                                                    <h3 class="h5 card-title py-2 border-bottom">Tidak ada Pengumuman terbaru</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -201,7 +201,13 @@
                                             </div>
                                         </div>
                                         @empty
-                                            <!-- Konten jika $event kosong -->
+                                        <div class="col-lg-12">
+                                            <div class="card shadow-sm">
+                                                <div class="card-body">
+                                                    <h3 class="h5 card-title py-2 border-bottom">Tidak ada Acara Terbaru</h3>
+                                                </div>
+                                            </div>
+                                        </div>
                                         @endforelse
                                     </div>
                                 </div>
@@ -227,36 +233,21 @@
                 <h3 class="text-center fw-bold pt-5 mb-4">Apa kata Mereka ?</h3>
                 <div class="mySwiper2">
                     <div class="swiper-wrapper h-auto">
+                        @foreach ( $review as $item )
                         <div class="swiper-slide w-100">
                             <div class="card shadow">
                                 <div class="card-body d-block">
-                                    <p class="card-text">Kampus terbaik, mendidik lebih dari apa yang dibutuhkan di dunia
-                                        kerja. Komitmen, kedisiplinan, tanggung jawab, leadership dan softskill lain yang
-                                        telah diajarkan sejak kuliah sangat membantu saat kami telah lulus. Lulusan ULBI
-                                        adalah lulusan siap pakai.</p>
-                                    <h3 class="h5 card-title mt-3">Developer</h3>
+                                    <p class="card-text">{{$item->body}}</p>
+                                    <h3 class="h5 card-title mt-3">{{$item->title}}</h3>
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                         <div class="swiper-slide w-100">
                             <div class="card shadow">
                                 <div class="card-body d-block">
-                                    <p class="card-text">Kampus terbaik, mendidik lebih dari apa yang dibutuhkan di dunia
-                                        kerja. Komitmen, kedisiplinan, tanggung jawab, leadership dan softskill lain yang
-                                        telah diajarkan sejak kuliah sangat membantu saat kami telah lulus. Lulusan ULBI
-                                        adalah lulusan siap pakai.</p>
-                                    <h3 class="h5 card-title mt-3">Developer</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide w-100">
-                            <div class="card shadow">
-                                <div class="card-body d-block">
-                                    <p class="card-text">Kampus terbaik, mendidik lebih dari apa yang dibutuhkan di dunia
-                                        kerja. Komitmen, kedisiplinan, tanggung jawab, leadership dan softskill lain yang
-                                        telah diajarkan sejak kuliah sangat membantu saat kami telah lulus. Lulusan ULBI
-                                        adalah lulusan siap pakai.</p>
-                                    <h3 class="h5 card-title mt-3">Developer</h3>
+                                    <p class="card-text">Tidak ada Review Terbaru</p>
+                                    <h3 class="h5 card-title mt-3">Review ULBI</h3>
                                 </div>
                             </div>
                         </div>
@@ -269,116 +260,41 @@
         <section class="section section-lg pt-0">
             <h3 class="text-center fw-bold">Dosen Prodi S1 Manajemen Transportasi</h3>
             <div class="container mt-5 mySwiper">
+                @forelse ( $dosen as $item)
                 <div class="swiper-wrapper h-auto">
                     <div class="swiper-slide foto-dosen-slide">
                         <div class="card border-0 overflow-hidden text-light">
                             <div class="position-relative">
-                                <img src="{{ asset('/assets/img/team/profile-picture-1.jpg') }}"
+                                <img src="{{ asset('storage/'.$item->thumbnail) }}"
                                     class="card-img-top rounded" alt="Neil Portrait">
                             </div>
                             <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
-                                <h3 class="h5 card-title text-light">Neil D. Sims</h3>
-                                <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide foto-dosen-slide">
-                        <div class="card border-0 overflow-hidden text-light">
-                            <div class="position-relative">
-                                <img src="{{ asset('/assets/img/team/profile-picture-1.jpg') }}"
-                                    class="card-img-top rounded" alt="Neil Portrait">
-                            </div>
-                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
-                                <h3 class="h5 card-title text-light">Neil D. Sims</h3>
-                                <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide foto-dosen-slide">
-                        <div class="card border-0 overflow-hidden text-light">
-                            <div class="position-relative">
-                                <img src="{{ asset('/assets/img/team/profile-picture-1.jpg') }}"
-                                    class="card-img-top rounded" alt="Neil Portrait">
-                            </div>
-                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
-                                <h3 class="h5 card-title text-light">Neil D. Sims</h3>
-                                <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide foto-dosen-slide">
-                        <div class="card border-0 overflow-hidden text-light">
-                            <div class="position-relative">
-                                <img src="{{ asset('/assets/img/team/profile-picture-1.jpg') }}"
-                                    class="card-img-top rounded" alt="Neil Portrait">
-                            </div>
-                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
-                                <h3 class="h5 card-title text-light">Neil D. Sims</h3>
-                                <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide foto-dosen-slide">
-                        <div class="card border-0 overflow-hidden text-light">
-                            <div class="position-relative">
-                                <img src="{{ asset('/assets/img/team/profile-picture-1.jpg') }}"
-                                    class="card-img-top rounded" alt="Neil Portrait">
-                            </div>
-                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
-                                <h3 class="h5 card-title text-light">Neil D. Sims</h3>
-                                <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide foto-dosen-slide">
-                        <div class="card border-0 overflow-hidden text-light">
-                            <div class="position-relative">
-                                <img src="{{ asset('/assets/img/team/profile-picture-1.jpg') }}"
-                                    class="card-img-top rounded" alt="Neil Portrait">
-                            </div>
-                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
-                                <h3 class="h5 card-title text-light">Neil D. Sims</h3>
-                                <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide foto-dosen-slide">
-                        <div class="card border-0 overflow-hidden text-light">
-                            <div class="position-relative">
-                                <img src="{{ asset('/assets/img/team/profile-picture-1.jpg') }}"
-                                    class="card-img-top rounded" alt="Neil Portrait">
-                            </div>
-                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
-                                <h3 class="h5 card-title text-light">Neil D. Sims</h3>
-                                <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide foto-dosen-slide">
-                        <div class="card border-0 overflow-hidden text-light">
-                            <div class="position-relative">
-                                <img src="{{ asset('/assets/img/team/profile-picture-1.jpg') }}"
-                                    class="card-img-top rounded" alt="Neil Portrait">
-                            </div>
-                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
-                                <h3 class="h5 card-title text-light">Neil D. Sims</h3>
-                                <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide foto-dosen-slide">
-                        <div class="card border-0 overflow-hidden text-light">
-                            <div class="position-relative">
-                                <img src="{{ asset('/assets/img/team/profile-picture-1.jpg') }}"
-                                    class="card-img-top rounded" alt="Neil Portrait">
-                            </div>
-                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
-                                <h3 class="h5 card-title text-light">Neil D. Sims</h3>
-                                <p class="mt-3">Neil drives the technical strategy of the platform and brand.</p>
+                                <h3 class="h5 card-title text-light">{{$item->title}}</h3>
+                                <p class="mt-3">{{$item->body}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                @empty
+
+                <div class="swiper-wrapper h-auto d-flex justify-content-center">
+                    <div class="swiper-slide foto-dosen-slide">
+                        <div class="card border-0 overflow-hidden text-light">
+                            <div class="position-relative">
+                                <img src="{{ asset('assets/img/team/profile-picture-1.jpg') }}"
+                                    class="card-img-top rounded" alt="Neil Portrait">
+                            </div>
+                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
+                                <h3 class="h5 card-title text-light">Developer</h3>
+                                <p class="mt-3">Developing Transportasi ULBI's Official Website's</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                @endforelse
             </div>
 
         </section>
