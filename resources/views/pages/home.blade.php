@@ -151,7 +151,7 @@
                     <div class="card-header bg-orange text-white">
                         <div class="row">
                             <div class="col-md-6">
-                                <h3 class="card-title mb-0 fw-bold">{{count($event) > 0 ? count($event) : ''}} Agenda | {{count($event) > 0 ? count($event) : ''}}  Pengumuman</h3>
+                                <h3 class="card-title mb-0 fw-bold">{{count($event) > 0 ? count($event) : ''}} Acara | {{count($event) > 0 ? count($event) : ''}}  Pengumuman</h3>
                             </div>
                             {{-- <div class="col-md-6 d-flex justify-content-end">
                                 <div class="btn-group " role="group">
@@ -260,7 +260,7 @@
         <section class="section section-lg pt-0">
             <h3 class="text-center fw-bold">Dosen Prodi S1 Manajemen Transportasi</h3>
             <div class="container mt-5 mySwiper">
-                @forelse ( $dosen as $item)
+                @forelse ($dosen as $item)
                 <div class="swiper-wrapper h-auto">
                     <div class="swiper-slide foto-dosen-slide">
                         <div class="card border-0 overflow-hidden text-light">
