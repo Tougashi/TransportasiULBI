@@ -233,7 +233,7 @@
                 <h3 class="text-center fw-bold pt-5 mb-4">Apa kata Mereka ?</h3>
                 <div class="mySwiper2">
                     <div class="swiper-wrapper h-auto">
-                        @foreach ($review as $item)
+                        @forelse ($review as $item)
                         <div class="swiper-slide w-100">
                             <div class="card shadow">
                                 <div class="card-body d-block">
@@ -242,7 +242,7 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                        @empty
                         <div class="swiper-slide w-100">
                             <div class="card shadow">
                                 <div class="card-body d-block">
@@ -251,6 +251,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endforelse 
                     </div>
                 </div>
 

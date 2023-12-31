@@ -30,10 +30,10 @@ class ViewController extends Controller
             })
             ->latest()
             ->get(),
-            'dosen' => Post::where('date','>=',now())->whereHas('category', function($query){
+            'dosen' => Post::where('created_at','<=',now())->whereHas('category', function($query){
                 $query->where('slug', 'dosen');
             })->latest()->get(),
-            'review' => Post::where('date','>=',now())->whereHas('category', function($query){
+            'review' => Post::where('created_at','<=',now())->whereHas('category', function($query){
                 $query->where('slug', 'review');
             })->latest()->get(),
             'posts' => Post::all()
