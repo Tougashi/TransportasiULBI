@@ -237,9 +237,9 @@
                         @forelse ($review as $item)
                         <div class="swiper-slide w-100">
                             <div class="card shadow">
-                                <div class="card-body d-block">
-                                    <h3 class="h5 card-title mt-3">{{$item->body}}</h3>
-                                    <p class="card-text text-center">{{$item->title}}</p>
+                                <div class="card-body d-block my-2 text-center ">
+                                    <h3 class="h5 card-title">{{$item->body}}</h3>
+                                    <p class="card-text mt-3">{{$item->title}}</p>
                                 </div>
                             </div>
                         </div>
@@ -270,7 +270,7 @@
                                 <img src="{{ asset('storage/'.$item->thumbnail) }}"
                                     class="card-img-top rounded" alt="Neil Portrait">
                             </div>
-                            <div class="card-body position-relative mt-n6 mx-2 bg-orange text-center rounded">
+                            <div class="card-body position-relative mt-n6 bg-orange text-center rounded">
                                 <h3 class="h5 card-title text-light">{{$item->title}}</h3>
                                 <p class="mt-3">{{$item->body}}</p>
                             </div>

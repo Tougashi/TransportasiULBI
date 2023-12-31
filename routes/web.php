@@ -38,6 +38,7 @@ Route::group(['middleware' => []], function () {
         Route::get('/kerjasama-luar-negeri', 'kerjasamaLuarNegeri')->name('kerjasamaLuarNegeri');
         Route::get('/kerjasama-dalam-negeri', 'kerjasamaDalamNegeri')->name('kerjasamaDalamNegeri');
         Route::get('/mbkm-student-exchange', 'studentExchange')->name('studentExchange');
+        Route::get('/page/search/query=?{queries}', 'searchPosts')->name('searchPosts');
        });
     });
 

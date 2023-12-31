@@ -198,7 +198,9 @@ class ViewController extends Controller
         ]);
     }
 
-
+    public function searchPosts($queries){
+        return response()->json(['data' => $queries]);
+    }
 
 
 }

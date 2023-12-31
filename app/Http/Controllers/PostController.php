@@ -166,9 +166,7 @@ class PostController extends Controller
         $data['excerpt'] = Str::limit(strip_tags($request->postBody), 200);
         $data['body'] = $request->postBody;
 
-        $validators = Validator::make(
-            $data,
-            [
+        $rules = [
                 'title' => 'nullable',
                 'slug' => 'nullable',
                 'body' => 'nullable',
@@ -176,7 +174,14 @@ class PostController extends Controller
                 'thumbnail' => 'nullable|image|file|max:5000',
                 'date' => 'nullable',
                 'categoryId' => 'required',
-            ],
+        ];
+
+        if($articleType === 'dosen'){
+            $rules['thumbnail'] = 'required|image|file|max:5000|dimensions:width=354,height=472';
+        }
+
+        $validators = Validator::make(
+            $data,$rules,
             [
                 'body.required' => 'Input Isi Artikel tidak boleh kosong, periksa kembali',
                 'thumbnail.required' => 'Tshumbnail wajib diisi',

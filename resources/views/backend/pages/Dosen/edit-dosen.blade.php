@@ -19,7 +19,7 @@
                     <div class="form-group pb-1">
                         <div class="container row d-flex">
                             <div class="col-6">
-                                <label class="col-form-label" for="thumbnailInput">Thumbnail</label><br>
+                                <label class="col-form-label" for="thumbnailInput">Foto Dosen <br><span class="text-danger">* gambar harus berukuran / berdimensi [3 x 4] atau [354px x 472px] </span></label><br>
                                 <input type="file" src="" alt="" class="form-control" name="thumbnail"
                                     id="thumbnailInput" required>
                             </div>
@@ -34,17 +34,9 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="form-group pb-1">
-                        <label class="col-form-label" for="bodyArtikel">Isi Artikel</label>
-                        <div id="bodyValue">{!!$article->body!!}</div>
-                        <div id="trixField" class="d-none">
-                            <input type="hidden" name="postBody" id="postBody" required value="{{$article->body}}">
-                            <trix-editor input="postBody" class="trix-content"></trix-editor>
-                        </div>
-                    </div> --}}
                     <div class="row w-100">
                         <div class="col-lg-4 col-sm-4 col-12">
-                            <button class="btn btn-secondary w-100">Batal</button>
+                            <a class="btn btn-secondary w-100" href="">Batal</a>
                         </div>
                         <div class="col-lg-4 col-sm-4 col-12 py-2">
                         </div>
