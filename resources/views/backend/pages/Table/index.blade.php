@@ -43,7 +43,9 @@
                             @if (isset($item['views']))
                                 <td>{{ $item['views'] }}</td>
                             @endif
-                            <td>{{ $item['tanggalPosting'] }}</td>
+                            @if(isset($item['tanggalPosting']))
+                                <td>{{ $item['tanggalPosting'] }}</td>
+                            @endif
                             @if (!request()->is('admin/categories'))
                                 <td>
                                     <div class="d-flex">

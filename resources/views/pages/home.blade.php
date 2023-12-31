@@ -173,7 +173,7 @@
                                             <div class="card shadow-sm">
                                                 <div class="card-body">
                                                     <h3 class="h5 card-title py-2 border-bottom">
-                                                        <i class="bi bi-calendar2-week-fill me-2"></i>{{$item->title}} 
+                                                        <i class="bi bi-calendar2-week-fill me-2"></i>{{$item->title}}
                                                         <span class="text-orange">{{$item->category->category}}</span></h3>
                                                      <p class="card-text">{!! $item->date !!}</p>
                                                 </div>
