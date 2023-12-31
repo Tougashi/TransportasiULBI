@@ -173,7 +173,7 @@
                                             <div class="card shadow-sm">
                                                 <div class="card-body">
                                                     <h3 class="h5 card-title py-2 border-bottom">
-                                                        <i class="bi bi-calendar2-week-fill me-6"></i>{{$item->title}} |
+                                                        <i class="bi bi-calendar2-week-fill me-2"></i>{{$item->title}} 
                                                         <span class="text-orange">{{$item->category->category}}</span></h3>
                                                      <p class="card-text">{!! $item->date !!}</p>
                                                 </div>
@@ -193,8 +193,8 @@
                                             <div class="card shadow-sm">
                                                 <div class="card-body">
                                                     <h3 class="h5 card-title py-2 border-bottom">
-                                                        <i class="bi bi-calendar2-week-fill me-6"></i>{{$item->title}} |
-                                                        <span class="text-orange">{{$item->category->category}}</span>
+                                                        <i class="bi bi-calendar2-week-fill me-2"></i>{{$item->title}}
+                                                        <span class="text-orange me-6">{{$item->category->category}}</span>
                                                     </h3>
                                                     <p class="card-text">{!! $item->date !!}</p>
                                                 </div>
@@ -233,12 +233,12 @@
                 <h3 class="text-center fw-bold pt-5 mb-4">Apa kata Mereka ?</h3>
                 <div class="mySwiper2">
                     <div class="swiper-wrapper h-auto">
-                        @foreach ( $review as $item )
+                        @foreach ($review as $item)
                         <div class="swiper-slide w-100">
                             <div class="card shadow">
                                 <div class="card-body d-block">
-                                    <p class="card-text">{{$item->body}}</p>
-                                    <h3 class="h5 card-title mt-3">{{$item->title}}</h3>
+                                    <p class="card-text">{{$item->title}}</p>
+                                    <h3 class="h5 card-title mt-3">{{$item->body}}</h3>
                                 </div>
                             </div>
                         </div>
