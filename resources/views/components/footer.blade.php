@@ -1,4 +1,4 @@
-<footer class="footer pt-6 pb-5 bg-primary text-light">
+<footer class="footer py-5 bg-primary text-light">
     <div class="container">
         <div class="row gap-3">
             <div class="col-lg-4 col-md-5">

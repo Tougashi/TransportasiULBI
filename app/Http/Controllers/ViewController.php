@@ -199,7 +199,14 @@ class ViewController extends Controller
     }
 
     public function searchPosts($queries){
-        return response()->json(['data' => $queries]);
+        $posts = Post::where('title', 'LIKE', '%'.$queries.'%')->whereHas('category', function($q){
+            $q->where('slug', 'berita');
+        })->get();
+        return view('pages.search-page-result', [
+            'title' => 'Fakultas : S1 Manajemen Transportasi',
+            'NavbarTitle' => '',
+            'searchQuery' => $queries
+        ]);
     }
 
 

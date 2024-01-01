@@ -13,7 +13,7 @@
                                     <span class="fas fa-search"></span>
                                 </span>
                                 <input type="text" class="form-control border border-start-0 bg-transparent"
-                                    id="exampleInputIconLeft" onkeydown="searchPosts(event)" placeholder="Search" aria-label="Search"
+                                    id="searchPostsModal" placeholder="Search" aria-label="Search"
                                     aria-describedby="basic-addon1" onente/>
                             </div>
                         </div>
@@ -155,30 +155,16 @@
 
 @push('scripts')
     <script>
-        function searchPosts(event){
-            let sBox = $('#exampleInputIconLeft').val();
-            if(event.code === 'Enter'){
-                searchPosts(sBox);
+        $('#searchPostsModal').on('keypress', function(e){
+            let searchModalValue = $('#searchPostsModal').val();
+            if(e.which == 13){
+                searchPosts(searchModalValue);
             }
-        }
+        });
 
-        function searchPosts(queries){
-            if(queries.length > 0){
-                $.ajax({
-                    url: `/admin/page/search/query=?${queries}`,
-                    method: 'GET',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                    },
-                    success: function(response){
-                        console.log(response.data);
-                    },
-                    error: function(error, xhr){
-                        alert(error.message);
-                        console.log(xhr.responseText);
-                    }
-                });
-            }
+        function searchPosts(inputValues){
+            const host = '{{url("/")}}';
+            window.location.href = `${host}/page/search/${inputValues}`;
         }
 
     </script>
