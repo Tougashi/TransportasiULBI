@@ -2,7 +2,7 @@
 @section('main')
     <div>
         <section class="section-bg section">
-            <img src="{{ asset('assets/img/pages/bg4.png') }}" alt="Background Image" class="background-image">
+            <img src="" alt="Background Image" class="background-image">
             <div class="container pb-5 content">
                 <br><br><br><br>
                 <div class="row d-flex align-items-center">
@@ -10,7 +10,7 @@
                         <h1 id="typewriter" class="fw-bolder text-light managemen" style="font-size: auto; font-family: 'Poppins';"></h1>
                         <p class="fw-bold fs-5 text-light pt-2">Gada Kite Barang Ga Sampe</p>
                         <a href="https://enroll.ulbi.ac.id/Pendaftaran"
-                            class="btn btn-orange btn-outline-primary p-3 fs-5 mt-4 text-light">Daftar Sekarang <span class="ms-2">🚀</span></a>
+                            class="btn btn-orange btn-outline-primary p-3 fs-5 mt-4 text-light daftar">Daftar Sekarang <span class="ms-2">🚀</span></a>
                     </div>
                     <div class="col-lg-6 col-md-12 order-lg-2 order-sm-1 order-1 custom-frame">
                         <img src="{{ asset('assets/img/illustrations/banner.jpg') }}" class="img-fluid rounded enlarged-image"  alt="">
@@ -154,14 +154,6 @@
                             <div class="col-md-6">
                                 <h3 class="card-title mb-0 fw-bold">{{count($event) > 0 ? count($event) : ''}} Acara | {{count($event) > 0 ? count($event) : ''}}  Pengumuman</h3>
                             </div>
-                            {{-- <div class="col-md-6 d-flex justify-content-end">
-                                <div class="btn-group " role="group">
-                                    <button type="button" class="btn btn-sm btn-outline-primary text-white">Hari
-                                        Ini</button>
-                                    <button type="button" class="btn btn-sm btn-outline-primary text-white">Yang Akan
-                                        Datang</button>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                     <div class="card-body bg-primary py-5 rounded-bottom">
