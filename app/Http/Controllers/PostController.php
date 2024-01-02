@@ -177,7 +177,7 @@ class PostController extends Controller
         ];
 
         if($articleType === 'dosen'){
-            $rules['thumbnail'] = 'required|image|file|max:5000|dimensions:width=354,height=472';
+            $rules['thumbnail'] = 'required|image|file|max:5000';
         }
 
         $validators = Validator::make(

@@ -1,6 +1,6 @@
 <script>
     $('#judulArtikel').on('input', function() {
-        const titleVal = $(this).val();
+        const titleVal = $(this).val().toLowerCase();
         const titleValSlugged = titleVal.split(' ').join('-');
         $('#slugArtikel').val(titleValSlugged);
     });
@@ -19,4 +19,4 @@
 
     });
 </script>
-<x-post-article-image url="{{ '/backend/article/upload/image' }}" />
+<x-post-article-image url="{{ '/admin/article/upload/image' }}" />

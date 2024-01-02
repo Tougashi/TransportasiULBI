@@ -43,7 +43,10 @@ class ViewController extends Controller
     public function berita($slug)
     {
         $post = Post::with('author')->where('slug', $slug)->get();
-        $popularPosts = Post::orderBy('views', 'DESC')->get();
+        $popularPosts = Post::whereNot('slug', $slug)->whereHas('category', function($q){
+            $q->where('slug', 'berita');
+        })->orderBy('views', 'DESC')->get()->take(5);
+        // dd($popularPosts);
         if(isset($post)){
             $increaseViews = (intval($post[0]->views) + intval(1));
             Post::where('id',$post[0]->id)->update(['views' => $increaseViews]);
