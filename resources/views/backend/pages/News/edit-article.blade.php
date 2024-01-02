@@ -4,7 +4,8 @@
         <div class="card-body">
             <h5><span id="formTitle">Detail</span> data Artikel "{{$article->title}}"</h5>
             <div class="container py-4">
-                <form action="/backend/berita/update/{{$article->id}}" method="POST" enctype="multipart/form-data">
+                <form action="/admin/berita/update/{{encrypt($article->id)}}" method="POST" enctype="multipart/form-data">
+                    {{-- @method('PUT') --}}
                     @csrf
                     <div class="form-group pb-1">
                         <label class="col-form-label" for="judulArtikel">Judul Artikel</label>
@@ -42,6 +43,7 @@
                             <trix-editor input="postBody" class="trix-content"></trix-editor>
                         </div>
                     </div>
+                    <input type="hidden" name="bodyImage" id="bodyImageField" value="">
                     <div class="row w-100">
                         <div class="col-lg-4 col-sm-4 col-12">
                             <button class="btn btn-secondary w-100">Batal</button>

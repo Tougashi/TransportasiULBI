@@ -258,9 +258,54 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $articleType, Post $post, $id)
     {
-        //
+        $currentPost = Post::where('id', decrypt($id))->first();
+        $categoryType = Category::where('slug', $articleType)->first();
+        $data = $request->all();
+        $data['categoryId'] = $categoryType->id;
+        $data['excerpt'] = Str::limit(strip_tags($request->postBody), 200);
+        $data['body'] = $request->postBody;
+
+        $rules = [
+                'title' => 'nullable',
+                'slug' => 'nullable',
+                'body' => 'nullable',
+                'excerpt' => 'nullable',
+                'thumbnail' => 'nullable|image|file|max:5000',
+                'date' => 'nullable',
+                'categoryId' => 'required',
+        ];
+
+        if($articleType === 'dosen'){
+            $rules['thumbnail'] = 'required|image|file|max:5000';
+        }
+
+        $validators = Validator::make(
+            $data,$rules,
+            [
+                'body.required' => 'Input Isi Artikel tidak boleh kosong, periksa kembali',
+                'thumbnail.required' => 'Tshumbnail wajib diisi',
+            ]
+        );
+
+        if ($validators->fails()) {
+            return back()->with('errors', $validators->errors());
+        }
+
+        $validated = $validators->validated();
+        $validated['userId'] = auth()->user()->id;
+        $validated['image'] = $request->bodyImage;
+
+        if ($request->hasFile('thumbnail')) {
+            $thumbnailPath = 'thumbnails/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
+            $request->file('thumbnail')->storeAs('public/', $thumbnailPath);
+            $validated['thumbnail'] = $thumbnailPath;
+        }
+
+        Post::where('id',decrypt($id))->update($validated);
+
+        return redirect('/admin/'.$categoryType->slug)->with('success', 'Artikel / Postingan berhasil di Perbarui');
     }
 
     /**
@@ -278,7 +323,7 @@ class PostController extends Controller
             return back()->with('error', 'Data tidak ditemukan');
         }
         $imagePaths = json_decode($post->image, true);
-    
+
         foreach ($imagePaths as $imagePath) {
             Storage::delete(str_replace('http://localhost:8000/storage', 'public', $imagePath));
         }

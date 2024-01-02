@@ -58,6 +58,7 @@
                     <input type="hidden" name="postBody" id="postBody" required>
                     <trix-editor input="postBody" class="trix-content"></trix-editor>
                 </div>
+                <input type="hidden" name="bodyImage" id="bodyImageField" value="">
                 <div class="row w-100">
                     <div class="col-lg-4 col-sm-4 col-12">
                         <button class="btn btn-secondary w-100">Batal</button>
