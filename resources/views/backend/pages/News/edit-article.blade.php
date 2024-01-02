@@ -4,7 +4,7 @@
         <div class="card-body">
             <h5><span id="formTitle">Detail</span> data Artikel "{{$article->title}}"</h5>
             <div class="container py-4">
-                <form action="/backend/articles/update/{{$article->id}}" method="POST" enctype="multipart/form-data">
+                <form action="/backend/berita/update/{{$article->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group pb-1">
                         <label class="col-form-label" for="judulArtikel">Judul Artikel</label>

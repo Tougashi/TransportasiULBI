@@ -231,16 +231,19 @@ class PostController extends Controller
             'article' => $article,
         ];
         switch ($articleType) {
-            case 'articles':
+            case 'berita':
                 return view('backend.pages.news.edit-article', $datas);
+                break;
+            case 'kegiatan':
+                return view('backend.pages.kegiatan.edit-kegiatan', $datas);
                 break;
             case 'category':
                 return view('backend.pages.category.edit-category', $datas);
                 break;
-            case 'events':
+            case 'event':
                 return view('backend.pages.event.edit-event', $datas);
                 break;
-            case 'attentions':
+            case 'pengumuman':
                 return view('backend.pages.attention.edit-attention', $datas);
                 break;
             case 'dosen':
@@ -251,13 +254,6 @@ class PostController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Post $post)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
