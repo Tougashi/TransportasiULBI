@@ -194,7 +194,7 @@ class PostController extends Controller
 
         $validated = $validators->validated();
         $validated['userId'] = auth()->user()->id;
-        $validated['image-body'] = json_encode($request->bodyImage);
+        $validated['image-body'] = $request->bodyImage;
 
         if ($request->hasFile('thumbnail')) {
             $thumbnailPath = 'thumbnails/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();

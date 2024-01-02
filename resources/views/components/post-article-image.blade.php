@@ -1,4 +1,10 @@
 <script>
+    let imagePaths = [];
+    function addImagePath(paths){
+        imagePaths.push(paths);
+        $('#bodyImageField').val(JSON.stringify(imagePaths));
+    }
+
     $().ready(function() {
         var HOST = "{{ route('upload-image-body') }}";
 
@@ -60,7 +66,8 @@
                     return xhr;
                 },
                 success: function(response) {
-                    $('#bodyImageField').val(response);
+                    // $('#bodyImageField').val(response);
+                    addImagePath(response);
                 },
                 error: function(xhr, status, error) {
                     console.log(error);
