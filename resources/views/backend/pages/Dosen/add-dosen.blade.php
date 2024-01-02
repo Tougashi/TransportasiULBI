@@ -29,7 +29,8 @@
                 <div class="form-group pb-1">
                     <div class="container row d-flex m-0 p-0">
                         <div class="col-6">
-                            <label class="col-form-label" for="thumbnailInput">Foto Dosen <br><span class="text-danger">* gambar harus berukuran / berdimensi [3 x 4] atau [354px x 472px] </span></label><br>
+                            <label class="col-form-label" for="thumbnailInput">Foto Dosen <br></label><br>
+                            {{-- <label class="col-form-label" for="thumbnailInput">Foto Dosen <br><span class="text-danger">* gambar harus berukuran / berdimensi [3 x 4] atau [354px x 472px] </span></label><br> --}}
                             <input type="file" src="" alt="" class="form-control" name="thumbnail"
                                 id="thumbnailInput" required>
                         </div>

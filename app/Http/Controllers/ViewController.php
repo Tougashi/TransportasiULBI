@@ -202,10 +202,12 @@ class ViewController extends Controller
         $posts = Post::where('title', 'LIKE', '%'.$queries.'%')->whereHas('category', function($q){
             $q->where('slug', 'berita');
         })->get();
+        // dd($posts);
         return view('pages.search-page-result', [
             'title' => 'Fakultas : S1 Manajemen Transportasi',
             'NavbarTitle' => '',
-            'searchQuery' => $queries
+            'searchQuery' => $queries,
+            'articles' => $posts
         ]);
     }
 
