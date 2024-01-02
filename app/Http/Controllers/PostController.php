@@ -225,7 +225,7 @@ class PostController extends Controller
      */
     public function show(Post $post, $articleType, $id)
     {
-        $article = Post::find($id);
+        $article = Post::find(decrypt($id));
         $datas = [
             'title' => 'Article',
             'article' => $article,
@@ -273,13 +273,21 @@ class PostController extends Controller
 
      public function destroy($articleType, $id)
      {
-         $post = Post::find($id);
+        $post = Post::find(decrypt($id));
 
-         if ($post->thumbnail) {
+        if ($post->thumbnail) {
              Storage::delete('public/' . $post->thumbnail);
          }
+        if (!$post) {
+            return back()->with('error', 'Data tidak ditemukan');
+        }
+        $imagePaths = json_decode($post->image, true);
+    
+        foreach ($imagePaths as $imagePath) {
+            Storage::delete(str_replace('http://localhost:8000/storage', 'public', $imagePath));
+        }
 
-         Post::destroy($id);
+         Post::destroy(decrypt($id));
 
          return back()->with('success', 'Data berhasil dihapus');
      }

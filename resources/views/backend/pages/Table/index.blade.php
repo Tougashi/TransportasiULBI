@@ -49,10 +49,10 @@
                             @if (!request()->is('admin/categories'))
                                 <td>
                                     <div class="d-flex">
-                                        <a class="btn btn-info" href="{{ url()->current() . '/show/' . $item['id'] }}">
+                                        <a class="btn btn-info" href="{{ url()->current() . '/show/' . encrypt($item['id']) }}">
                                             <i class="fas fa-solid fa-eye"></i>
                                         </a>
-                                        <a class="btn btn-danger" href="{{ url()->current() . '/delete/' . $item['id'] }}"
+                                        <a class="btn btn-danger" href="{{ url()->current() . '/delete/' . encrypt($item['id']) }}"
                                             onclick="return(confirm('Apakah anda yakin akan menghapus data ini ?'))">
                                             <i class="fas fa-solid fa-trash"></i>
                                         </a>
