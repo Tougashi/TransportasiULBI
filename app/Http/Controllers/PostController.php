@@ -279,29 +279,6 @@ class PostController extends Controller
              Storage::delete('public/' . $post->thumbnail);
          }
 
-         if ($post->image) {
-             $bodyContent = $post->body;
-
-             $pattern = 'http://localhost:8000/storage/';
-             preg_match_all($pattern, $bodyContent, $matches);
-
-             if (!empty($matches[1])) {
-                 foreach ($matches[1] as $filename) {
-                     Storage::delete('public/' . $filename);
-                 }
-             }
-
-             $bodyPath = 'public/' . dirname($post->body);
-
-             // Menggunakan Storage::allFiles untuk mendapatkan daftar semua file dalam direktori
-             $filesInDirectory = Storage::allFiles($bodyPath);
-
-             // Hapus direktori jika tidak ada file lagi
-             if (empty($filesInDirectory)) {
-                 Storage::deleteDirectory($bodyPath);
-             }
-         }
-
          Post::destroy($id);
 
          return back()->with('success', 'Data berhasil dihapus');
