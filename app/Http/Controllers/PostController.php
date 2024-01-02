@@ -194,7 +194,7 @@ class PostController extends Controller
 
         $validated = $validators->validated();
         $validated['userId'] = auth()->user()->id;
-        $validated['image-body'] = $request->bodyImage;
+        $validated['image'] = $request->bodyImage;
 
         if ($request->hasFile('thumbnail')) {
             $thumbnailPath = 'thumbnails/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
@@ -279,11 +279,10 @@ class PostController extends Controller
              Storage::delete('public/' . $post->thumbnail);
          }
 
-         if ($post->body) {
+         if ($post->image) {
              $bodyContent = $post->body;
 
-             // Menggunakan pola ekspresi reguler yang dapat menangani nama file dengan angka
-             $pattern = '/\b(?:\w*\/)(\d+\.(jpg|jpeg|png))\b/';
+             $pattern = 'http://localhost:8000/storage/';
              preg_match_all($pattern, $bodyContent, $matches);
 
              if (!empty($matches[1])) {

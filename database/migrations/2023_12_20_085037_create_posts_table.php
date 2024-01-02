@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('thumbnail')->nullable();
             $table->string('slug')->nullable();
             $table->text('body')->nullable();
-            $table->json('image-body');
+            $table->json('image');
             $table->text('excerpt')->nullable();
             $table->string('views')->default(0)->nullable();
             $table->date('date')->nullable();

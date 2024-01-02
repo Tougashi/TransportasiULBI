@@ -158,7 +158,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h3 class="card-title mb-0 fw-bold">{{ count($event) > 0 ? count($event) : '' }} Acara |
-                                {{ count($event) > 0 ? count($event) : '' }} Pengumuman</h3>
+                                {{ count($pengumuman) > 0 ? count($pengumuman) : '' }} Pengumuman</h3>
                         </div>
                     </div>
                 </div>
@@ -172,7 +172,7 @@
                                             <div class="card shadow-sm">
                                                 <div class="card-body">
                                                     <h3 class="h5 card-title py-2 border-bottom">
-                                                        <i class="bi bi-calendar2-week-fill me-2"></i>{{ $item->title }} |
+                                                        <i class="bi bi-calendar-check-fill me-2"></i>{{ $item->title }} |
                                                         <span class="text-orange">{{ $item->category->category }}</span>
                                                     </h3>
                                                     <p class="card-text">{!! $item->date !!}</p>
@@ -194,7 +194,7 @@
                                             <div class="card shadow-sm">
                                                 <div class="card-body">
                                                     <h3 class="h5 card-title py-2 border-bottom">
-                                                        <i class="bi bi-calendar2-week-fill me-2"></i>{{ $item->title }}
+                                                        <i class="bi bi-calendar-week-fill me-2"></i>{{ $item->title }}
                                                         |
                                                         <span
                                                             class="text-orange me-6">{{ $item->category->category }}</span>
@@ -279,24 +279,18 @@
                             </div>
                         </div>
                     </div>
-                @empty
-            </div>
-
-
-            <div class="swiper-wrapper h-auto d-flex justify-content-center">
-                <div class="swiper-slide foto-dosen-slide">
+                </div>
+            @empty
                     <div class="card border-0 overflow-hidden text-light">
                         <div class="position-relative">
                             <img src="{{ asset('assets/img/team/profile-picture-1.jpg') }}" class="card-img-top rounded"
-                                alt="Neil Portrait">
+                            style="width: 354px; height: 372px;" alt="Neil Portrait">
                         </div>
                         <div class="card-body position-relative mt-n6 bg-orange text-center rounded-bottom">
                             <h3 class="h5 card-title text-light">Developer</h3>
                             <p class="mt-3">Developing Transportasi ULBI's Official Website's</p>
                         </div>
                     </div>
-                </div>
-            </div>
             @endforelse
         </div>
     </section>
