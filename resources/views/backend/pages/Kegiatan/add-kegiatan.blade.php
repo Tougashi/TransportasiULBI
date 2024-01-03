@@ -53,9 +53,9 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name="postBody" id="postBody" value="" required>
                 <div class="form-group pb-1">
                     <label class="col-form-label" for="bodyArtikel">Isi Kegiatan</label>
-                    <input type="hidden" name="postBody" id="postBody" required>
                     <trix-editor input="postBody" class="trix-content"></trix-editor>
                 </div>
                 <input type="hidden" name="bodyImage" id="bodyImageField" value="">

@@ -14,7 +14,7 @@
                     </div>
                     <div class="form-group pb-1">
                         <label class="col-form-label" for="slugArtikel">Slug</label>
-                        <input type="text" name="slug" class="form-control disabled" readonly id="slugArtikel"
+                        <input type="text" name="slug" class="form-control" id="slugArtikel"
                             placeholder="Slug Postingan / Artikel" value="{{$article->slug}}">
                     </div>
                     <div class="form-group pb-1">
@@ -43,7 +43,7 @@
                             <trix-editor input="postBody" class="trix-content"></trix-editor>
                         </div>
                     </div>
-                    <input type="hidden" name="bodyImage" id="bodyImageField" value="">
+                    <input type="hidden" name="bodyImage" id="bodyImageField" value="{{$article->image}}">
                     <div class="row w-100">
                         <div class="col-lg-4 col-sm-4 col-12">
                             <button class="btn btn-secondary w-100">Batal</button>
