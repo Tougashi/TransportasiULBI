@@ -165,6 +165,7 @@ class PostController extends Controller
         $data['categoryId'] = $categoryType->id;
         $data['excerpt'] = Str::limit(strip_tags($request->postBody), 200);
         $data['body'] = $request->postBody;
+        $data['image'] = $request->bodyImage;
 
         $checkPost = Post::where('slug', $request->slug)->first();
         if(isset($checkPost)){
@@ -177,6 +178,7 @@ class PostController extends Controller
                 'body' => 'nullable',
                 'excerpt' => 'nullable',
                 'thumbnail' => 'nullable|image|file|max:5000',
+                'image' => 'nullable',
                 'date' => 'nullable',
                 'categoryId' => 'required',
         ];
@@ -199,7 +201,6 @@ class PostController extends Controller
 
         $validated = $validators->validated();
         $validated['userId'] = auth()->user()->id;
-        $validated['image'] = !empty($request->bodyImage) ? $request->bodyImage : json_encode('No Data');
 
         if ($request->hasFile('thumbnail')) {
             $thumbnailPath = 'thumbnails/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
@@ -271,6 +272,7 @@ class PostController extends Controller
         $data['categoryId'] = $categoryType->id;
         $data['excerpt'] = Str::limit(strip_tags($request->postBody), 200);
         $data['body'] = $request->postBody;
+        $data['image'] = $request->bodyImage;
 
         $rules = [
                 'title' => 'nullable',
@@ -278,6 +280,7 @@ class PostController extends Controller
                 'body' => 'nullable',
                 'excerpt' => 'nullable',
                 'thumbnail' => 'nullable|image|file|max:5000',
+                'image' => 'nullable',
                 'date' => 'nullable',
                 'categoryId' => 'required',
         ];
@@ -300,7 +303,7 @@ class PostController extends Controller
 
         $validated = $validators->validated();
         $validated['userId'] = auth()->user()->id;
-        $validated['image'] = !empty($request->bodyImage) ? $request->bodyImage : json_encode('No Data');
+        // $validated['image'] = !empty($request->bodyImage) ? $request->bodyImage : json_encode('No Data');
 
         if ($request->hasFile('thumbnail')) {
             $thumbnailPath = 'thumbnails/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
@@ -330,13 +333,15 @@ class PostController extends Controller
         }
         $imagePaths = json_decode($post->image, true);
 
-
-        // Error ditemukan pada saat data image berisi string NO DATA yang dimana NO DATA tersebut didapatkan pada saat proses pembuatan atau perubahan data yang dimana tidak menggunakan trix editor
-
-        foreach ($imagePaths as $imagePath) {
-            Storage::delete(str_replace($host.'/storage', 'public', $imagePath));
+        if ($imagePaths !== null) {
+            foreach ($imagePaths as $imagePath) {
+                if ($imagePath !== null) {
+                    Storage::delete(str_replace($host.'/storage', 'public', $imagePath));
+                }
+            }
         }
-
+        
+        
          Post::destroy(decrypt($id));
 
          return back()->with('success', 'Data berhasil dihapus');
