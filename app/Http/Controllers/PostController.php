@@ -101,7 +101,7 @@ class PostController extends Controller
                 }
             break;
             case 'categories':
-                $datas['tableHeads'] = ['No', 'Kategori', 'Dibuat Pada', ' '];
+                $datas['tableHeads'] = ['No', 'Kategori', 'Dibuat Pada'];
                 $datas['title'] = 'Kategori';
                 $categories = Category::all();
                 foreach ($categories as $item) {
@@ -340,8 +340,8 @@ class PostController extends Controller
                 }
             }
         }
-        
-        
+
+
          Post::destroy(decrypt($id));
 
          return back()->with('success', 'Data berhasil dihapus');

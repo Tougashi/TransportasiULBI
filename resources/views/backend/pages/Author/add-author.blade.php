@@ -14,32 +14,34 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <form action="{{ url()->current() . '/store' }}" method="POST" enctype="multipart/form-data">
+            <form action="/admin/user/create/store" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group pb-1">
-                    <label class="col-form-label" for="judulArtikel">Judul Artikel</label>
-                    <input type="text" name="title" class="form-control" id="judulArtikel"
-                        placeholder="Judul Postingan / Artikel" required>
+                    <label class="col-form-label" for="emailUser">Email</label>
+                    <input type="email" name="email" class="form-control" id="emailUser"
+                        placeholder="Email User" required>
                 </div>
                 <div class="form-group pb-1">
-                    <label class="col-form-label" for="slugArtikel">Slug</label>
-                    <input type="text" name="slug" class="form-control disabled" readonly id="slugArtikel"
-                        placeholder="Slug Postingan / Artikel">
+                    <label class="col-form-label" for="userFullName">Nama Lengkap</label>
+                    <input type="text" name="author" class="form-control" id="userFullName"
+                        placeholder="Nama Lengkap" required>
                 </div>
-                {{-- <div class="form-group pb-1">
-                    <label class="col-form-label" for="slugArtikel">Kategori</label>
-                    <select class="form-control select2" style="width: 100%;" required>
-                        <option></option>
-                        @foreach ($categories as $item)
-                            <option value="{{ $item->id }}">{{ $item->category }}</option>
-                        @endforeach
-                    </select>
-                </div> --}}
                 <div class="form-group pb-1">
+                    <label class="col-form-label" for="username">Username</label>
+                    <input type="text" name="username" class="form-control" id="username"
+                        placeholder="Username" required>
+                </div>
+                <div class="form-group pb-1">
+                    <label class="col-form-label" for="password">Password</label>
+                    <input type="password" name="password" class="form-control" id="password"
+                        placeholder="Password" required>
+                </div>
+
+                <div class="form-group pb-5">
                     <div class="container row d-flex">
                         <div class="col-6">
                             <label class="col-form-label" for="thumbnailInput">Thumbnail</label><br>
-                            <input type="file" src="" alt="" class="form-control" name="thumbnail"
+                            <input type="file" src="" alt="" class="form-control" name="profilePhoto"
                                 id="thumbnailInput" required>
                         </div>
                         <div class="col-6">
@@ -53,11 +55,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group pb-1">
-                    <label class="col-form-label" for="bodyArtikel">Isi Artikel</label>
-                    <input type="hidden" name="postBody" id="postBody" required>
-                    <trix-editor input="postBody" class="trix-content"></trix-editor>
-                </div>
+
                 <div class="row w-100">
                     <div class="col-lg-4 col-sm-4 col-12">
                         <button class="btn btn-secondary w-100">Batal</button>

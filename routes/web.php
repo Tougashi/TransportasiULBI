@@ -59,6 +59,14 @@ Route::group(['middleware' => ['web','auth']], function(){
             Route::get('/dashboard', 'index');
         });
 
+        Route::controller(UserController::class)->group(function(){
+            Route::get('/user/list', 'index');
+            Route::get('/user/show/{id}', 'show');
+            Route::get('/user/delete/{id}', 'destroy');
+            Route::get('/user/list/add', 'create');
+            Route::post('/user/create/store', 'store');
+        });
+
         Route::controller(PostController::class)->group(function(){
             Route::get('/{articleType}', 'index');
             Route::get('/events', 'event');
@@ -78,9 +86,6 @@ Route::group(['middleware' => ['web','auth']], function(){
             Route::get('/categories', 'index');
         });
 
-        Route::controller(UserController::class)->group(function(){
-            Route::get('/authors', 'index');
-        });
 
     });
 });

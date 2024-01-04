@@ -33,6 +33,12 @@
               <p>Kategori</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="/admin/user/list" class="nav-link {{$title == 'User' ? 'active' : ''}}">
+              <i class="nav-icon fas fa-users"></i>
+              <p>User</p>
+            </a>
+          </li>
 
           <div class="my-3 py-1 border-top border-bottom">
             <p class="text-light fw-bold mb-0 py-1 text-center">DATA</p>

@@ -12,8 +12,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('backend.pages.authors', [
-            'title' => 'Authors',
+        return view('backend.pages.Author.list', [
+            'title' => 'User',
             'authors' => User::all()
         ]);
     }
@@ -23,7 +23,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.Author.add-author', [
+            'title' => 'User'
+        ]);
     }
 
     /**
@@ -31,15 +33,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        return response()->json(['data' => $data]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(User $user, $id)
     {
-        //
+
     }
 
     /**
