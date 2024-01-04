@@ -9,12 +9,12 @@
                     <div class="row">
                         <div class="col-12 pb-5">
                             <div class="input-group">
-                                <span class="input-group-text border border-end-0" id="basic-addon1">
+                                <input type="text" class="form-control bg-transparent"
+                                    id="searchPostsModal" placeholder="Search" aria-label="Search"
+                                    aria-describedby="basic-addon1"/>
+                                <span class="input-group-text btn btn-orange d-flex align-items-center px-4" id="searchArticleBtn">
                                     <span class="fas fa-search"></span>
                                 </span>
-                                <input type="text" class="form-control border border-start-0 bg-transparent"
-                                    id="searchPostsModal" placeholder="Search" aria-label="Search"
-                                    aria-describedby="basic-addon1" onente/>
                             </div>
                         </div>
                         {{-- <div class="col-12 py-2"></div> --}}
@@ -155,9 +155,9 @@
 
 @push('scripts')
     <script>
-        $('#searchPostsModal').on('keypress', function(e){
+        $('#searchArticleBtn').on('click', function(e){
             let searchModalValue = $('#searchPostsModal').val();
-            if(e.which == 13){
+            if(searchModalValue.length > 0){
                 searchPosts(searchModalValue);
             }
         });

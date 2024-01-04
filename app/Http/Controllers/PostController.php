@@ -166,6 +166,11 @@ class PostController extends Controller
         $data['excerpt'] = Str::limit(strip_tags($request->postBody), 200);
         $data['body'] = $request->postBody;
 
+        $checkPost = Post::where('slug', $request->slug)->first();
+        if(isset($checkPost)){
+            $data['slug'] = $checkPost->slug.'-'.mt_rand(0000,9999);
+        }
+
         $rules = [
                 'title' => 'nullable',
                 'slug' => 'nullable',
@@ -325,7 +330,7 @@ class PostController extends Controller
         }
         $imagePaths = json_decode($post->image, true);
 
-        
+
         // Error ditemukan pada saat data image berisi string NO DATA yang dimana NO DATA tersebut didapatkan pada saat proses pembuatan atau perubahan data yang dimana tidak menggunakan trix editor
 
         foreach ($imagePaths as $imagePath) {
