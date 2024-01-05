@@ -28,15 +28,18 @@
             <div class="card-body">
                 <form action="/admin" method="post">
                     @csrf
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control {{session()->has('loginError') ? 'is-invalid' : ''}}" name="username" placeholder="Username">
+                    <div class="input-group">
+                        <input type="text" class="form-control {{session()->has('loginError') ? 'is-invalid' : ''}}" name="username" placeholder="Username" value="{{old('username')}}">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>
-                    <div class="input-group mb-3">
+                    @if (session()->has('loginError'))
+                        <p class="text-danger">{{session('loginError')}}</p>
+                    @endif
+                    <div class="input-group my-3">
                         <input type="password" class="form-control" name="password" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">

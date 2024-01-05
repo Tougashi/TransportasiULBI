@@ -23,6 +23,8 @@ class AuthController extends Controller
      */
     public function store(Request $request)
     {
+        $request->flashOnly('username');
+
         $credentials = $request->validate([
             'username' => 'required',
             'password' => 'required'
