@@ -42,6 +42,8 @@ class UserController extends Controller
             $data['username'] = $request->username.mt_rand(0000,9999);
         }
 
+        $data['password'] = bcrypt($request->password);
+
         $validator = Validator::make($data, [
             'email' => 'required|email:rfc',
             'author' => 'required',
@@ -99,6 +101,8 @@ class UserController extends Controller
         if(isset($checkUser)){
             $data['username'] = $request->username.mt_rand(0000,9999);
         }
+
+        $data['password'] = bcrypt($request->password);
 
 
         $validator = Validator::make($data, [

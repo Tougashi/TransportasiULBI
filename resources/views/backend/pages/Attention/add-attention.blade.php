@@ -21,7 +21,7 @@
                 </div>
                 <div class="row w-100">
                     <div class="col-lg-4 col-sm-4 col-12">
-                        <button class="btn btn-secondary w-100">Batal</button>
+                        <a class="btn btn-secondary w-100" href="/admin/pengumuman">Batal</a>
                     </div>
                     <div class="col-lg-4 col-sm-4 col-12 py-2">
                     </div>
