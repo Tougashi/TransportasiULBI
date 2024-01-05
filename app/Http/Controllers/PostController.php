@@ -168,10 +168,13 @@ class PostController extends Controller
         $data['image'] = $request->bodyImage;
 
         $checkPost = Post::where('slug', $request->slug)->first();
-        if(isset($checkPost)){
-            $data['slug'] = $checkPost->slug.'-'.mt_rand(0000,9999);
+        if(!empty($request->slug)){
+            if(isset($checkPost)){
+                $data['slug'] = $checkPost->slug.'-'.mt_rand(0000,9999);
+            }
         }
 
+        // dd(['data' => $data, 'checkPost' => $checkPost, 'slug'=>$request->slug]);
         $rules = [
                 'title' => 'nullable',
                 'slug' => 'nullable',
@@ -213,6 +216,9 @@ class PostController extends Controller
         return redirect('/admin/'.$categoryType->slug)->with('success', 'Artikel / Postingan berhasil di Upload');
     }
 
+    // public function store(Request $request){
+    //     return response()->json(['data' => $request->all()]);
+    // }
 
     public function uploadImage(Request $request)
     {
@@ -250,9 +256,11 @@ class PostController extends Controller
                 return view('backend.pages.event.edit-event', $datas);
                 break;
             case 'pengumuman':
+                $datas['title'] = 'Pengumuman';
                 return view('backend.pages.attention.edit-attention', $datas);
                 break;
             case 'dosen':
+                $datas['title'] = 'Dosen';
                 return view('backend.pages.dosen.edit-dosen', $datas);
                 break;
             case 'review':

@@ -4,7 +4,7 @@
         <div class="card-body">
             <h5><span id="formTitle">Detail</span> Dosen "{{$article->title}}"</h5>
             <div class="container py-4">
-                <form action="/backend/articles/update/{{$article->id}}" method="POST" enctype="multipart/form-data">
+                <form action="/admin/dosen/update/{{encrypt($article->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group pb-1">
                         <label class="col-form-label" for="judulArtikel">Nama Dosen</label>
@@ -13,10 +13,10 @@
                     </div>
                     <div class="form-group pb-1">
                         <label class="col-form-label" for="slugArtikel">Jabatan Dosen</label>
-                        <input type="text" name="slug" class="form-control disabled" readonly id="slugArtikel"
-                            placeholder="Slug Postingan / Artikel" value="{{$article->body}}">
+                        <input type="text" name="postBody" class="form-control" id=""
+                            placeholder="Jabatan Dosen" value="{{$article->body}}">
                     </div>
-                    <div class="form-group pb-1">
+                    <div class="form-group pb-5">
                         <div class="container row d-flex">
                             <div class="col-6">
                                 <label class="col-form-label" for="thumbnailInput">Foto Dosen <br></label><br>

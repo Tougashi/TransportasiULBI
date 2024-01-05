@@ -4,7 +4,7 @@
         <div class="card-body">
             <h5><span id="formTitle">Detail</span> Event "{{$article->title}}"</h5>
             <div class="container py-4">
-                <form action="/backend/articles/update/{{$article->id}}" method="POST" enctype="multipart/form-data">
+                <form action="/admin/event/update/{{encrypt($article->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group pb-1">
                         <label class="col-form-label" for="judulArtikel">Judul Event</label>
