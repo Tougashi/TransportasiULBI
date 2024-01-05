@@ -26,15 +26,6 @@
                     <input type="text" name="slug" class="form-control disabled" readonly id="slugArtikel"
                         placeholder="Slug Kegiatan">
                 </div>
-                {{-- <div class="form-group pb-1">
-                    <label class="col-form-label" for="slugArtikel">Kategori</label>
-                    <select class="form-control select2" style="width: 100%;" required>
-                        <option></option>
-                        @foreach ($categories as $item)
-                            <option value="{{ $item->id }}">{{ $item->category }}</option>
-                        @endforeach
-                    </select>
-                </div> --}}
                 <div class="form-group pb-1">
                     <div class="container row d-flex">
                         <div class="col-6">

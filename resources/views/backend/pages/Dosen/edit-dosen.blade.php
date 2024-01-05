@@ -2,25 +2,24 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h5><span id="formTitle">Detail</span> data Artikel "{{$article->title}}"</h5>
+            <h5><span id="formTitle">Detail</span> Dosen "{{$article->title}}"</h5>
             <div class="container py-4">
                 <form action="/backend/articles/update/{{$article->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group pb-1">
-                        <label class="col-form-label" for="judulArtikel">Judul Artikel</label>
+                        <label class="col-form-label" for="judulArtikel">Nama Dosen</label>
                         <input type="text" name="title" class="form-control" id="judulArtikel" value="{{$article->title}}"
                             placeholder="Judul Postingan / Artikel" required>
                     </div>
                     <div class="form-group pb-1">
-                        <label class="col-form-label" for="slugArtikel">Slug</label>
+                        <label class="col-form-label" for="slugArtikel">Jabatan Dosen</label>
                         <input type="text" name="slug" class="form-control disabled" readonly id="slugArtikel"
-                            placeholder="Slug Postingan / Artikel" value="{{$article->slug}}">
+                            placeholder="Slug Postingan / Artikel" value="{{$article->body}}">
                     </div>
                     <div class="form-group pb-1">
                         <div class="container row d-flex">
                             <div class="col-6">
                                 <label class="col-form-label" for="thumbnailInput">Foto Dosen <br></label><br>
-                                {{-- <label class="col-form-label" for="thumbnailInput">Foto Dosen <br><span class="text-danger">* gambar harus berukuran / berdimensi [3 x 4] atau [354px x 472px] </span></label><br> --}}
                                 <input type="file" src="" alt="" class="form-control" name="thumbnail"
                                     id="thumbnailInput" required>
                             </div>

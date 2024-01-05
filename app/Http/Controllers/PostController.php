@@ -233,7 +233,7 @@ class PostController extends Controller
     {
         $article = Post::find(decrypt($id));
         $datas = [
-            'title' => 'Article',
+            'title' => 'Data',
             'article' => $article,
         ];
         switch ($articleType) {
@@ -254,6 +254,9 @@ class PostController extends Controller
                 break;
             case 'dosen':
                 return view('backend.pages.dosen.edit-dosen', $datas);
+                break;
+            case 'review':
+                return view('backend.pages.review.edit-review', $datas);
                 break;
             default:
                 return response(404);

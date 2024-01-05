@@ -2,12 +2,12 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h5><span id="formTitle">Detail</span> data Artikel "{{$article->title}}"</h5>
+            <h5><span id="formTitle">Detail</span> Postingan Kegiatan "{{$article->title}}"</h5>
             <div class="container py-4">
                 <form action="/admin/kegiatan/update/{{encrypt($article->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group pb-1">
-                        <label class="col-form-label" for="judulArtikel">Judul Artikel</label>
+                        <label class="col-form-label" for="judulArtikel">Judul Kegiatan</label>
                         <input type="text" name="title" class="form-control" id="judulArtikel" value="{{$article->title}}"
                             placeholder="Judul Postingan / Artikel" required>
                     </div>
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="form-group pb-1">
-                        <label class="col-form-label" for="bodyArtikel">Isi Artikel</label>
+                        <label class="col-form-label" for="bodyArtikel">Isi Kegiatan</label>
                         <div id="bodyValue">{!!$article->body!!}</div>
                         <div id="trixField" class="d-none">
                             <input type="hidden" name="postBody" id="postBody" required value="{{$article->body}}">

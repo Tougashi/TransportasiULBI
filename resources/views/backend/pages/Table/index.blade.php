@@ -3,7 +3,7 @@
     <div class="card mb-1">
         <div class="card-body">
             <div class="card-title">
-                Tambah data {{ $title }}
+                List Data {{ $title }}
             </div>
         </div>
     </div>

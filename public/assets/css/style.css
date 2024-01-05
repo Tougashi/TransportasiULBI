@@ -104,6 +104,9 @@ body {
     body {
       font-size: 30px;
     }
+    .trix-editor {
+        width: 90%;
+    }
   }
 
   /* Gaya untuk layar hp */
@@ -122,6 +125,10 @@ body {
     }
     body {
       font-size: 20px;
+    }
+    .trix-toolbar, .trix-editor {
+        font-size: 14px; /* Sesuaikan ukuran font jika diperlukan */
+        max-width: 40%; /* Gunakan lebar maksimum */
     }
   }
   

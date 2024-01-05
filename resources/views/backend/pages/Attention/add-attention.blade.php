@@ -1,14 +1,9 @@
 @extends('backend.layouts.index')
-{{-- @section('plugins')
-    <link rel="stylesheet" href="{{ asset('/assets/backend/plugins/select2/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/backend/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
-    <script src="{{ asset('/assets/backend/plugins/select2/js/select2.full.min.js') }}"></script>
-@endsection --}}
 @section('content')
     <div class="card mb-1">
         <div class="card-body">
             <div class="card-title">
-                Tambah data {{$title}}
+                Tambah Data {{$title}}
             </div>
         </div>
     </div>

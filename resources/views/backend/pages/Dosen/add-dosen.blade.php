@@ -8,7 +8,7 @@
     <div class="card mb-1">
         <div class="card-body">
             <div class="card-title">
-                Tambah data {{$title}}
+                Tambah Data {{$title}}
             </div>
         </div>
     </div>
@@ -29,8 +29,7 @@
                 <div class="form-group pb-1">
                     <div class="container row d-flex m-0 p-0">
                         <div class="col-6">
-                            <label class="col-form-label" for="thumbnailInput">Foto Dosen <br></label><br>
-                            {{-- <label class="col-form-label" for="thumbnailInput">Foto Dosen <br><span class="text-danger">* gambar harus berukuran / berdimensi [3 x 4] atau [354px x 472px] </span></label><br> --}}
+                            <label class="col-form-label" for="thumbnailInput">Foto Dosen<br></label><br>
                             <input type="file" src="" alt="" class="form-control" name="thumbnail"
                                 id="thumbnailInput" required>
                         </div>
@@ -39,7 +38,7 @@
                             <div
                                 class="container border border-primary rounded h-100 d-flex align-items-center justify-content-center">
                                 <div class="" id="thumbnail">
-                                    Pratinjau Foto Unggahan anda akan muncul disini
+                                    Pratinjau foto unggahan anda akan muncul disini
                                 </div>
                             </div>
                         </div>

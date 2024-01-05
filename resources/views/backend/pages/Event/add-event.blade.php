@@ -1,14 +1,9 @@
 @extends('backend.layouts.index')
-{{-- @section('plugins')
-    <link rel="stylesheet" href="{{ asset('/assets/backend/plugins/select2/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/backend/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
-    <script src="{{ asset('/assets/backend/plugins/select2/js/select2.full.min.js') }}"></script>
-@endsection --}}
 @section('content')
     <div class="card mb-1">
         <div class="card-body">
             <div class="card-title">
-                Tambah data {{$title}}
+                Tambah Data {{$title}}
             </div>
         </div>
     </div>
@@ -17,11 +12,11 @@
             <form action="{{ url()->current() . '/store' }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group pb-1">
-                    <label class="col-form-label" for="judulArtikel">Judul Pengumuman</label>
+                    <label class="col-form-label" for="judulArtikel">Judul Event</label>
                     <input type="text" name="title" class="form-control" id="judulArtikel" placeholder="Judul Pengumuman" required>
                 </div>
                 <div class="form-group pb-1">
-                    <label class="col-form-label" for="dateArtikel">Tanggal Pengumuman yang akan datang</label>
+                    <label class="col-form-label" for="dateArtikel">Tanggal Event yang akan datang</label>
                     <input type="date" name="date" class="form-control" id="dateArtikel" placeholder="Tanggal Pengumuman" required>
                 </div>
                 <div class="row w-100">
