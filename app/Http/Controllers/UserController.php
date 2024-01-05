@@ -65,7 +65,7 @@ class UserController extends Controller
 
         User::create($validated);
 
-        return redirect('/admin/user/list')->with('success', 'Data User berhasil dibuat');
+        return redirect('/admin/user/author/list')->with('success', 'Data User berhasil diperbarui');
 
     }
 
@@ -80,17 +80,53 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(User $user, $id)
     {
-        //
+        return view('backend.pages.Author.edit-author', [
+            'title' => 'User',
+            'data' => User::where('id', decrypt($id))->first(),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user, $id)
     {
-        //
+        $data = $request->all();
+        $checkUser = User::where('username', $data['username'])->whereNot('id',decrypt($id))->first();
+
+        if(isset($checkUser)){
+            $data['username'] = $request->username.mt_rand(0000,9999);
+        }
+
+
+        $validator = Validator::make($data, [
+            'email' => 'required|email:rfc',
+            'author' => 'required',
+            'username' => 'required',
+            'password' => 'required|min:8',
+            'profilePhoto' => 'file|image|required|max:5000'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('errors', $validator->errors());
+        }
+
+        $validated = $validator->validated();
+
+        if ($request->hasFile('profilePhoto')) {
+            $thumbnailPath = 'profilePhoto/' . time() . '_' . $request->file('profilePhoto')->getClientOriginalName();
+            $request->file('profilePhoto')->storeAs('public/', $thumbnailPath);
+            $validated['profilePhoto'] = $thumbnailPath;
+        }
+
+
+        User::where('id',decrypt($id))->update($validated);
+
+        return redirect('/admin/user/author/list')->with('success', 'Data User berhasil dibuat');
+
+
     }
 
     /**

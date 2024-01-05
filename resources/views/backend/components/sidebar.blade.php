@@ -9,7 +9,11 @@
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset('assets/backend/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+            @if(isset(auth()->user()->profilePhoto))
+            <img src="{{asset('/storage/'.auth()->user()->profilePhoto)}}" alt="" class="img-circle elevation-2">
+            @else
+            <img src="{{asset('assets/backend/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+            @endif
         </div>
         <div class="info">
           <a href="#" class="d-block">{{auth()->user()->author}}</a>
@@ -34,7 +38,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/user/list" class="nav-link {{$title == 'User' ? 'active' : ''}}">
+            <a href="/admin/user/author/list" class="nav-link {{$title == 'User' ? 'active' : ''}}">
               <i class="nav-icon fas fa-users"></i>
               <p>User</p>
             </a>

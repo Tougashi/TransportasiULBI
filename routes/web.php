@@ -60,11 +60,13 @@ Route::group(['middleware' => ['web','auth']], function(){
         });
 
         Route::controller(UserController::class)->group(function(){
-            Route::get('/user/list', 'index');
-            Route::get('/user/show/{id}', 'show');
-            Route::get('/user/delete/{id}', 'destroy');
-            Route::get('/user/list/add', 'create');
-            Route::post('/user/create/store', 'store');
+            Route::post('/user/author/update/{id}', 'update');
+            Route::get('/user/author/list', 'index');
+            Route::get('/user/author/show/{id}', 'show');
+            Route::get('/user/author/delete/{id}', 'destroy');
+            Route::get('/user/author/list/add', 'create');
+            Route::post('/user/author/create/store', 'store');
+            Route::get('/user/author/edit/{id}', 'edit');
         });
 
         Route::controller(PostController::class)->group(function(){

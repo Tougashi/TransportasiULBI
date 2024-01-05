@@ -2,7 +2,7 @@
     let formTitle = $('#formTitle').text();
 
     if(formTitle === 'Detail'){
-        $('form input').attr('readonly','readonly'); 
+        $('form input').attr('readonly','readonly');
     }
 
     function removeReadonly(){
@@ -11,6 +11,7 @@
         $('#submitBtn').removeAttr('onclick');
         $('#submitBtn').text('Simpan');
         $('#bodyValue').hide();
+        $('#thumbnailForm, #passwordForm').removeClass('d-none');
         $('#trixField').removeClass('d-none');
         $('#slugArtikel').attr('readonly','readonly')
         infoToasts('Anda sedang berada di Mode edit data');

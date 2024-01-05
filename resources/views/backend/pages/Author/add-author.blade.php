@@ -14,7 +14,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <form action="/admin/user/create/store" method="POST" enctype="multipart/form-data">
+            <form action="/admin/user/author/create/store" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group pb-1">
                     <label class="col-form-label" for="emailUser">Email</label>

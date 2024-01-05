@@ -26,7 +26,7 @@
                 <div class="container-fluid d-flex justify-content-center">
                     <div class="row gap-3">
                         <div class="col-12 d-flex">
-                            <a href="#" class="btn btn-outline-secondary">
+                            <a href="/admin/user/author/edit/{{encrypt(auth()->user()->id)}}" class="btn btn-outline-secondary">
                                 <span class="fas fa-pen"></span><br>
                                 Edit Data Akun
                             </a>
