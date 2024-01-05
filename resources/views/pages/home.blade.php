@@ -104,6 +104,7 @@
             <div class="container-fluid">
                 <h3 class="text-center fw-bolder mt-5 mb-4">Berita Terbaru</h3>
                 <div class="row mt-5 gap-3 d-flex justify-content-center">
+                    {{-- <x-show-more-posts/> --}}
                     @forelse ($News as $article)
                         <div class="col-8 col-lg-3 col-md-8 mb-lg-0 m-0">
                             <div class="card shadow-sm">
@@ -117,14 +118,17 @@
                                 </a>
                             </div>
                         </div>
-                    @empty
+                        @empty
                         <div class="col-12 text-center">
                             <div class="text-primary fw-bold h4 text-underline">Tidak ada Berita Terbaru</div>
                         </div>
-                    @endforelse
+                        @endforelse
 
+                    </div>
                 </div>
-            </div>
+                @if(isset($News))
+                <button class="btn btn-secondary d-flex justify-content-center m-auto my-5" onclick="loadMorePosts(event)">Load More Posts</button>
+                @endif
 
             <div class="container-fluid pt-5">
                 <h3 class="text-center fw-bolder mt-5 mb-4">Kegiatan Mahasiswa Prodi : S1 Manajemen Transportasi</h3>
@@ -380,5 +384,23 @@
                 delay: 4000,
             }
         });
+
+        let skipped = parseInt('{{count($News)}}');
+        const loadMorePosts = (event) => {
+            event.preventDefault();
+            $.ajax({
+                url: `/page/loadMorePosts/${skipped}`,
+                method: 'GET',
+                success: function(response){
+                    console.log(skipped);
+                    skipped+=10;
+                    console.log(response.data);
+                },
+                error: function(error, xhr){
+                    console.log(error.message);
+                    console.log(xhr.responseText);
+                }
+            });
+        }
     </script>
 @endpush

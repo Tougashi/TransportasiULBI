@@ -14,7 +14,7 @@ class ViewController extends Controller
             'title' => 'Fakultas : S1 Manajemen Transportasi',
             'News' => Post::where('created_at', '<=', now())->whereHas('category', function($query){
                 $query->where('slug', 'berita');
-            })->latest()->get(),
+            })->latest()->get()->take(10),
             'Kegiatan' => Post::where('created_at', '<=', now())->whereHas('category', function($query){
                 $query->where('slug', 'kegiatan');
             })->latest()->get(),
@@ -212,6 +212,15 @@ class ViewController extends Controller
             'searchQuery' => $queries,
             'articles' => $posts
         ]);
+    }
+
+
+    public function loadMorePosts($skip){
+        $data = Post::whereHas('category', function($q){
+            $q->where('slug', 'berita');
+        })->latest()->get()->skip($skip)->take(10);
+
+        return response()->json(['data' => $data]);
     }
 
 

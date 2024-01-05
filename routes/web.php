@@ -39,6 +39,7 @@ Route::group(['middleware' => []], function () {
         Route::get('/kerjasama-dalam-negeri', 'kerjasamaDalamNegeri')->name('kerjasamaDalamNegeri');
         Route::get('/mbkm-student-exchange', 'studentExchange')->name('studentExchange');
         Route::get('/search/{queries}', 'searchPosts')->name('searchPosts');
+        Route::get('/loadMorePosts/{skip}', 'loadMorePosts')->name('loadMore');
        });
     });
 
