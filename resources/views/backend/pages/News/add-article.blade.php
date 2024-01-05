@@ -36,16 +36,16 @@
                     </select>
                 </div> --}}
                 <div class="form-group pb-1">
-                    <div class="container row d-flex">
-                        <div class="col-6">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-lg-6 col-sm-12">
                             <label class="col-form-label" for="thumbnailInput">Thumbnail</label><br>
-                            <input type="file" src="" alt="" class="form-control" name="thumbnail"
+                            <input type="file" src="" alt="" class="form-control pb-5 pt-3" name="thumbnail"
                                 id="thumbnailInput" required>
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6 col-sm-12 pt-sm-3 pb-sm-4">
                             <label class="col-form-label" for="thumbnailInput">Preview</label><br>
                             <div
-                                class="container border border-primary rounded h-100 d-flex align-items-center justify-content-center">
+                                class="border border-primary rounded h-100 d-flex align-items-center justify-content-center">
                                 <div class="" id="thumbnail">
                                     Pratinjau Thumbnail Unggahan anda akan muncul disini
                                 </div>

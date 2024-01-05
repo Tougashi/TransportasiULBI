@@ -167,7 +167,9 @@ class PostController extends Controller
         $data['body'] = $request->postBody;
         $data['image'] = $request->bodyImage;
 
+
         $checkPost = Post::where('slug', $request->slug)->first();
+        // dicek heula mun slug na kosong ulah diisi, ngan can di cobaan
         if(!empty($request->slug)){
             if(isset($checkPost)){
                 $data['slug'] = $checkPost->slug.'-'.mt_rand(0000,9999);
