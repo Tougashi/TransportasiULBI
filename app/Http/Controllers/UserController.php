@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class UserController extends Controller
 {
@@ -34,7 +36,37 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        return response()->json(['data' => $data]);
+        $checkUser = User::where('username', $request->username)->first();
+
+        if(isset($checkUser)){
+            $data['username'] = $request->username.mt_rand(0000,9999);
+        }
+
+        $validator = Validator::make($data, [
+            'email' => 'required|email:rfc',
+            'author' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'profilePhoto' => 'file|image|required|max:5000'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('errors', $validator->errors());
+        }
+
+        $validated = $validator->validated();
+
+        if ($request->hasFile('profilePhoto')) {
+            $thumbnailPath = 'profilePhoto/' . time() . '_' . $request->file('profilePhoto')->getClientOriginalName();
+            $request->file('profilePhoto')->storeAs('public/', $thumbnailPath);
+            $validated['profilePhoto'] = $thumbnailPath;
+        }
+
+
+        User::create($validated);
+
+        return redirect('/admin/user/list')->with('success', 'Data User berhasil dibuat');
+
     }
 
     /**
