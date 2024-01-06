@@ -103,7 +103,7 @@
 
             <div class="container-fluid">
                 <h3 class="text-center fw-bolder mt-5 mb-4">Berita Terbaru</h3>
-                <div class="row mt-5 gap-3 d-flex justify-content-center">
+                <div class="row mt-5 gap-3 d-flex justify-content-center" id="morePostsWrapper">
                     {{-- <x-show-more-posts/> --}}
                     @forelse ($News as $article)
                         <div class="col-8 col-lg-3 col-md-8 mb-lg-0 m-0">
@@ -127,7 +127,7 @@
                     </div>
                 </div>
                 @if(isset($News))
-                <button class="btn btn-secondary d-flex justify-content-center m-auto my-5" onclick="loadMorePosts(event)">Load More Posts</button>
+                <button class="btn btn-secondary d-flex justify-content-center m-auto my-5 p-3" id="morePostsLoaderButton" onclick="loadMorePosts(event)"><span class="h5 text-light d-flex m-auto">Load More Posts</span></button>
                 @endif
 
             <div class="container-fluid pt-5">
@@ -386,21 +386,49 @@
         });
 
         let skipped = parseInt('{{count($News)}}');
+        const countAllPosts = parseInt('{{\App\Models\Post::count()}}');
+
         const loadMorePosts = (event) => {
             event.preventDefault();
             $.ajax({
                 url: `/page/loadMorePosts/${skipped}`,
                 method: 'GET',
                 success: function(response){
-                    console.log(skipped);
                     skipped+=10;
-                    console.log(response.data);
+                    appendMorePosts(response.data);
+                    disableMorePosts();
                 },
                 error: function(error, xhr){
                     console.log(error.message);
                     console.log(xhr.responseText);
                 }
             });
+        }
+
+        const appendMorePosts = (datas) => {
+            const imageUrl = '{{asset("storage/")}}';
+            for(let data in datas){
+                $('#morePostsWrapper').append(`
+                <div class="col-8 col-lg-3 col-md-8 mb-lg-0 m-0">
+                    <div class="card shadow-sm">
+                        <a href="/page/berita/${datas[data].slug}">
+                            <img src="${imageUrl+'/'+datas[data].thumbnail}"
+                                class="card-img-top rounded-top" alt="Thumbnail">
+                            <div class="card-body">
+                                <h3 class="h5 card-title mt-3">${datas[data].title}</h3>
+                                <p class="card-text">${datas[data].excerpt}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                `)
+            }
+        }
+
+        const disableMorePosts = () => {
+            if(skipped >= countAllPosts){
+                $('#morePostsLoaderButton').addClass('d-none');
+            }
         }
     </script>
 @endpush
