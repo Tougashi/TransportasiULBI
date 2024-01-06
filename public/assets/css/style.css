@@ -130,6 +130,12 @@ body {
         font-size: 14px; /* Sesuaikan ukuran font jika diperlukan */
         max-width: 40%; /* Gunakan lebar maksimum */
     }
+    .judul {
+        padding-top: 30%;
+    }
+    .mobile-text {
+        display: none;
+    }
   }
   
   /* Gaya untuk layar desktop atau laptop */

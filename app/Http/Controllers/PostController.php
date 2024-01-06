@@ -17,8 +17,6 @@ class PostController extends Controller
      */
     public $tipe;
     public $imagePath;
-
-
     public function index($articleType)
     {
         $this->tipe = $articleType;
@@ -125,8 +123,6 @@ class PostController extends Controller
 
     public function create($articleType)
     {
-        // $title = Category::where('slug', $articleType)->pluck('category')->first();
-        // dd($title);
         $datas = [
             'title' => Category::where('slug', $articleType)->pluck('category')->first()
         ];
@@ -169,14 +165,11 @@ class PostController extends Controller
 
 
         $checkPost = Post::where('slug', $request->slug)->first();
-        // dicek heula mun slug na kosong ulah diisi, ngan can di cobaan
         if(!empty($request->slug)){
             if(isset($checkPost)){
                 $data['slug'] = $checkPost->slug.'-'.mt_rand(0000,9999);
             }
         }
-
-        // dd(['data' => $data, 'checkPost' => $checkPost, 'slug'=>$request->slug]);
         $rules = [
                 'title' => 'nullable',
                 'slug' => 'nullable',
@@ -217,11 +210,6 @@ class PostController extends Controller
 
         return redirect('/admin/'.$categoryType->slug)->with('success', 'Artikel / Postingan berhasil di Upload');
     }
-
-    // public function store(Request $request){
-    //     return response()->json(['data' => $request->all()]);
-    // }
-
     public function uploadImage(Request $request)
     {
         if ($request->hasFile('file')) {
@@ -286,6 +274,7 @@ class PostController extends Controller
         $data['excerpt'] = Str::limit(strip_tags($request->postBody), 200);
         $data['body'] = $request->postBody;
         $data['image'] = $request->bodyImage;
+        $host = url('/');
 
         $rules = [
                 'title' => 'nullable',
@@ -316,13 +305,25 @@ class PostController extends Controller
 
         $validated = $validators->validated();
         $validated['userId'] = auth()->user()->id;
-        // $validated['image'] = !empty($request->bodyImage) ? $request->bodyImage : json_encode('No Data');
 
         if ($request->hasFile('thumbnail')) {
+            Storage::delete('public/' . $currentPost->thumbnail);
             $thumbnailPath = 'thumbnails/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
             $request->file('thumbnail')->storeAs('public/', $thumbnailPath);
             $validated['thumbnail'] = $thumbnailPath;
         }
+        if ($request->has('bodyImage')) {
+            $imagePaths = json_decode($currentPost->image, true);
+        
+            if (is_array($imagePaths)) { 
+                foreach ($imagePaths as $imagePath) {
+                    if ($imagePath !== null) {
+                        Storage::delete(str_replace($host . '/storage', 'public', $imagePath));
+                    }
+                }
+            }
+        }
+        
 
         Post::where('id',decrypt($id))->update($validated);
 
@@ -353,8 +354,6 @@ class PostController extends Controller
                 }
             }
         }
-
-
          Post::destroy(decrypt($id));
 
          return back()->with('success', 'Data berhasil dihapus');
