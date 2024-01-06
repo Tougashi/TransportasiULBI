@@ -46,5 +46,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'review'
         ]);
 
+        \App\Models\Post::factory(10)->create();
+
     }
 }
