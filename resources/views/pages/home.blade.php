@@ -127,7 +127,7 @@
                     </div>
                 </div>
                 @if(isset($News))
-                <button class="btn btn-secondary d-flex justify-content-center m-auto my-5 p-3" id="morePostsLoaderButton" onclick="loadMorePosts(event)"><span class="h5 text-light d-flex m-auto">Load More Posts</span></button>
+                <button class="btn btn-secondary d-flex justify-content-center m-auto my-5 p-3" id="morePostsLoaderButton" onclick="loadMorePosts(event)"><span class="h5 text-light d-flex m-auto">Muat Berita Lebih Banyak</span></button>
                 @endif
 
             <div class="container-fluid pt-5">
@@ -146,12 +146,18 @@
                             </div>
                         </div>
                 </div>
-            @empty
+                @if(isset($Kegiatan))
+                <button class="btn btn-secondary d-flex justify-content-center m-auto my-5 p-3" id="morePostsLoaderButton" onclick="loadMorePosts(event)"><span class="h5 text-light d-flex m-auto">Muat Kegiatan Lebih Banyak</span></button>
+                @endif
+                @empty
                 <div class="col-12 text-center">
                     <div class="text-primary fw-bold h4 text-underline">Tidak ada Kegiatan Mahasiswa Terbaru</div>
                 </div>
                 @endforelse
             </div>
+            @if(isset($Kegiatan))
+            <button class="btn btn-secondary d-flex justify-content-center m-auto my-5 p-3" id="morePostsLoaderButton" onclick="loadMorePosts(event)"><span class="h5 text-light d-flex m-auto">Muat Kegiatan Lebih Banyak</span></button>
+            @endif
     </div>
     </section>
 
@@ -184,11 +190,10 @@
                                             </div>
                                         </div>
                                     @empty
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-12 ">
                                             <div class="card shadow-sm">
-                                                <div class="card-body">
-                                                    <h3 class="h5 card-title py-2 border-bottom">Tidak ada Pengumuman
-                                                        terbaru</h3>
+                                                <div class="card-body center">
+                                                    <h3 class="h5 card-title py-2 border-bottom">Tidak ada Pengumuman terbaru</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -211,8 +216,7 @@
                                         <div class="col-lg-12">
                                             <div class="card shadow-sm">
                                                 <div class="card-body">
-                                                    <h3 class="h5 card-title py-2 border-bottom">Tidak ada Acara Terbaru
-                                                    </h3>
+                                                    <h3 class="h5 card-title py-2 border-bottom">Tidak ada Acara Terbaru</h3>
                                                 </div>
                                             </div>
                                         </div>

@@ -20,7 +20,7 @@
             </div>
         </a>
     </div>
-    <div class="col-lg-4 col-md-3 ms-lg-4 col-3" id="copyLinkWrapper">
+    <div class="col-lg-4 col-md-3 ms-lg-4 col-1" id="copyLinkWrapper">
         <a href="#">
             <div class="d-flex align-items-center mobile-text" id="copyLink">
                 <i class="fa-solid fa-share me-2"></i> <span class="d-lg-block d-none">Salin Tautan</span>
