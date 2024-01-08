@@ -292,7 +292,7 @@
                 <div class="swiper-slide foto-dosen-slide">
                     <div class="card border-0 overflow-hidden text-light">
                         <div class="position-relative">
-                            <img src="{{ asset('assets/img/team/profile-picture-1.jpg') }}" class="card-img-top rounded"
+                            <img src="{{ asset('assets/img/team/profile-picture-1.jpg') }}" class="card-img-top rounded dosenimage"
                                 style="width: 354px; height: 354px;" alt="Neil Portrait">
                         </div>
                         <div class="card-body position-relative mt-n6 bg-orange text-center rounded-bottom">

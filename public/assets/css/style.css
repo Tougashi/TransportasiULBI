@@ -136,6 +136,10 @@ body {
     .mobile-text {
         display: none;
     }
+    .dosenimage {
+        width: 70%;
+        height: 20%;
+    }
   }
   
   /* Gaya untuk layar desktop atau laptop */

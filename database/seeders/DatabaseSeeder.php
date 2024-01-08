@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             'category' => 'Event',
             'slug' => 'event'
         ]);
-        Category::create([
+        Category::create([ 
             'category' => 'Pengumuman',
             'slug' => 'pengumuman'
         ]);
