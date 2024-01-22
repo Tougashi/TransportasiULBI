@@ -3,11 +3,12 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HimpunanController;
+use App\Http\Controllers\DashboardController;
 
 
 Route::group(['middleware' => []], function () {
@@ -70,6 +71,12 @@ Route::group(['middleware' => ['web','auth']], function(){
             Route::get('/user/author/edit/{id}', 'edit');
         });
 
+        Route::controller(HimpunanController::class)->group(function(){
+            Route::prefix('himpunan')->group(function(){
+                Route::get('/kegiatan/list', 'listKegiatan');
+                Route::get('/kegiatan/list/add', 'addKegiatan');
+            });
+        });
         Route::controller(PostController::class)->group(function(){
             Route::get('/{articleType}', 'index');
             Route::get('/events', 'event');
@@ -84,6 +91,7 @@ Route::group(['middleware' => ['web','auth']], function(){
             // EDITOR IMAGE UPLOAD
             Route::post('/upload/image','uploadImage')->name('upload-image-body');
         });
+
 
         Route::controller(CategoryController::class)->group(function(){
             Route::get('/categories', 'index');

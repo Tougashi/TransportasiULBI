@@ -110,12 +110,21 @@ class PostController extends Controller
                     ];
                 }
                 break;
+            case 'himpunan':
+                return view('backend.pages.himpunan.home', $datas);
+                break;
             default:
                 return view('errors.404');
                 break;
         }
         return view('backend.pages.Table.index', $datas);
     }
+
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -145,6 +154,7 @@ class PostController extends Controller
             case 'review':
                 return view('backend.pages.Review.add-review', $datas);
                 break;
+
             default:
             return response(404);
             break;
@@ -314,8 +324,8 @@ class PostController extends Controller
         }
         if ($request->has('bodyImage')) {
             $imagePaths = json_decode($currentPost->image, true);
-        
-            if (is_array($imagePaths)) { 
+
+            if (is_array($imagePaths)) {
                 foreach ($imagePaths as $imagePath) {
                     if ($imagePath !== null) {
                         Storage::delete(str_replace($host . '/storage', 'public', $imagePath));
@@ -323,12 +333,15 @@ class PostController extends Controller
                 }
             }
         }
-        
+
 
         Post::where('id',decrypt($id))->update($validated);
 
         return redirect('/admin/'.$categoryType->slug)->with('success', 'Artikel / Postingan berhasil di Perbarui');
     }
+
+
+
 
     /**
      * Remove the specified resource from storage.

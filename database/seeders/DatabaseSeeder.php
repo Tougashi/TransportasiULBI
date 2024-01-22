@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             'category' => 'Event',
             'slug' => 'event'
         ]);
-        Category::create([ 
+        Category::create([
             'category' => 'Pengumuman',
             'slug' => 'pengumuman'
         ]);
@@ -44,6 +44,14 @@ class DatabaseSeeder extends Seeder
         Category::create([
             'category' => 'Review',
             'slug' => 'review'
+        ]);
+        Category::create([
+            'category' => 'Kurikulum',
+            'slug' => 'kurikulum'
+        ]);
+        Category::create([
+            'category' => 'Himpunan',
+            'slug' => 'himpunan'
         ]);
 
         \App\Models\Post::factory(20)->create();

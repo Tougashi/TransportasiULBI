@@ -21,7 +21,7 @@
       </div>
 
 
-      <nav class="my-2">
+      <nav class="my-2 pb-5">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
             <a href="/admin/dashboard" class="nav-link {{$title == 'Dashboard' ? 'active' : ''}}">
@@ -39,10 +39,16 @@
           </li>
           <li class="nav-item">
             <a href="/admin/user/author/list" class="nav-link {{$title == 'User' ? 'active' : ''}}">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>User</p>
             </a>
           </li>
+          {{-- <li class="nav-item">
+            <a href="/admin/himpunan" class="nav-link {{$title == 'Himpunan' ? 'active' : ''}}">
+                <i class="nav-icon fas fa-users"></i>
+              <p>Himpunan</p>
+            </a>
+          </li> --}}
 
           <div class="my-3 py-1 border-top border-bottom">
             <p class="text-light fw-bold mb-0 py-1 text-center">DATA</p>
