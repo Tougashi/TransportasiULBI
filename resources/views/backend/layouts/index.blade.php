@@ -181,6 +181,11 @@
             </script>
         @endforeach
     @endif
+    @if (session()->has('error'))
+        <script>
+            errorToasts('{{ session("error") }}');
+        </script>
+    @endif
     @if (session()->has('success'))
         <script>
             successToasts('{{ session('success') }}');

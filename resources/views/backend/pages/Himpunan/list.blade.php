@@ -17,7 +17,11 @@
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$item->title}}</td>
-                    <td>{{$item->date->format('d F Y')}}</td>
+                    <td>{{$item->created_at->format('d F Y')}}</td>
+                    <td>
+                        <a href="{{url()->current().'/edit/'.$item->slug}}" class="btn btn-secondary">E</a>
+                        <a href="{{url()->current().'/delete/'.$item->slug}}" class="btn btn-danger">D</a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

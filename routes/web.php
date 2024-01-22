@@ -75,6 +75,7 @@ Route::group(['middleware' => ['web','auth']], function(){
             Route::prefix('himpunan')->group(function(){
                 Route::get('/kegiatan/list', 'listKegiatan');
                 Route::get('/kegiatan/list/add', 'addKegiatan');
+                Route::post('/kegiatan/list/add/store', 'storeNewKegiatan');
             });
         });
         Route::controller(PostController::class)->group(function(){
