@@ -24,7 +24,7 @@ class HimpunanController extends Controller
 
     public function listAnggota(){
         return view('backend.pages.himpunan.anggota.list', [
-            'title' => 'Himpunan',
+            'title' => 'Anggota Himpunan',
             'NavbarTitle' => 'Anggota Himpunan',
             'daftarAnggota' => Post::whereHas('category', function($q){
                 $q->where('slug', 'anggota-himpunan');
@@ -36,6 +36,14 @@ class HimpunanController extends Controller
         return view('backend.pages.himpunan.add', [
             'title' => 'Himpunan',
             'NavbarTitle' => 'Himpunan'
+        ]);
+    }
+
+    public function addAnggota()
+    {
+        return view('backend.pages.himpunan.anggota.add', [
+            'title' => 'Anggota Himpunan',
+            'NavbarTitle' => 'Anggota Himpunan',
         ]);
     }
 
@@ -52,6 +60,41 @@ class HimpunanController extends Controller
     public function create()
     {
         //
+    }
+
+
+    public function storeNewAnggota(Request $request)
+    {
+        $data = $request->all();
+        $data['body'] = $request->postBody;
+        $data['excerpt'] = Str::limit(strip_tags($request->postBody), 200);
+        $data['categoryId'] = Category::where('slug', 'anggota-himpunan')->pluck('id')->first();
+        $data['userId'] = auth()->user()->id;
+
+        $validator = Validator::make($data, [
+            'title' => 'required',
+            'thumbnail' => 'required|max:5000',
+            'body' => 'required',
+            'categoryId' => 'required',
+            'userId' => 'required'
+        ]);
+
+        if($validator->fails()){
+            return back()->with('errors', $validator->errors());
+        }
+
+        $validated = $validator->validated();
+
+        if ($request->hasFile('thumbnail')) {
+            $thumbnailPath = 'thumbnails/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
+            $request->file('thumbnail')->storeAs('public/', $thumbnailPath);
+            $validated['thumbnail'] = $thumbnailPath;
+        }
+
+        Post::create($validated);
+
+        return redirect('/admin/anggota-himpunan')->with('success', 'Data anggota himpunan berhasil dibuat');
+
     }
 
     /**
@@ -193,5 +236,11 @@ class HimpunanController extends Controller
     {
         Post::where('slug', $slug)->delete();
         return back();
+    }
+
+    public function deleteAnggota($id)
+    {
+        Post::where('id', decrypt($id))->delete();
+        return redirect()->back()->with('success', 'slsa');
     }
 }

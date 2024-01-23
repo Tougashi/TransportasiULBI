@@ -113,6 +113,9 @@ class PostController extends Controller
             case 'himpunan':
                 return view('backend.pages.himpunan.home', $datas);
                 break;
+            case 'himpunan':
+                return view('backend.pages.himpunan.home', $datas);
+                break;
             default:
                 return view('errors.404');
                 break;

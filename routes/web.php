@@ -86,9 +86,12 @@ Route::group(['middleware' => ['web','auth']], function(){
                 });
 
                 // Anggota Himpunan
-                Route::prefix('anggota')->group(function(){
-                    Route::get('/list', 'listAnggota');
-                });
+            });
+            Route::prefix('anggota-himpunan')->group(function(){
+                Route::get('/', 'listAnggota');
+                Route::get('/add', 'addAnggota');
+                Route::post('/add/store', 'storeNewAnggota');
+                Route::post('/delete/{id}', 'deleteAnggota');
             });
 
         });
