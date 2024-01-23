@@ -199,7 +199,7 @@ class PostController extends Controller
             $data,$rules,
             [
                 'body.required' => 'Input Isi Artikel tidak boleh kosong, periksa kembali',
-                'thumbnail.required' => 'Tshumbnail wajib diisi',
+                'thumbnail.required' => 'Thumbnail wajib diisi',
             ]
         );
 

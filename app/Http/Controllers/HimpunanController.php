@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -18,6 +19,16 @@ class HimpunanController extends Controller
             'title' => 'Himpunan',
             'NavbarTitle' => 'Himpunan',
             'daftarKegiatan' => Post::where('categoryId', 8)->get()
+        ]);
+    }
+
+    public function listAnggota(){
+        return view('backend.pages.himpunan.anggota.list', [
+            'title' => 'Himpunan',
+            'NavbarTitle' => 'Anggota Himpunan',
+            'daftarAnggota' => Post::whereHas('category', function($q){
+                $q->where('slug', 'anggota-himpunan');
+            })->get()
         ]);
     }
 
@@ -96,6 +107,64 @@ class HimpunanController extends Controller
     /**
      * Display the specified resource.
      */
+
+     public function editKegiatanHimpunan($slug)
+     {
+        $data = Post::where('slug', $slug)->first();
+        return view('backend.pages.himpunan.edit', [
+            'title' => 'Himpunan',
+            'NavbarTitle' => 'Himpunan',
+            'article' => $data
+        ]);
+
+     }
+
+
+     public function updateKegiatanHimpunan($slug, Request $request)
+     {
+
+        // dd($request->all());
+        $data = $request->all();
+        $data['excerpt'] = Str::limit(strip_tags($request->postBody), 200);
+        $data['body'] = $request->postBody;
+        $data['image'] = $request->bodyImage;
+
+        if(empty($request->thumbnail)){
+            $data['thumbnail'] = Post::where('slug', $slug)->pluck('thumbnail')->first();
+        }else{
+            $data['thumbnail'] = $request->thumbnail;
+        }
+
+        // if(i)
+
+        $validator = Validator::make($data, [
+            'title' => 'required',
+            'slug' => 'required',
+            'thumbnail' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required'
+        ]);
+
+        if($validator->fails()){
+            return back()->with('errors', $validator->errors());
+        }
+
+        $validated = $validator->validated();
+        $validated['userId'] = auth()->user()->id;
+
+        if ($request->hasFile('thumbnail')) {
+            $thumbnailPath = 'thumbnails/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
+            $request->file('thumbnail')->storeAs('public/', $thumbnailPath);
+            $validated['thumbnail'] = $thumbnailPath;
+        }
+
+        Post::where('slug', $slug)->update($validated);
+        return redirect()->intended('/admin/himpunan/kegiatan/list/');
+
+     }
+
+
+
     public function show(string $id)
     {
         //
@@ -120,8 +189,9 @@ class HimpunanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroyKegiatanHimpunan($slug, Request $request)
     {
-        //
+        Post::where('slug', $slug)->delete();
+        return back();
     }
 }

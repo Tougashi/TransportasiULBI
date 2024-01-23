@@ -53,6 +53,10 @@ class DatabaseSeeder extends Seeder
             'category' => 'Himpunan',
             'slug' => 'himpunan'
         ]);
+        Category::create([
+            'category' => 'Anggota Himpunan',
+            'slug' => 'anggota-himpunan'
+        ]);
 
         \App\Models\Post::factory(20)->create();
 

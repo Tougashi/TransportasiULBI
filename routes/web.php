@@ -11,6 +11,8 @@ use App\Http\Controllers\HimpunanController;
 use App\Http\Controllers\DashboardController;
 
 
+
+
 Route::group(['middleware' => []], function () {
    Route::controller(ViewController::class)->group(function(){
     Route::get('/', 'main')->name('beranda');
@@ -73,10 +75,22 @@ Route::group(['middleware' => ['web','auth']], function(){
 
         Route::controller(HimpunanController::class)->group(function(){
             Route::prefix('himpunan')->group(function(){
-                Route::get('/kegiatan/list', 'listKegiatan');
-                Route::get('/kegiatan/list/add', 'addKegiatan');
-                Route::post('/kegiatan/list/add/store', 'storeNewKegiatan');
+                // Kegiatan Himpunan
+                Route::prefix('kegiatan')->group(function(){
+                    Route::get('/list', 'listKegiatan');
+                    Route::get('/list/add', 'addKegiatan');
+                    Route::post('/list/add/store', 'storeNewKegiatan');
+                    Route::get('/list/edit/{slug}', 'editKegiatanHimpunan');
+                    Route::post('/list/edit/{slug}/update', 'updateKegiatanHimpunan');
+                    Route::get('/list/delete/{slug}', 'destroyKegiatanHimpunan');
+                });
+
+                // Anggota Himpunan
+                Route::prefix('anggota')->group(function(){
+                    Route::get('/list', 'listAnggota');
+                });
             });
+
         });
         Route::controller(PostController::class)->group(function(){
             Route::get('/{articleType}', 'index');

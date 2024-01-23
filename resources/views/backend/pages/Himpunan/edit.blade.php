@@ -4,7 +4,7 @@
         <div class="card-body">
             <h5><span id="formTitle">Detail</span> Postingan Kegiatan "{{$article->title}}"</h5>
             <div class="container py-4">
-                <form action="/admin/kegiatan/update/{{encrypt($article->id)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url()->current().'/update'}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group pb-1">
                         <label class="col-form-label" for="judulArtikel">Judul Kegiatan</label>
@@ -21,8 +21,8 @@
                         <div class="container row d-flex">
                             <div class="col-6">
                                 <label class="col-form-label" for="thumbnailInput">Thumbnail</label><br>
-                                <input type="file" src="" value="" alt="" class="form-control" name="thumbnail"
-                                    id="thumbnailInput" required>
+                                <input type="file" src="" value="{{$article->thumbnail}}" alt="" class="form-control" name="thumbnail"
+                                    id="thumbnailInput">
                             </div>
                             <div class="col-6">
                                 <label class="col-form-label" for="thumbnailInput">Preview</label><br>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="row w-100">
                         <div class="col-lg-4 col-sm-4 col-12">
-                            <a class="btn btn-secondary w-100" href="/admin/kegiatan">Batal</a>
+                            <a class="btn btn-secondary w-100" href="/admin/himpunan/kegiatan/list">Batal</a>
                         </div>
                         <div class="col-lg-4 col-sm-4 col-12 py-2">
                         </div>
