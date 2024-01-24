@@ -13,7 +13,7 @@
             </div>
 
             <div class="col-lg-6">
-                <a href="{{url()->current().'/anggota/list'}}">
+                <a href="/admin/anggota-himpunan/">
                 <div class="card">
                     <div class="card-body">
                         <p class="text-center h5">Anggota Himpunan</p>

@@ -9,6 +9,7 @@ use App\Http\Controllers\ViewController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HimpunanController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KurikulumController;
 
 
 
@@ -74,8 +75,9 @@ Route::group(['middleware' => ['web','auth']], function(){
         });
 
         Route::controller(HimpunanController::class)->group(function(){
+
+            // Kegiatan Himpunan
             Route::prefix('himpunan')->group(function(){
-                // Kegiatan Himpunan
                 Route::prefix('kegiatan')->group(function(){
                     Route::get('/list', 'listKegiatan');
                     Route::get('/list/add', 'addKegiatan');
@@ -84,18 +86,28 @@ Route::group(['middleware' => ['web','auth']], function(){
                     Route::post('/list/edit/{slug}/update', 'updateKegiatanHimpunan');
                     Route::get('/list/delete/{slug}', 'destroyKegiatanHimpunan');
                 });
-
-                // Anggota Himpunan
             });
+
+            // Anggota Himpunan
             Route::prefix('anggota-himpunan')->group(function(){
                 Route::get('/', 'listAnggota');
                 Route::get('/add', 'addAnggota');
                 Route::post('/add/store', 'storeNewAnggota');
                 Route::get('/edit/{id}', 'editAnggota');
+                Route::post('/edit/{id}/update', 'updateAnggota');
                 Route::get('/delete/{id}', 'deleteAnggota');
             });
-
         });
+
+
+        Route::controller(KurikulumController::class)->group(function(){
+            Route::prefix('kurikulum')->group(function(){
+                Route::get('/', 'index');
+            });
+        });
+
+
+
         Route::controller(PostController::class)->group(function(){
             Route::get('/{articleType}', 'index');
             Route::get('/events', 'event');

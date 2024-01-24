@@ -24,8 +24,8 @@ class HimpunanController extends Controller
 
     public function listAnggota(){
         return view('backend.pages.himpunan.anggota.list', [
-            'title' => 'Anggota Himpunan',
-            'NavbarTitle' => 'Anggota Himpunan',
+            'title' => 'Himpunan',
+            'NavbarTitle' => 'Himpunan',
             'daftarAnggota' => Post::whereHas('category', function($q){
                 $q->where('slug', 'anggota-himpunan');
             })->get()
@@ -42,8 +42,8 @@ class HimpunanController extends Controller
     public function addAnggota()
     {
         return view('backend.pages.himpunan.anggota.add', [
-            'title' => 'Anggota Himpunan',
-            'NavbarTitle' => 'Anggota Himpunan',
+            'title' => 'Himpunan',
+            'NavbarTitle' => 'Himpunan',
         ]);
     }
 
@@ -167,12 +167,10 @@ class HimpunanController extends Controller
      {
         $data = Post::where('id', decrypt($id))->first();
 
-        return dd($data);
-
         return view('backend.pages.himpunan.anggota.edit', [
-            'title' => 'Anggota Himpunan',
-            'NavbarTitle' => 'Anggota Himpunan',
-            'data' => $data
+            'title' => 'Himpunan',
+            'NavbarTitle' => 'Himpunan',
+            'article' => $data
         ]);
      }
 
@@ -221,6 +219,46 @@ class HimpunanController extends Controller
      }
 
 
+     public function updateAnggota($id, Request $request)
+     {
+        $fromServer = Post::where('id', decrypt($id));
+
+        $data = $request->all();
+        $data['categoryId'] = 9;
+
+        if(empty($request->thumbnail))
+        {
+            $data['thumbnail'] = $fromServer->pluck('thumbnail')->first();
+        }else
+        {
+            $data['thumbnail'] = $request->thumbnail;
+        }
+
+
+        $validator = Validator::make($data, [
+            'title' => 'required',
+            'body' => 'required',
+            'thumbnail' => 'required'
+        ]);
+
+        if($validator->fails()){
+            return back()->with('errors', $validator->errors());
+        }
+
+        $validated = $validator->validated();
+
+        if ($request->hasFile('thumbnail')) {
+            $thumbnailPath = 'thumbnails/' . time() . '_' . $request->file('thumbnail')->getClientOriginalName();
+            $request->file('thumbnail')->storeAs('public/', $thumbnailPath);
+            $validated['thumbnail'] = $thumbnailPath;
+        }
+
+        $fromServer->update($validated);
+        return redirect('/admin/anggota-himpunan')->with('success', 'Data anggota himpunan berhasil diubah');
+
+     }
+
+
 
     public function show(string $id)
     {
@@ -255,6 +293,6 @@ class HimpunanController extends Controller
     public function deleteAnggota($id)
     {
         Post::where('id', decrypt($id))->delete();
-        return redirect()->back()->with('success', 'slsa');
+        return redirect()->back()->with('success', 'Data Anggota Himpunan berhasil dihapus');
     }
 }

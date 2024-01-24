@@ -1,9 +1,9 @@
 <script>
-    $('#judulArtikel').on('input', function() {
-        const titleVal = $(this).val().toLowerCase();
-        const titleValSlugged = titleVal.split(' ').join('-');
-        $('#slugArtikel').val(titleValSlugged);
-    });
+    // $('#judulArtikel').on('input', function() {
+    //     const titleVal = $(this).val().toLowerCase();
+    //     const titleValSlugged = titleVal.split(' ').join('-');
+    //     $('#slugArtikel').val(titleValSlugged);
+    // });
 
     $('#thumbnailInput').on('change', function() {
         const thumbnailPreview = $('#thumbnail');

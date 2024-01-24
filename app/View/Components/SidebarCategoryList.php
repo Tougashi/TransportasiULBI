@@ -16,7 +16,7 @@ class SidebarCategoryList extends Component
 
     public function __construct($title)
     {
-        $this->categories = Category::all();
+        $this->categories = Category::get()->take(8);
         $this->title = $title;
         $this->category = Category::where('slug', $title)->pluck('category')->first();
     }
