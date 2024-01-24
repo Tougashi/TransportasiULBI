@@ -91,7 +91,8 @@ Route::group(['middleware' => ['web','auth']], function(){
                 Route::get('/', 'listAnggota');
                 Route::get('/add', 'addAnggota');
                 Route::post('/add/store', 'storeNewAnggota');
-                Route::post('/delete/{id}', 'deleteAnggota');
+                Route::get('/edit/{id}', 'editAnggota');
+                Route::get('/delete/{id}', 'deleteAnggota');
             });
 
         });

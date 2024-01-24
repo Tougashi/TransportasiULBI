@@ -163,6 +163,20 @@ class HimpunanController extends Controller
      }
 
 
+     public function editAnggota($id)
+     {
+        $data = Post::where('id', decrypt($id))->first();
+
+        return dd($data);
+
+        return view('backend.pages.himpunan.anggota.edit', [
+            'title' => 'Anggota Himpunan',
+            'NavbarTitle' => 'Anggota Himpunan',
+            'data' => $data
+        ]);
+     }
+
+
      public function updateKegiatanHimpunan($slug, Request $request)
      {
 
