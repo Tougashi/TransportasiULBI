@@ -103,6 +103,8 @@ Route::group(['middleware' => ['web','auth']], function(){
         Route::controller(KurikulumController::class)->group(function(){
             Route::prefix('kurikulum')->group(function(){
                 Route::get('/', 'index');
+                Route::get('/add', 'create');
+                Route::post('/add/store', 'store');
             });
         });
 

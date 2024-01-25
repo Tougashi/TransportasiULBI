@@ -21,7 +21,9 @@ class KurikulumController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.Kurikulum.add', [
+            'title' => 'Kurikulum'
+        ]);
     }
 
     /**
@@ -29,7 +31,7 @@ class KurikulumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return dd($request->all());
     }
 
     /**
