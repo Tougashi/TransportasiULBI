@@ -83,22 +83,22 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle {{$NavbarTitle == 'Organisasi Mahasiswa' || $NavbarTitle == 'Sarana Prasarana'}}" id="fasilitasDropdown" aria-expanded="false"
                             data-bs-toggle="dropdown">
-                            Fasilitas
+                            Kemahasiswaan
                             <span class="fas fa-angle-down nav-link-arrow ms-1"></span>
                         </a>
                         <div class="dropdown-menu px-0" aria-labelledby="fasilitasDropdown">
                             <ul class="list-style-none mb-4">
-                                <li class="mb-1 megamenu-item p-2">
+                            <li class="mb-1 megamenu-item p-2">
                                     <a class="megamenu-link"
-                                        href="/page/kegiatan-mahasiswa">Kegiatan Mahasiswa</a>
+                                        href="/page/himpunan">Himpunan Transportasi</a>
                                 </li>
                                 <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Organisasi Mahasiswa' ? 'bg-orange-prodi' : ''}}">
                                     <a class="megamenu-link {{$NavbarTitle == 'Organisasi Mahasiswa' ? 'text-light' : ''}}"
-                                        href="/page/organisasi-mahasiswa">Organisasi Mahasiswa</a>
+                                        href="/page/kegiatan-himpunan">Kegiatan Himpunan</a>
                                 </li>
                                 <li class="mb-1 megamenu-item p-2 {{$NavbarTitle == 'Sarana Prasarana' ? 'bg-orange-prodi' : ''}}">
                                     <a class="megamenu-link {{$NavbarTitle == 'Sarana Prasarana' ? 'text-light' : ''}}"
-                                        href="/page/sarana-prasarana">Sarana Prasarana</a>
+                                        href="https://www.instagram.com/himaporta/">Instagram Himpunan</a>
                                 </li>
                             </ul>
                         </div>
