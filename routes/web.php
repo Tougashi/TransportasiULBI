@@ -105,6 +105,9 @@ Route::group(['middleware' => ['web','auth']], function(){
                 Route::get('/', 'index');
                 Route::get('/add', 'create');
                 Route::post('/add/store', 'store');
+                Route::get('/edit/{id}', 'show');
+                Route::post('/edit/{id}/update', 'update');
+                Route::get('/delete/{id}', 'destroy');
             });
         });
 

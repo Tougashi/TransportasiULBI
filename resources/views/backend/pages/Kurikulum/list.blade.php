@@ -3,8 +3,8 @@
     <div class="card">
         <div class="card-body">
             @include('backend.components.add-data-button')
-            <table class="table border text-center my-5" id="kurikulumTable">
-                <thead class="bg-secondary">
+            <thead class="bg-secondary">
+                    <table class="table table-bordered text-center my-5" id="kurikulumTable">
                     <tr>
                         <th>Semester</th>
                         <th>Nama Mata Kuliah</th>
@@ -20,33 +20,57 @@
                     </tr>
                 </thead>
                 <tbody class="w-100">
+                    @foreach($data as $item => $group)
                     <tr>
-                        <td rowspan="5" style="vertical-align : middle;text-align:center;">1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
+                        <td rowspan="{{ count($group) + 1 }}">{{ $item }}</td>
+                        <td>{{ $group[0]->body }}</td>
+                        <td>{{ $group[0]->image }}</td>
+                        <td>{{ $group[0]->excerpt }}</td>
                         <td>
-                            <a href="#" class="btn btn-secondary">E</a>
-                            <a href="#" class="btn btn-danger">D</a>
+                            <a href="{{url()->current().'/edit/'.$group[0]->id}}" class="btn btn-secondary">E</a>
+                            <a href="{{url()->current().'/delete/'.$group[0]->id}}" class="btn btn-danger">D</a>
                         </td>
                     </tr>
+                    @for ($i = 1; $i < count($group); $i++)
                     <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
+                        <td>{{ $group[$i]->body }}</td>
+                        <td>{{ $group[$i]->image }}</td>
+                        <td>{{ $group[$i]->excerpt }}</td>
                         <td>
-                            <a href="#" class="btn btn-secondary">E</a>
-                            <a href="#" class="btn btn-danger">D</a>
+                            <a href="{{url()->current().'/edit/'.$group[$i]->id}}" class="btn btn-secondary">E</a>
+                            <a href="{{url()->current().'/delete/'.$group[$i]->id}}" class="btn btn-danger">D</a>
                         </td>
                     </tr>
+                    @endfor
 
+                    @php
+                        $totalTeoriA = array();
+                        $totalPraktekA = array();
+
+                        foreach ($group as $groupItem) {
+                            if(!empty($groupItem->image)){
+                                array_push($totalTeoriA, $groupItem->image);
+                            }
+                            if(!empty($groupItem->excerpt)){
+                                array_push($totalPraktekA, $groupItem->excerpt);
+                            }
+                        }
+                    @endphp
+
+                    <tr class="font-weight-bold">
+                        <td>Total Semester - {{$item}}</td>
+                        <td>{{count($totalTeoriA)}}</td>
+                        <td>{{count($totalPraktekA)}}</td>
+                        <td></td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
     </div>
 @endsection
-@push('scripts')
+{{-- @push('scripts')
     <script>
         datatableInit($('#kurikulumTable'));
     </script>
-@endpush
+@endpush --}}

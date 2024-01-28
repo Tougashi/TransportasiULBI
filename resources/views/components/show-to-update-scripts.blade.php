@@ -14,6 +14,7 @@
         $('#thumbnailForm, #passwordForm').removeClass('d-none');
         $('#trixField').removeClass('d-none');
         // $('#slugArtikel').attr('readonly','readonly')
+        $('form select').attr('disabled', false);
         infoToasts('Anda sedang berada di Mode edit data');
     }
 
