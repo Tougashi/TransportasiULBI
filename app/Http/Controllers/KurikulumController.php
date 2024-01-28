@@ -142,7 +142,7 @@ class KurikulumController extends Controller
 
         Post::where('id', $id)->update($validated);
 
-        return back()->with('success', 'Data kurikulum berhasil diperbarui');
+        return redirect('/admin/kurikulum')->with('success', 'Data kurikulum berhasil diperbarui');
 
 
     }

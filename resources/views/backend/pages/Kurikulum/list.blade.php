@@ -44,23 +44,23 @@
                     @endfor
 
                     @php
-                        $totalTeoriA = array();
-                        $totalPraktekA = array();
+                        $totalTeoriA = 0;
+                        $totalPraktekA = 0;
 
                         foreach ($group as $groupItem) {
                             if(!empty($groupItem->image)){
-                                array_push($totalTeoriA, $groupItem->image);
+                                $totalTeoriA += $groupItem->image;
                             }
                             if(!empty($groupItem->excerpt)){
-                                array_push($totalPraktekA, $groupItem->excerpt);
+                                $totalPraktekA += $groupItem->excerpt;
                             }
                         }
                     @endphp
 
                     <tr class="font-weight-bold">
-                        <td>Total Semester - {{$item}}</td>
-                        <td>{{count($totalTeoriA)}}</td>
-                        <td>{{count($totalPraktekA)}}</td>
+                        <td>Total SKS Semester {{$item}}</td>
+                        <td>{{$totalTeoriA}}</td>
+                        <td>{{$totalPraktekA}}</td>
                         <td></td>
                     </tr>
                 @endforeach

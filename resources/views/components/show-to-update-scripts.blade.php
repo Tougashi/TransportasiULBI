@@ -11,10 +11,12 @@
         $('#submitBtn').removeAttr('onclick');
         $('#submitBtn').text('Simpan');
         $('#bodyValue').hide();
+        $('#thumbnailInput').attr('disabled', false);
         $('#thumbnailForm, #passwordForm').removeClass('d-none');
         $('#trixField').removeClass('d-none');
         // $('#slugArtikel').attr('readonly','readonly')
         $('form select').attr('disabled', false);
+        $('#appenderInput').show();
         infoToasts('Anda sedang berada di Mode edit data');
     }
 

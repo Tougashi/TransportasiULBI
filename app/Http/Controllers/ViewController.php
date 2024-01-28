@@ -143,6 +143,7 @@ class ViewController extends Controller
         return view('pages.profil-dosen', [
             'NavbarTitle' => 'Profil Dosen',
             'title' => 'Fakultas : S1 Manajemen Transportasi',
+            'data' => Post::where('categoryId', 5)->get()
         ]);
     }
 

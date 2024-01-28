@@ -17,6 +17,7 @@ class PostController extends Controller
      */
     public $tipe;
     public $imagePath;
+
     public function index($articleType)
     {
         $this->tipe = $articleType;
@@ -195,7 +196,12 @@ class PostController extends Controller
         ];
 
         if($articleType === 'dosen'){
+            if($request->excerpt){
+                $data['excerpt'] = json_encode($request->excerpt);
+            }
             $rules['thumbnail'] = 'required|image|file|max:5000';
+            $rules['body'] = 'required';
+            $rules['excerpt'] = 'required|json';
         }
 
         $validators = Validator::make(
@@ -223,6 +229,8 @@ class PostController extends Controller
 
         return redirect('/admin/'.$categoryType->slug)->with('success', 'Artikel / Postingan berhasil di Upload');
     }
+
+
     public function uploadImage(Request $request)
     {
         if ($request->hasFile('file')) {
@@ -280,6 +288,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $articleType, Post $post, $id)
     {
+        // dd($request->all());
         $currentPost = Post::where('id', decrypt($id))->first();
         $categoryType = Category::where('slug', $articleType)->first();
         $data = $request->all();
@@ -301,6 +310,8 @@ class PostController extends Controller
         ];
 
         if($articleType === 'dosen'){
+            $data['excerpt'] = json_encode($request->riwayat);
+            $rules['excerpt'] = 'required|json';
             $rules['thumbnail'] = 'required|image|file|max:5000';
         }
 

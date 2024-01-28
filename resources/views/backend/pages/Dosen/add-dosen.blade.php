@@ -26,6 +26,13 @@
                     <input type="text" name="postBody" class="form-control" id="bodyArtikel"
                         placeholder="Jabatan Dosen" required>
                 </div>
+                <div class="form-group pb-1" id="riwayatPendidikan">
+                    <label class="col-form-label d-flex" for="judulArtikel">Riwayat Pendidikan
+                        <span class="badge btn btn-sm btn-primary ml-auto" id="appenderInput">Tambah</span>
+                    </label>
+                    <input type="text" name="" class="form-control mb-2" id="riwayatPendidikanInput1"
+                        placeholder="Riwayat Pendidikan" required>
+                </div>
                 <div class="form-group pb-1">
                     <div class="container row d-flex m-0 p-0">
                         <div class="col-6">
@@ -44,6 +51,7 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name="excerpt" id="riwayat">
                 <br><br>
                 <div class="row w-100">
                     <div class="col-lg-4 col-sm-4 col-12">
@@ -62,12 +70,5 @@
 @endsection
 @push('scripts')
     @include('components.live-thumbnail')
-    {{-- <script>
-        $('.select2').select2()
-
-        //Initialize Select2 Elements
-        $('.select2bs4').select2({
-            theme: 'bootstrap4'
-        })
-    </script> --}}
+    @include('components.dosen-script')
 @endpush
