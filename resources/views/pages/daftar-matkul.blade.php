@@ -2,49 +2,42 @@
 @section('main')
 <section class="section section-lg pb-1">
     <div class="container mb-3">
-        <h3 class="text-center fw-bold">{{$NavbarTitle}}<br> Daftar Mata Kuliah Program Studi S1 Manajemen Transportasi</h3>
         <div class="container mt-5">
-            @foreach ($data as $item => $group)
             <section class="my-calendar-section">
                 <div class="card bg-orange">
                     <div class="card-header bg-orange text-white">
                         <div class="row">
-                            <div class="row">
-                                @if($item !== 'Mata Kuliah Pilihan')
-                                    <h3 class="card-title fw-bold mb-0 text-center">Semester {{ $item }}</h3>
-                                @else
-                                    <h3 class="card-title fw-bold mb-0 text-center">{{ $item }}</h3>
-                                @endif
-                            </div>
-                            
-                        </div>                        
+                            <h3 class="card-title fw-bold mb-0 text-center">{{$NavbarTitle}} <br> Daftar Mata Kuliah Program Studi S1 Manajemen Transportasi</h3>
+                        </div>                   
                     </div>
                     <div class="card-body bg-white py-5 rounded-bottom border border-black">
                         <table id="articlesTable" class="table table-bordered table-striped border-primary">
                             <thead>
                                 <tr>
-                                  <th scope="col" rowspan="2" class="text-center align-middle">Nama Mata Kuliah</th>
-                                  <th scope="col" colspan="2" class="text-center">Bobot SKS</th>
+                                    <th scope="col" rowspan="2" class="text-center align-middle">Semester</th>
+                                    <th scope="col" rowspan="2" class="text-center align-middle">Nama Mata Kuliah</th>
+                                    <th scope="col" colspan="2" class="text-center">Bobot SKS</th>
                                 </tr>
                                 <tr>
-                                  <th scope="col" class="text-center">Teori</th>
-                                  <th scope="col" class="text-center">Praktek</th>
+                                    <th scope="col" class="text-center">Teori</th>
+                                    <th scope="col" class="text-center">Praktek</th>
                                 </tr>
-                              </thead>
-                              <tbody>
-                                <tr> 
-                                  <td class="align-middle">{{ $group[0]->body }}</td>
-                                  <td class="text-center">{{ $group[0]->image }}</td>
-                                  <td class="text-center">{{ $group[0]->excerpt }}</td>
+                            </thead>
+                            @foreach ($data as $item => $group)
+                            <tbody>
+                                <tr>
+                                    <td rowspan="{{ count($group)}}">{{ $item }}</td>
+                                    <td class="align-middle">{{ $group[0]->body }}</td>
+                                    <td class="text-center">{{ $group[0]->image }}</td>
+                                    <td class="text-center">{{ $group[0]->excerpt }}</td>
                                 </tr>
                                 @for ($i = 1; $i < count($group); $i++)
                                 <tr>
                                     <td class="align-middle">{{ $group[$i]->body }}</td>
                                     <td class="text-center">{{ $group[$i]->image }}</td>
                                     <td class="text-center">{{ $group[$i]->excerpt }}</td>
-                                  </tr>
+                                </tr>
                                 @endfor
-                              <tfoot>
                                 @php
                                 $totalTeoriA = 0;
                                 $totalPraktekA = 0;
@@ -58,22 +51,21 @@
                                     }
                                 }
                                 @endphp
-                                <tr>
-                                    @if($item !== 'Mata Kuliah Pilihan')
-                                    <td class="fw-bold text-right">Total SKS Semester {{ $item }}</td>
+                                <tr class="font-weight-bold bg-primary text-light">
+                                    @if ($item !== 'Mata Kuliah Pilihan')
+                                    <td colspan="2" class="text-right text-light">Total SKS Semester {{$item}}</td>
                                     @else
-                                    <td class="fw-bold text-right">Total SKS {{ $item }}</td> 
+                                    <td colspan="2" class="text-right">Total SKS {{ $item }}</td>
                                     @endif
-                                    <td class="fw-bold text-center">{{ $totalTeoriA }}</td>
-                                    <td class="text-center fw-bold">{{ $totalPraktekA }}</td>
+                                    <td class="text-center text-light">{{$totalTeoriA}}</td>
+                                    <td class="text-center text-light">{{$totalPraktekA}}</td>
                                 </tr>
-                              </tfoot>
+                              @endforeach
                         </table>
                     </div>
                 </div>
             </section>
             <br>
-            @endforeach
 
 
             <div class="container-fluid px-0">

@@ -20,7 +20,7 @@
                 <tbody class="w-100">
                     @foreach($data as $item => $group)
                     <tr>
-                        <td rowspan="{{ count($group) + 1 }}">{{ $item }}</td>
+                        <td rowspan="{{ count($group)}}">{{ $item }}</td>
                         <td>{{ $group[0]->body }}</td>
                         <td>{{ $group[0]->image }}</td>
                         <td>{{ $group[0]->excerpt }}</td>
@@ -54,18 +54,16 @@
                             }
                         }
                     @endphp
-
-                    <tr class="font-weight-bold">
+                    <tr class="font-weight-bold bg-primary text-light">
                         @if ($item !== 'Mata Kuliah Pilihan')
-                        <td>Total SKS Semester {{$item}}</td>
+                        <td colspan="2" class="text-right text-light">Total SKS Semester {{$item}}</td>
                         @else
-                        <td>Total SKS {{ $item }}</td>
+                        <td colspan="2" class="text-right">Total SKS {{ $item }}</td>
                         @endif
-                        <td>{{$totalTeoriA}}</td>
-                        <td>{{$totalPraktekA}}</td>
-                        <td></td>
+                        <td class="text-center text-light">{{$totalTeoriA}}</td>
+                        <td class="text-center text-light">{{$totalPraktekA}}</td>
                     </tr>
-                @endforeach
+                    @endforeach
                 </tbody>
             </table>
         </div>
