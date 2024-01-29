@@ -39,7 +39,7 @@ class KurikulumController extends Controller
      */
     public function store(Request $request)
     {
-        $data;
+        // $data;
         $data['categoryId'] = 7;
         $rules = [
             'title' => 'required',
@@ -107,7 +107,7 @@ class KurikulumController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data;
+        // $data;
         $data['categoryId'] = 7;
         $rules = [
             'title' => 'required',

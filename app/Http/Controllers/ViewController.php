@@ -113,7 +113,7 @@ class ViewController extends Controller
 
     public function gelarLulusan(){
         return view('pages.gelar-lulusan', [
-            'NavbarTitle' => 'Gelar Lulusan',
+            'NavbarTitle' => 'Gelar Lulusan',   
             'title' => 'Fakultas : S1 Manajemen Transportasi',
         ]);
     }
@@ -121,21 +121,27 @@ class ViewController extends Controller
     public function kompetensiLulusan(){
         return view('pages.kompetensi-lulusan', [
             'NavbarTitle' => 'Kompetensi Lulusan',
-            'title' => 'Fakultas : S1 Manajemen Transportasi',
+            'title' => 'Fakultas : S1 Manajemen Transportasi', 
+            
         ]);
     }
 
     public function metodePembelajaran(){
+  
         return view('pages.metode-pembelajaran', [
             'NavbarTitle' => 'Metode Pembelajaran',
             'title' => 'Fakultas : S1 Manajemen Transportasi',
+        
         ]);
     }
 
     public function daftarMatkul(){
+        $data = Post::where('categoryId', 7)->orderBy('title')->get();
+        $posts = $data->groupBy('title');
         return view('pages.daftar-matkul', [
             'NavbarTitle' => 'Kurikulum & MK Unggulan',
             'title' => 'Fakultas : S1 Manajemen Transportasi',
+            'data' => $posts
         ]);
     }
 

@@ -22,9 +22,19 @@
                         required>
                 </div>
                 <div class="form-group pb-1">
-                    <label class="col-form-label" for="judulArtikel">Semester</label>
-                    <input type="text" name="semester" class="form-control" id="bodyArtikel" placeholder="Semester"
-                        required>
+                    <label class="col-form-label" for="judulArtikel">Semester 1 - 8 & Mata Kuliah Unggulan</label>
+                    <select name="semester" class="form-control">
+                        <option value="">Pilih Semester</option>
+                        <option value="1">Semester 1</option>
+                        <option value="2">Semester 2</option>
+                        <option value="3">Semester 3</option>
+                        <option value="4">Semester 4</option>
+                        <option value="5">Semester 5</option>
+                        <option value="6">Semester 6</option>
+                        <option value="7">Semester 7</option>
+                        <option value="8">Semester 8</option>
+                        <option value="Mata Kuliah Pilihan">Mata Kuliah Pilihan</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -69,14 +79,14 @@
             if (val == 2) {
                 wrapper.empty().append(`
                 <label class="col-form-label" for="judulArtikel">Praktik</label>
-                <input type="text" name="praktik" class="form-control" id="judulArtikel"
-                    placeholder="Praktik" required>
+                <input type="number" name="praktik" class="form-control" id="judulArtikel"
+                    placeholder="Masukan Jumlah" required>
             `);
             } else if(val == 1) {
                 wrapper.empty().append(`
                 <label class="col-form-label" for="judulArtikel">Teori</label>
-                <input type="text" name="teori" class="form-control" id="judulArtikel"
-                    placeholder="Teori" required>
+                <input type="number" name="teori" class="form-control" id="judulArtikel"
+                    placeholder="Masukan Jumlah" required>
             `);
             } else {
                 wrapper.empty();

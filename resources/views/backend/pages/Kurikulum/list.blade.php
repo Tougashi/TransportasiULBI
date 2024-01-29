@@ -6,14 +6,12 @@
             <thead class="bg-secondary">
                     <table class="table table-bordered text-center my-5" id="kurikulumTable">
                     <tr>
-                        <th>Semester</th>
-                        <th>Nama Mata Kuliah</th>
+                        <th rowspan="2" class="text-center align-middle">Semester</th>
+                        <th rowspan="2" class="text-center align-middle">Nama Mata Kuliah</th>
                         <th colspan="2">Bobot SKS</th>
                         <th>Aksi</th>
                     </tr>
                     <tr>
-                        <th></th>
-                        <th></th>
                         <th>Teori</th>
                         <th>Praktek</th>
                         <th></th>
@@ -58,7 +56,11 @@
                     @endphp
 
                     <tr class="font-weight-bold">
+                        @if ($item !== 'Mata Kuliah Pilihan')
                         <td>Total SKS Semester {{$item}}</td>
+                        @else
+                        <td>Total SKS {{ $item }}</td>
+                        @endif
                         <td>{{$totalTeoriA}}</td>
                         <td>{{$totalPraktekA}}</td>
                         <td></td>

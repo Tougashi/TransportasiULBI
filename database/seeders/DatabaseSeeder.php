@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'anggota-himpunan'
         ]);
 
-        \App\Models\Post::factory(20)->create();
+        // \App\Models\Post::factory(20)->create();
 
     }
 }
