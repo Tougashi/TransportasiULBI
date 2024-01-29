@@ -1,17 +1,21 @@
 @extends('layouts.index')
 @section('main')
+{{-- <br> --}}
 <section class="section section-lg pb-1">
-    <div class="container mb-3">
+    <div class="container mb-6">
+        <h1 class="text-center fw-bold">{{$NavbarTitle}}</h1>
         <div class="container mt-5">
             <section class="my-calendar-section">
                 <div class="card bg-orange">
                     <div class="card-header bg-orange text-white">
                         <div class="row">
-                            <h3 class="card-title fw-bold mb-0 text-center">{{$NavbarTitle}} <br> Daftar Mata Kuliah Program Studi S1 Manajemen Transportasi</h3>
+                            <h3 class="card-title fw-bold mb-0 text-center">Daftar Mata Kuliah Program Studi S1 Manajemen Transportasi</h3>
                         </div>                   
                     </div>
                     <div class="card-body bg-white py-5 rounded-bottom border border-black">
-                        <table id="articlesTable" class="table table-bordered table-striped border-primary">
+                        <div class="table-responsive">
+                            <table id="articlesTable" class="table table-bordered table-striped border-primary">
+                        </div>
                             <thead>
                                 <tr>
                                     <th scope="col" rowspan="2" class="text-center align-middle">Semester</th>
@@ -61,13 +65,12 @@
                                     <td class="text-center text-light">{{$totalPraktekA}}</td>
                                 </tr>
                               @endforeach
-                        </table>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </section>
             <br>
-
-
             <div class="container-fluid px-0">
                 <h3 class="text-center fw-bold mt-5 mb-4">Mata Kuliah Unggulan</h3>
                 <div class="row gap-3 d-flex justify-content-center">
