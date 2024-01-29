@@ -33,7 +33,7 @@ Route::group(['middleware' => []], function () {
         Route::get('/profil-dosen-prodi', 'profilDosen')->name('profilDosen');
 
         Route::get('/kegiatan-mahasiswa', 'kegiatanMahasiswa')->name('kegiatanMahasiswa');
-        Route::get('/organisasi-mahasiswa', 'organisasiMahasiswa')->name('organisasiMahasiswa');
+        Route::get('/himpunan', 'organisasiMahasiswa')->name('organisasiMahasiswa');
         Route::get('/sarana-prasarana', 'saranaPrasarana')->name('saranaPrasarana');
         Route::get('/penerimaan-mahasiswa-baru', 'penerimaanMahasiswaBaru')->name('penerimaanMahasiswaBaru');
         Route::get('/sistem-informasi-akademik', 'sisfoAkademik')->name('sisfoAkademik');
