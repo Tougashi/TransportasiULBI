@@ -167,6 +167,13 @@ class ViewController extends Controller
         ]);
     }
 
+    public function kegiatanHimpunan() {
+        return view('pages.kegiatan-himpunan', [
+           'NavbarTitle' => 'Kegiatan Himpunan',
+           'title' => 'Fakultas : S1 Manajemen Transportasi',
+        ]);
+    }
+
     public function saranaPrasarana(){
         return view('pages.sarana-prasarana', [
             'NavbarTitle' => 'Sarana Prasarana',

@@ -1,4 +1,4 @@
 @extends('layouts.index')
-@section('container')
+@section('main')
     
 @endsection
