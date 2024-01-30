@@ -33,7 +33,9 @@
                         <option value="6">Semester 6</option>
                         <option value="7">Semester 7</option>
                         <option value="8">Semester 8</option>
-                        <option value="Mata Kuliah Pilihan">Mata Kuliah Pilihan</option>
+                        <option value="MK-Pilihan Semester 6">MK-Pilihan Semester 6</option>
+                        <option value="MK-Pilihan Semester 7">MK-Pilihan Semester 7</option>
+                        <option value="MK-Pilihan Semester 8">MK-Pilihan Semester 8</option>
                     </select>
                 </div>
             </div>

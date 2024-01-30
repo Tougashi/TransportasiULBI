@@ -2,7 +2,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            @include('backend.components.add-data-button')
+            @include('backend.components.add-data-button') 
         <table class="table table-striped" id="kegiatanHimpunan">
             <thead>
                 <tr>

@@ -10,8 +10,8 @@
                 </div>
                 <div class="col-12">
                     <table class="table table-bordered text-center">
-                        <thead>
-                            <tr>
+                        <thead class="bg-orange">
+                            <tr class="text-light">
                                 <th>No</th>
                                 <th>Nama Dosen</th>
                                 <th>Riwayat Pendidikan</th>
@@ -23,7 +23,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->title }}</td>
-                                    <td class="text-start">
+                                    <td class="text-center">
                                         @foreach (json_decode(json_decode($item->excerpt)) as $riwayat)
                                             {{ $riwayat }} <br>
                                         @endforeach

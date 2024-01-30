@@ -55,7 +55,7 @@
                         }
                     @endphp
                     <tr class="font-weight-bold bg-primary text-light">
-                        @if ($item !== 'Mata Kuliah Pilihan')
+                        @if ($item !== 'MK-Pilihan Semester 6' && $item !== 'MK-Pilihan Semester 7' && $item !== 'MK-Pilihan Semester 8')
                         <td colspan="2" class="text-right text-light">Total SKS Semester {{$item}}</td>
                         @else
                         <td colspan="2" class="text-right">Total SKS {{ $item }}</td>

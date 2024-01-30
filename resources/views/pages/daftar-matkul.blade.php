@@ -30,14 +30,14 @@
                             @foreach ($data as $item => $group)
                             <tbody>
                                 <tr>
-                                    <td rowspan="{{ count($group)}}">{{ $item }}</td>
-                                    <td class="align-middle">{{ $group[0]->body }}</td>
+                                    <td rowspan="{{ count($group)}}" class="text-center">{{ $item }}</td>
+                                    <td class="align-middle text-center">{{ $group[0]->body }}</td>
                                     <td class="text-center">{{ $group[0]->image }}</td>
                                     <td class="text-center">{{ $group[0]->excerpt }}</td>
                                 </tr>
                                 @for ($i = 1; $i < count($group); $i++)
                                 <tr>
-                                    <td class="align-middle">{{ $group[$i]->body }}</td>
+                                    <td class="align-middle text-center">{{ $group[$i]->body }}</td>
                                     <td class="text-center">{{ $group[$i]->image }}</td>
                                     <td class="text-center">{{ $group[$i]->excerpt }}</td>
                                 </tr>
@@ -56,9 +56,9 @@
                                 }
                                 @endphp
                                 <tr class="font-weight-bold bg-primary text-light">
-                                    @if ($item !== 'Mata Kuliah Pilihan')
+                                    @if ($item !== 'MK-Pilihan Semester 6' && $item !== 'MK-Pilihan Semester 7' && $item !== 'MK-Pilihan Semester 8')
                                     <td colspan="2" class="text-right text-light">Total SKS Semester {{$item}}</td>
-                                    @else
+                                    @else 
                                     <td colspan="2" class="text-right">Total SKS {{ $item }}</td>
                                     @endif
                                     <td class="text-center text-light">{{$totalTeoriA}}</td>

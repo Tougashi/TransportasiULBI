@@ -161,6 +161,9 @@ class ViewController extends Controller
         return view('pages.organisasi-mahasiswa', [
             'NavbarTitle' => 'Organisasi Mahasiswa',
             'title' => 'Fakultas : S1 Manajemen Transportasi',
+            'data' => Post::whereHas('category', function($q){
+                $q->where('slug', 'anggota-himpunan');
+            })->get()
         ]);
     }
 

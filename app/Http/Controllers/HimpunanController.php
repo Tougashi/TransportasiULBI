@@ -63,7 +63,7 @@ class HimpunanController extends Controller
     }
 
 
-    public function storeNewAnggota(Request $request)
+    public function storeNewAnggota(Request $request) 
     {
         $data = $request->all();
         $data['body'] = $request->postBody;
