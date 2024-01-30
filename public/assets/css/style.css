@@ -84,10 +84,7 @@
 }
 
 /* Gaya dasar untuk semua perangkat */
-body {
-    font-size: 16px;
-  }
-  
+
   /* Gaya untuk layar tablet */
   @media only screen and (min-width: 601px) and (max-width: 1199px) {
     .managemen{
@@ -152,9 +149,9 @@ body {
     }
   }
 
-  
+/* 
   .tf-tree {
-    font-size: 16px;
+    font-size: 30px;
     overflow: auto;
   }
   
@@ -219,7 +216,7 @@ body {
     display: inline-block;
     padding: 0.5em 1em;
     position: relative;
-    border-radius: 4px; /* Sudut bulat */
+    border-radius: 4px; 
   }
   
   .tf-tree .tf-nc:before,
@@ -341,4 +338,4 @@ body {
   .tf-tree li.tf-dashed-children>.tf-node-content:before {
     border-left-style: solid;
   }
-  
+   */
