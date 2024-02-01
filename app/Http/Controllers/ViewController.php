@@ -171,6 +171,9 @@ class ViewController extends Controller
         return view('pages.kegiatan-himpunan', [
            'NavbarTitle' => 'Kegiatan Himpunan',
            'title' => 'Fakultas : S1 Manajemen Transportasi',
+           'Kegiatan' => Post::where('created_at', '<=', now())->whereHas('category', function($query){
+            $query->where('slug', 'himpunan');
+            })->latest()->get(),
         ]);
     }
 
