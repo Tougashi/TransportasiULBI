@@ -18,7 +18,7 @@
                     </div>
             </div>
             @if(isset($Kegiatan))
-            <button class="btn btn-secondary d-flex justify-content-center m-auto my-5 p-3" id="morePostsLoaderButton" onclick="loadMorePosts(event)"><span class="h5 text-light d-flex m-auto">Muat Kegiatan Lebih Banyak</span></button>
+            {{-- <button class="btn btn-secondary d-flex justify-content-center m-auto my-5 p-3" id="morePostsLoaderButton" onclick="loadMorePosts(event)"><span class="h5 text-light d-flex m-auto">Muat Kegiatan Lebih Banyak</span></button> --}}
             @endif
             @empty
             <div class="col-12 text-center">
@@ -26,8 +26,8 @@
             </div>
             @endforelse
         </div>
-        @if(isset($Kegiatan))
+        {{-- @if(isset($Kegiatan))
         <button class="btn btn-secondary d-flex justify-content-center m-auto my-5 p-3" id="morePostsLoaderButton" onclick="loadMorePosts(event)"><span class="h5 text-light d-flex m-auto">Muat Kegiatan Lebih Banyak</span></button>
-        @endif
+        @endif --}}
     </section>
 @endsection
