@@ -10,7 +10,7 @@
                             alt="Themesberg office">
                         <div class="card-body">
                             <h3 class="card-title mt-3 fw-bolder text-center text-orange">
-                                PRODI S1 MANAJEMEN TRANSPORTASI <br>fokus pada <br>LALU LINTAS & TRANSPORTASI BARANG
+                                PRODI S1 MANAJEMEN TRANSPORTASI <br>BERFOKUS PADA <br>LALU LINTAS & TRANSPORTASI BARANG
                             </h3>
                             <ol class="card-text mt-4">
                                 <li class="fs-5 my-3">Perencanaan sistem transportasi dalam ruang dan waktu, pada kondisi eksisting dan akan datang</li>
