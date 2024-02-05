@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'transportasiulbi@ac.id',
             'username' => 'admin',
             'password' => bcrypt('password'), //password
-            'author' => 'Sadina Yuliana Hastuti'
+            'author' => 'Admin Transportasi Ulbi'
         ]);
 
         Category::create([
@@ -57,8 +57,6 @@ class DatabaseSeeder extends Seeder
             'category' => 'Anggota Himpunan',
             'slug' => 'anggota-himpunan'
         ]);
-
-        // \App\Models\Post::factory(20)->create();
 
     }
 }

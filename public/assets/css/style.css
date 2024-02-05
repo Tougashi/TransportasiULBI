@@ -133,15 +133,7 @@
     .mobile-text {
         display: none;
     }
-    /* .dosenimage {
-        width: 70%;
-        height: 20%;
-    }
-    .image-responsive {
-      width: 50;
-      height: 50;
-    }
-  } */
+  }
   
   /* Gaya untuk layar desktop atau laptop */
   @media only screen and (min-width: 1200px) {

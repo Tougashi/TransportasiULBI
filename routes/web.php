@@ -129,11 +129,5 @@ Route::group(['middleware' => ['web','auth']], function(){
             Route::post('/upload/image','uploadImage')->name('upload-image-body');
         });
 
-
-        Route::controller(CategoryController::class)->group(function(){
-            Route::get('/categories', 'index');
-        });
-
-
     });
 });

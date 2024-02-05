@@ -34,7 +34,7 @@ class AuthController extends Controller
             return redirect()->intended('/admin/dashboard');
         }
 
-        return back()->with('loginError', 'Username yang anda masukan salah');
+        return back()->with('loginError', 'Username atau Password yang anda masukan salah');
     }
     /**
      * Remove the specified resource from storage.

@@ -33,37 +33,37 @@
             <div class="col-lg-2 col-md-5 text-sm-right mb-5 mb-lg-0">
                 <span class="h5 text-light">Sistem Informasi</span>
                 <ul class="footer-links mt-2">
-                    <li><a target="_blank" href="https://themesberg.com/blog"><span class="bi bi-dash"></span> Jurnal ULBI</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/themes"><span class="bi bi-dash"></span> ULBI Mahasiswa</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/about"><span class="bi bi-dash"></span> ULBI Orang Tua</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> ULBI Study</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> ULBI</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> E - Learning</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> Perpustakaan</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> Jurnal ULBI</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> ULBI Mahasiswa</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> ULBI Orang Tua</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> ULBI Study</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> ULBI</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> E - Learning</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> Perpustakaan</a></li>
                 </ul>
             </div>
             <div class="col-lg-2 col-md-5 mb-5 mb-lg-0">
                 <span class="h5 text-light">Layanan</span>
                 <ul class="footer-links mt-2">
-                    <li><a target="_blank" href="https://themesberg.com/blog"><span class="bi bi-dash"></span> BAAK ULBI</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/themes"><span class="bi bi-dash"></span> Career Center</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/about"><span class="bi bi-dash"></span> Lab ULBI</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> BP3M ULBI</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> LSP P1</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> Dasbor Bidang</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/contact"><span class="bi bi-dash"></span> RSS Feed</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> BAAK ULBI</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> Career Center</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> Lab ULBI</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> BP3M ULBI</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> LSP P1</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> Dasbor Bidang</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> RSS Feed</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-5 text-sm-right mb-5 mb-lg-0">
                 <span class="h5 text-light">Kontak</span>
                 <ul class="footer-links mt-2 mb-5">
                     <li><a target="_blank" href="#"><span class="bi bi-dash"></span> Sekretariat ULBI</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/themes"><span class="bi bi-dash"></span> HUMAS ULBI</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/about"><span class="bi bi-dash"></span> PMB ULBI</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> HUMAS ULBI</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> PMB ULBI</a></li>
                 </ul>
                 <span class="h5 text-light">Email</span>
                 <ul class="footer-links mt-2">
-                    <li><a target="_blank" href="https://themesberg.com/blog"><span class="bi bi-dash"></span> Prodi S1 Manajemen Transportasi</a></li>
+                    <li><a target="_blank" href="#"><span class="bi bi-dash"></span> Prodi S1 Manajemen Transportasi</a></li>
                 </ul>
             </div>
         </div>

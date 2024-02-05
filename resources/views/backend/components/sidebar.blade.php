@@ -12,7 +12,7 @@
             @if(isset(auth()->user()->profilePhoto))
             <img src="{{asset('/storage/'.auth()->user()->profilePhoto)}}" alt="" class="img-circle elevation-2">
             @else
-            <img src="{{asset('assets/backend/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+            <img src="{{asset('assets/img/group.png')}}" class="img-circle elevation-2" alt="User Image">
             @endif
         </div>
         <div class="info">

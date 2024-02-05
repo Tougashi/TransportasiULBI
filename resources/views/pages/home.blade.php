@@ -15,7 +15,9 @@
                                 class="ms-2">🚀</span></a>
                     </div>
                     <div class="col-lg-6 col-md-12 order-lg-2 order-sm-1 order-1 custom-frame">
-                        <img src="{{ asset('assets/img/illustrations/banner.jpg') }}"
+
+                        {{-- GANTI BANNER IMAGE DEPAN --}}
+                        <img src="{{ asset('assets/img/illustrations/banner.jpg') }}"  
                             class="img-fluid rounded enlarged-image" alt="">
                     </div>
                 </div>
@@ -293,12 +295,12 @@
                 <div class="swiper-slide foto-dosen-slide">
                     <div class="card border-0 overflow-hidden text-light">
                         <div class="position-relative">
-                            <img src="{{ asset('assets/img/team/profile-picture-1.jpg') }}" class="card-img-top rounded dosenimage"
+                            <img src="{{ asset('assets/img/group.png') }}" class="card-img-top rounded dosenimage"
                                 style="width: 354px; height: 354px;" alt="Neil Portrait">
                         </div>
                         <div class="card-body position-relative mt-n6 bg-orange text-center rounded-bottom">
-                            <h3 class="h5 card-title text-light">Developer</h3>
-                            <p class="mt-3">Developing Transportasi ULBI's Official Website's</p>
+                            <h3 class="h5 card-title text-light">Nama Dosen</h3>
+                            <p class="mt-3">JABATAN DOSEN</p>
                         </div>
                     </div>
                 </div>
