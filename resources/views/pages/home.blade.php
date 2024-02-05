@@ -268,7 +268,6 @@
                     @endforelse
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -278,41 +277,33 @@
             <div class="swiper-wrapper h-auto d-flex justify-content-center">
                 @forelse ($dosen as $item)
                 <div class="swiper-slide foto-dosen-slide">
-                        <div class="card border-0 overflow-hidden text-light shadow">
-                            <div class="position-relative">
-                                <img src="{{ asset('storage/' . $item->thumbnail) }}" class="card-img-top rounded"
-                                    style="width: 100%; max-width: 354px; height: auto;" alt="Neil Portrait">
-                            </div>
-                                                    
-                            <div class="card-body position-relative mt-n6 bg-orange text-center rounded-bottom">
-                                <h3 class="h3 fw-bolder card-title text-light mb-0">{{ $item->title }}</h3>
-                                <p class="h5 text-light">{{ $item->body }}</p>
-                            </div>
+                    <div class="card border-0 overflow-hidden text-light shadow">
+                        <div class="position-relative">
+                            <img src="{{ asset('storage/' . $item->thumbnail) }}" class="card-img-top rounded img-fluid" alt="Neil Portrait">
+                        </div>                     
+                        <div class="card-body position-relative mt-n6 bg-orange text-center rounded-bottom">
+                            <h3 class="h3 fw-bolder card-title text-light mb-0">{{ $item->title }}</h3>
+                            <p class="h5 text-light">{{ $item->body }}</p>
                         </div>
                     </div>
-                </div>
+                </div>                
                 @empty
                 <div class="swiper-slide foto-dosen-slide">
                     <div class="card border-0 overflow-hidden text-light">
                         <div class="position-relative">
-                            <img src="{{ asset('assets/img/group.png') }}" class="card-img-top rounded dosenimage"
-                                style="width: 354px; height: 354px;" alt="Neil Portrait">
+                            <img src="{{ asset('assets/img/group.png') }}" class="card-img-top rounded img-fluid" alt="Neil Portrait">
                         </div>
                         <div class="card-body position-relative mt-n6 bg-orange text-center rounded-bottom">
                             <h3 class="h5 card-title text-light">Nama Dosen</h3>
                             <p class="mt-3">JABATAN DOSEN</p>
                         </div>
                     </div>
-                </div>
+                </div>                
                 @endforelse
             </div>
         </div>
     </section>
-
-
-    <br>
-
-
+<br>
     <section class="section section-lg">
         <div class="container">
             <h3 class="text-center fw-bold">Mitra Kerja Sama Kampus BUMN - APERTI BUMN</h3>

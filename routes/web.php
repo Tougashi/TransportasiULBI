@@ -48,13 +48,15 @@ Route::group(['middleware' => []], function () {
        });
     });
 
-   Route::prefix('admin')->group(function(){
-       Route::controller(AuthController::class)->group(function(){
-            Route::get('/','index')->name('login');
-            Route::post('/','store');
-            Route::delete('/logout','destroy');
-       });
-   });
+    Route::group(['middleware' => ['guest']], function () {
+        Route::prefix('admin')->group(function(){
+            Route::controller(AuthController::class)->group(function(){
+                    Route::get('/','index')->name('login');
+                    Route::post('/','store');
+                    Route::delete('/logout','destroy');
+            });
+        });
+    });
 
 });
 
