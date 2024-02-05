@@ -1,5 +1,6 @@
 @extends('layouts.index')
 @section('main')
+<br>
     <section class="section section-lg">
         <div class="container">
             <h3 class="text-center fw-bold mb-4">Struktur Organisasi Prodi</h3>

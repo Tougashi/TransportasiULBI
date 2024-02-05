@@ -1,5 +1,6 @@
 @extends('layouts.index')
 @section('main')
+<br>
     <section class="section section-lg">
         <div class="container-fluid">
             <h3 class="text-center fw-bold">Visi & Misi Prodi Manajemen Transportasi</h3>

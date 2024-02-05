@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('main')
-{{-- <br> --}}
+<br>
 <section class="section section-lg pb-1">
     <div class="container mb-6">
         <h1 class="text-center fw-bold">{{$NavbarTitle}}</h1>

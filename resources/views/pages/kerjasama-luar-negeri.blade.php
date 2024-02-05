@@ -1,5 +1,6 @@
 @extends('layouts.index')
 @section('main')
+<br>
     <section class="section section-lg pb-1">
         <h3 class="text-center fw-bold mb-5">{{ $NavbarTitle }}</h3>
         <div class="container">

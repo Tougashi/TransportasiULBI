@@ -1,5 +1,6 @@
 @extends('layouts.index')
 @section('main')
+<br>
     <section class="section section-lg">
         <div class="container">
             <div class="row d-flex justify-content-center gap-4">

@@ -1,5 +1,6 @@
 @extends('layouts.index')
 @section('main')
+<br>
     <section class="section section-lg pb-2">
         <h3 class="text-center fw-bold mb-4">Profil Prodi Transportasi ULBI</h3>
         <div class="container">

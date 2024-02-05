@@ -1,5 +1,6 @@
 @extends('layouts.index')
 @section('main')
+<br>
     <section class="section section-lg pe-3 pe-sm-0 me-3 me-sm-0">
         <div class="container-fluid">
             <div class="row">
